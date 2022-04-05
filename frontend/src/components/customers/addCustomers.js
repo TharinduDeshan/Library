@@ -116,8 +116,8 @@ export default function AddCustomer(){
             </form>
         </div>
         </div>
+        
     )
-
 }
 
     
