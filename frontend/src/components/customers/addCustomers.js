@@ -109,14 +109,14 @@ export default function AddCustomer(){
                         <div className="col-sm-3" style={{float:'right'}}>
                             <button type="submit" class="btn" style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}>Submit</button>
                         </div>
-                    
+                    //yyuyuyuy
                     </div>
                 </div>
                 
             </form>
         </div>
         </div>
-        
+
     )
 }
 
