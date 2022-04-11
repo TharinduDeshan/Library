@@ -14,7 +14,7 @@ export default function StaffHome(props) {
     <div className="row" style={{color:'#3F3232', fontWeight:'bold', fontSize:'18px'}}>
         
         <div className="col-sm">
-            <a style={{color:'#3F3232'}} class="navbar-brand" href="/category">Categories</a>
+            <a style={{color:'#3F3232'}} class="navbar-brand" href="/scat">Categories</a>
         </div>
         <div className="col-sm">
             <a style={{color:'#3F3232'}}  class="navbar-brand" href="/add">Add Items</a>
@@ -42,7 +42,7 @@ export default function StaffHome(props) {
 
          
          <div className="col"><a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
-             <img src={'../images/book2.jpg'} className="img-fluid" alt="Responsive "/>
+             <img src={'.././images/book3.jpg'} className="img-fluid" alt="Responsive "/>
              <br/>
              <span>Children Books</span>
              </a>
