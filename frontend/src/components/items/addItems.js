@@ -17,6 +17,8 @@ export default function AddItems(){
 
     let [errorMsg,setErrorMsg] = useState("");
 
+
+
     function sendData(e){
 
         e.preventDefault();
@@ -125,12 +127,25 @@ export default function AddItems(){
                         required/>
                     </div>
                     <div class="col-sm">
-                        <label for="exampleInputEmail1" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Category<span style={{color:'red'}}>*</span> </label>
+                        <select class="form-select" aria-label="Default select example" onChange={(e)=>{
+                            setCategory(e.target.value);
+                        }}>
+                            <option selected>Select the Category</option>
+                            <option value="Books">Books</option>
+                            <option value="Children Books">Children Books</option>
+                            <option value="Articles">Articles</option>
+                            <option value="Magazines">Magazines</option>
+                            <option value="Movies and Comic Books">Movies and Comic Books</option>
+                            <option value="News Papers">News Papers</option>
+                            <option value="Educational">Educational</option>
+                            <option value="Musics">Musics</option>
+                        </select>
+                        {/* <label for="exampleInputEmail1" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Category<span style={{color:'red'}}>*</span> </label>
                         <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
                         onChange={(e)=>{
                             setCategory(e.target.value);
                         }}
-                        required/>
+                        required/> */}
                     </div>
                 </div>
                 <br/><br/>

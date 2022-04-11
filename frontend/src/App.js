@@ -8,6 +8,7 @@ import Category from './components/customers/category';
 import StaffHome from './components/staff/staffHome';
 import AddCustomer from './components/customers/addCustomers';
 import EditCustomer from './components/customers/editCustomers';
+import ContactUs from './components/customers/contact';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
        <Route exact path="/shome" element={<StaffHome/>} />
        <Route exact path="/addCustomer" element={<AddCustomer/>} />
        <Route exact path="/ediCustomer" element={<EditCustomer/>} />
+       <Route exact path="/contact" element={<ContactUs/>} />
      
        </Routes> 
      </Router>
