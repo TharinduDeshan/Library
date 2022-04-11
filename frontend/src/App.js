@@ -10,6 +10,7 @@ import AddCustomer from './components/customers/addCustomers';
 import EditCustomer from './components/customers/editCustomers';
 import ContactUs from './components/customers/contact';
 import StaffCategory from './components/staff/staffCategories';
+import Cart from './components/customers/cart';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
        <Route exact path="/addCustomer" element={<AddCustomer/>} />
        <Route exact path="/ediCustomer" element={<EditCustomer/>} />
        <Route exact path="/contact" element={<ContactUs/>} />
+       <Route exact path="/cart" element={<Cart/>} />
 
        <Route exact path="/shome" element={<StaffHome/>} />
        <Route exact path="/sCat" element={<StaffCategory/>} />
