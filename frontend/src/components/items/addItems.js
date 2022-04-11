@@ -38,7 +38,6 @@ export default function AddItems(){
             Images,
             Category,
         }
-    
        
         console.log(newItem);
 
@@ -58,7 +57,6 @@ export default function AddItems(){
             setDescription(" ");
             setImages(" ");
             setCategory(" ");
-
       
               Swal.fire({
                 position: "center",
@@ -66,8 +64,7 @@ export default function AddItems(){
                 title: "Your Item has been saved",
                 showConfirmButton: false,
                 timer: 1500,
-              });
-      
+              });     
             //   props.history.push("/Seller/Home");
             })
             .catch((err) => {
@@ -81,16 +78,12 @@ export default function AddItems(){
               });
             //   props.history.push("/Seller/Home");
             });
-      
-         
           }
       }
 
       function checkValidations() {
         let checkQuantity = document.getElementById("quantity").value;
         let checkPrice = document.getElementById("price").value;
-  
-    
     
         if (checkQuantity <= 0 || checkQuantity > 100) {
           console.log("q");
@@ -99,8 +92,7 @@ export default function AddItems(){
         if (checkPrice <= 0 || checkPrice > 1000) {
           console.log("p");
           return true;
-        }
-        
+        }     
       }
 
 
@@ -161,7 +153,7 @@ export default function AddItems(){
                     </div>
                     <div class="col-sm">
                         <label for="exampleInputEmail1" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Quantity <span style={{color:'red'}}>*</span></label>
-                        <input type="number" pattern="[0-9]" Min="0" class="form-control" id="quantity" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
+                        <input type="number" pattern="[1-9]" Min="1" class="form-control" id="quantity" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
                         onChange={(e)=>{
                             setQuantity(e.target.value);
                             if (e.target.value > 100) {
@@ -233,25 +225,13 @@ export default function AddItems(){
                     </div>
                 </div>
                 <br/><br/>
-
-                {/* <div className="row">
-           
-                    <div class="col-sm">
-                        <label for="exampleInputEmail1" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Description </label>
-                        <textarea type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
-                        onChange={(e)=>{
-                            setDescription(e.target.value);
-                        }}/>
-                    </div>
-                </div>
-                <br/><br/> */}
           
 
                 <br/><br/>
 
                 <div className="row" >
                     <div className="col-sm">
-                        <span style={{float:'left', color : '#3FC1C9', fontWeight:'bold'}}>Fields with * is Compulsary !</span>
+                        <span style={{float:'left', color : 'red', fontWeight:'normal'}}>Fields with * is Compulsary !</span>
                     </div>
                     <div className="col-sm" style={{float:'right'}}>
                     <button type="submit" class="btn" style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right'}}>Submit</button>
