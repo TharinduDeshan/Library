@@ -92,7 +92,7 @@ export default function EditItems(){
         console.log(data);
       
           axios
-          .put("http://localhost:8070/items/update/" + objectId, data)
+          .patch("http://localhost:8070/items/update/" + objectId, data)
           .then(() => {
 
             setQuantity(" ");

@@ -68,7 +68,7 @@ router.route("/get").get((reg, res) => {
 });
 
 // update
-router.route("/update/:id").put(async (req, res) => {
+router.route("/update/:id").patch(async (req, res) => {
   let itemID = req.params.id;
   const {
     Quantity,
