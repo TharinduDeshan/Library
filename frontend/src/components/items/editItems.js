@@ -47,34 +47,6 @@ export default function EditItems(){
     console.log(items.Price)
 
 
-    // function updateItem(id) {
-    //     const objectId = "623d9001e14fb57281e5ea5f";
-    //     console.log(id);
-    
-    //     // alert("d0");
-    //     // e.preventDefault();
-    
-    //     const UpdatedItem = {
-    //       Price,
-    //       Quantity,
-    //       Category,
-    //       Description
-    //     }
-    
-    //     console.log(UpdatedItem);
-    //     //document.write("newStudent");
-    //     axios
-    //       .put("http://localhost:8070/items/update/" + id, UpdatedItem)
-    //       .then(() => {
-    //         //alert("Student Updated");
-    //         document.getElementById("txt").innerHTML =
-    //           "Student Updated Successfully!";
-    //       })
-    //       .catch((err) => {
-    //         alert(err);
-    //       });
-    //   }
-
 
       function updateItem(e) {
    
@@ -120,55 +92,6 @@ export default function EditItems(){
         
       }
     
-    //   function handle(e) {
-    //     const newdata = { ...data };
-    //     newdata[e.target.id] = e.target.value;
-    //     setData(newdata);
-
-    //     // if(e.target.id == "Quantity"){
-    //     //     if(e.target.value > 100){
-    //     //       setErrorMsg("Quantity cannot be more than 100");
-    //     //       setSuccMsg("")
-    //     //       flag = 0;
-    //     //     //   setButtonStatus(true);
-    //     //     }else if(e.target.value <= 0){
-    //     //       setErrorMsg("Quantity cannot be less than 0");
-    //     //       setSuccMsg("")
-    //     //       flag = 0;
-    //     //     //   setButtonStatus(true);
-    //     //     }else if((e.target.value).length == 0){
-      
-    //     //     }else if((e.target.value) > 0 && (e.target.value) < 200){
-            
-    //     //         setSuccMsg("All Set!")
-    //     //         setErrorMsg("");
-    //     //         flag = 1;
-    //     //         // setButtonStatus(false);
-    //     //       }else{
-    //     //       setErrorMsg("");
-    //     //       flag = 1;
-    //     //     //   setButtonStatus(false);
-    //     //     }
-            
-    //     //   } 
-          
-    //     //   if(e.target.id == "Price"){
-    //     //     if(e.target.value > 1000){
-    //     //       setError2Msg("Price cannot exceed 1000");
-    //     //       flag = 0;
-    //     //     //   setButtonStatus(true);
-    //     //     }else if(e.target.value <= 0){
-    //     //       setError2Msg("Price cannot be Zero or less");
-    //     //       flag = 0;
-    //     //     //   setButtonStatus(true);
-    //     //     }else{
-    //     //       setError2Msg("");
-    //     //       flag = 1;
-    //     //     //   setButtonStatus(false);
-    //     //     }
-    //     //   }
-    //   }
-
 
     return(
 
