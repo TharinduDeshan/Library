@@ -174,13 +174,7 @@ export default function AddItems(){
                     </div>
                 </div>
                 <br/><br/>
-                {/* <div className="row">
-                    <div class="col-sm">
-                        <label for="exampleInputEmail1" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Description </label>
-                        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp"/>
-                    </div>
-                  
-                </div> */}
+          
 
                 <br/><br/>
 
