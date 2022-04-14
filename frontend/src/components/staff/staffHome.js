@@ -8,7 +8,7 @@ export default function StaffHome(props) {
   return (
   <div className=" text-center">
       <br/>
-      <img src={'../images/home.jpg'} className="img-fluid" alt="Responsive "/>
+      <img src={'/images/home.jpg'} className="img-fluid" alt="Re "/>
      <br/><br/><br/>
 
     <div className="row" style={{color:'#3F3232', fontWeight:'bold', fontSize:'18px'}}>
