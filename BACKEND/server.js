@@ -34,8 +34,8 @@ connection.once("open", () => {
 const itemRouter = require("./routes/items.js");
 app.use("/items", itemRouter);
 
-const customerRouter = require("./routes/customers.js");
-app.use("/customer", itemRouter);
+// const customerRouter = require("./routes/customers.js");
+// app.use("/customer", itemRouter);
 
 
 
