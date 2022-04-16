@@ -8,78 +8,81 @@ export default function StaffHome(props) {
   return (
   <div className=" text-center">
       <br/>
-      <img src={'../images/home.jpg'} className="img-fluid" alt="Responsive "/>
+      <img src={'/images/home.jpg'} className="img-fluid" alt="Re "/>
      <br/><br/><br/>
 
     <div className="row" style={{color:'#3F3232', fontWeight:'bold', fontSize:'18px'}}>
         
         <div className="col-sm">
-            <span>Categories</span>
+            <a style={{color:'#3F3232'}} class="navbar-brand" href="/scat">Categories</a>
         </div>
         <div className="col-sm">
-            <span>Add Items</span>
+            <a style={{color:'#3F3232'}}  class="navbar-brand" href="/add">Add Items</a>
         </div>
         <div className="col-sm">
-            <span>Issued Items</span>
+            <a style={{color:'#3F3232'}}  class="navbar-brand" href="#">Issued Items</a>
         </div>
         <div className="col-sm">
-            <span>Add Customers</span>
+            <a style={{color:'#3F3232'}}  class="navbar-brand" href="#">Add Customers</a>
         </div>
         <div className="col-sm">
-            <span>New Membership</span>
+            <a style={{color:'#3F3232'}}  class="navbar-brand" href="#">New Membership</a>
         </div>
     </div>
     <br/><br/><br/><br/>
 
      <div className="row">
          
-         <div className="col">
+         <div className="col"><a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
             <img  src = {'../images/book2.jpg'}  class="img-fluid" alt="Responsive "/>
             <br/>
-            <span>Story Books</span>
+            <span>Books</span>
+            </a>
          </div>
 
          
-         <div className="col">
-             <img src={'../images/book2.jpg'} className="img-fluid" alt="Responsive "/>
+         <div className="col"><a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
+             <img src={'.././images/book3.jpg'} className="img-fluid" alt="Responsive "/>
              <br/>
-             <span>Story Books</span>
+             <span>Children Books</span>
+             </a>
          </div>
-         <div className="col">
+         <div className="col"><a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
              <img  src = {'../images/book3.jpg'}  class="img-fluid" alt="Responsive "/>
              <br/>
             <span>Articles</span>
+            </a>
          </div>
         
-         <div className="col">
+         <div className="col"><a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
             <img  src = {'../images/book1.jpg'}  class="img-fluid" alt="Responsive "/>
             <br/>
-            <span>Movies and comics</span>
+            <span>Movies and comics</span>  </a>
          </div>
     </div>
     <br/><br/>
 
     <div className="row">
          
-         <div className="col">
+         <div className="col"><a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
             <img  src = {'../images/book1.jpg'}  class="img-fluid" alt="Responsive "/>
             <br/>
-            <span>Musics</span>
+            <span>Musics</span>  </a>
          </div>
-         <div className="col">
+         <div className="col"><a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
              <img  src = {'../images/book2.jpg'}  class="img-fluid" alt="Responsive "/>
              <br/>
-            <span>Educationl</span>
+            <span>Educationl</span>  </a>
          </div>
-         <div className="col">
+         <div className="col"><a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
             <img  src = {'../images/book3.jpg'}  class="img-fluid" alt="Responsive "/>
             <br/>
-            <span>News Papers</span>
+            <span>News Papers</span>  </a>
          </div>
-         <div className="col">
+         <div className="col"><a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
             <img  src = {'../images/book5.jpg'}  class="img-fluid" alt="Responsive "/>
             <br/>
-            <span>Childrens Books</span>
+            <span>Magazines</span>  </a>
          </div>
     </div>
      

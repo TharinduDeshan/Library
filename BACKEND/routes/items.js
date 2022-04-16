@@ -9,7 +9,7 @@ router.route("/add").post((req, res) => {
   const Quantity = parseInt(req.body.Quantity);
   const Price = req.body.Price;
   const Description = req.body.Description;
-//   const Images = req.body.Images;
+  const Images = req.body.Images;
   const Category = req.body.Category;
   const ItemAvailabilityStatus = req.body.ItemAvailabilityStatus;
   const Date = req.body.Date;
@@ -22,7 +22,7 @@ router.route("/add").post((req, res) => {
     Quantity,
     Price,
     Description,
-    // Images,
+    Images,
     Category,
     ItemAvailabilityStatus,
     Date,
@@ -41,7 +41,7 @@ router.route("/add").post((req, res) => {
           Quantity: newItem.Quantity,
           Price: newItem.Price,
           Description: newItem.Description,
-        //   Images: newItem.Images,
+          Images: newItem.Images,
           Category: newItem.Category,
           ItemAvailabilityStatus : newItem.ItemAvailabilityStatus,
           Date : newItem.Date,
@@ -68,7 +68,7 @@ router.route("/get").get((reg, res) => {
 });
 
 // update
-router.route("/update/:id").put(async (req, res) => {
+router.route("/update/:id").patch(async (req, res) => {
   let itemID = req.params.id;
   const {
     Quantity,

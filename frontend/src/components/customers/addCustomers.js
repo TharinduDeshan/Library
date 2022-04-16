@@ -70,7 +70,7 @@ export default function AddItems(){
             <br/><br/>
             <h2 className="text-center" style={{color:'#3F3232', fontWeight:'bold'}}>Add a New customer</h2>
             <br/><br/>
-            <form onSubmit = {sendData} id="create-course-form">
+            <form  id="create-course-form">
                 <div className="row">
                     <div className="col-sm-4">
                         <label for="Inputc-id" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Customer ID </label>
@@ -131,9 +131,10 @@ export default function AddItems(){
                 <div class="col-sm-4">
                         <label for="Input-occupcation" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}> Occupcation <span style={{color:'red'}}>*</span> </label>
                         <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
-                         onChange={(e)=>{
-                             setOccupcation(e.target.value);
-                         }}
+                        // onChange={(e)=>{
+                        //     setPrice(e.target.value);
+                        // }}
+
                         required/>
                     </div>
                     <div class="col-sm-4">
