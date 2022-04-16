@@ -131,26 +131,35 @@ export default function AddItems(){
                 <div class="col-sm-4">
                         <label for="Input-occupcation" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}> Occupcation <span style={{color:'red'}}>*</span> </label>
                         <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
-                        // onChange={(e)=>{
-                        //     setPrice(e.target.value);
-                        // }}
+                         onChange={(e)=>{
+                             setOccupcation(e.target.value);
+                         }}
 
                         required/>
                     </div>
                     <div class="col-sm-4">
                         <label for="Input-gender" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}> Gender<span style={{color:'red'}}>*</span></label>
-                        <select name="Member" id="member">
+                        <select class="form-select" aria-label="Default select example" style={{color:'#3F3232',border:'1px solid #3F3232'}}
+                         onChange={(e)=>{
+                             setGender(e.target.value);
+                         }}
+                         required>
                             
-                            <option value="Yes">Please select</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
+                            <option selected>Select the Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
+                        
                     </div>
                     <div class="col-sm-4">
                         <label for="Input-member" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Member<span style={{color:'red'}}>*</span> </label>
                         
-                        <select name="Member" id="member">
-                            <option> Please select</option>
+                        <select class="form-select" aria-label="Default select example" style={{color:'#3F3232',border:'1px solid #3F3232'}}
+                         onChange={(e)=>{
+                             setMember(e.target.value);
+                         }}
+                         required>
+                            <option selected>Select Membership status</option>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
