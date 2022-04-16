@@ -186,7 +186,7 @@ export default function EditItems(){
                         // onClick={() => updateItem(items._id)}
                         >Submit</button>
                        
-                        <button type="cancel" class="btn" style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}>Clear</button>
+                        <button type="reset" class="btn" style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}>Clear</button>
                         
                     </div>
                 </div>
