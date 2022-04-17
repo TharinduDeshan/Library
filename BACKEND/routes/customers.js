@@ -81,7 +81,7 @@ router.route("/update/:id").patch(async (req, res) => {
 
   } = req.body;
 
-  const updateItem = {
+  const updateCustomer = {
     
    CustomerID,
     Name,
