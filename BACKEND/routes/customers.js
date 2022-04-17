@@ -65,6 +65,18 @@ router.route("/get").get((reg, res) => {
     });
 });
 
+router.route("/get/:id").get((req, res) => {
+  let customerID = req.params.id;
+  Customer.findById(customerID)
+    .then((customers) => {
+      res.json(customers);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+
 // update
 router.route("/update/:id").patch(async (req, res) => {
   let customerID = req.params.id;

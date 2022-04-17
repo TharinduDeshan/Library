@@ -25,7 +25,7 @@ function App() {
     
        <Route exact path="/category" element={<Category/>} />
        <Route exact path="/addCustomer" element={<AddCustomer/>} />
-       <Route exact path="/ediCustomer" element={<EditCustomer/>} />
+       <Route exact path="/editCustomer" element={<EditCustomer/>} />
        <Route exact path="/contact" element={<ContactUs/>} />
        <Route exact path="/cart" element={<Cart/>} />
 

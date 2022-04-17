@@ -45,9 +45,9 @@ const CustomerSchema = new Schema({
     },
 
     Member : {
-        type : Boolean,
+        type : String,
         required : true,
-        default : true
+        default : "YES"
     },
 
 })

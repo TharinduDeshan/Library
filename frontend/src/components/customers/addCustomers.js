@@ -20,7 +20,7 @@ export default function AddCustomers(){
 
         e.preventDefault();
 
-        const newUser = {
+        const newCustomer = {
             CustomerID,
             Name,
             NIC,
@@ -91,7 +91,7 @@ export default function AddCustomers(){
                     </div>
                     <div className="col-sm-4">
                         <label for="Input-nic" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Customer NIC </label>
-                        <input type="date" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
+                        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
                          onChange={(e)=>{
                              setNIC(e.target.value);
                          }}
@@ -174,10 +174,10 @@ export default function AddCustomers(){
                     </div>
                     <div className="col-sm-6" style={{float:'right'}}>
                         <div className="col-sm-3" style={{float:'right'}}>
-                            <button type="cancel" class="btn" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'120px', float:'right'}}>Clear</button>
+                            <button type="reset" class="btn" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'120px', float:'right'}}>Clear</button>
                         </div>
                         <div className="col-sm-3" style={{float:'right'}}>
-                            <button type="submit" class="btn" style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}>Submit</button>
+                            <button type="submit" class="btn" style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}} onClick={sendData}>Submit</button>
                         </div>
                     
                     </div>

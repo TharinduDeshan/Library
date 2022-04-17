@@ -35,7 +35,7 @@ export default function EditCustomer(){
 
     useEffect(()=>{
         function getCustomers(){
-            axios.get("http://localhost:8070/customers/get/623729699d9796c7d397cb8f")
+            axios.get("http://localhost:8070/customers/get/625bb469a0a36ec8f5047dae")
             .then((res)=>{
                 console.log(res)
                 setCustomers(res.data)
@@ -52,7 +52,7 @@ export default function EditCustomer(){
 
       function updateCustomer(e) {
    
-        const objectId = "623729699d9796c7d397cb8f";
+        const objectId = "625bb469a0a36ec8f5047dae";
     
         e.preventDefault();
     
@@ -110,20 +110,20 @@ export default function EditCustomer(){
         <div className="container" style={{width:'80%'}}>
             <br/><br/>
 
-            <h2 className="text-center" style={{color:'#3F3232', fontWeight:'bold'}}>Edit the {customer.Category}</h2>
+            <h2 className="text-center" style={{color:'#3F3232', fontWeight:'bold'}}>Edit the {customers.Category}</h2>
             <br/><br/>
             <form onSubmit = {updateCustomer} id="create-course-form">
                 <div className="row">
 
                     <div className="col-sm-4">
-                        <label for="Inputc-id" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Customer ID  </label>
-                        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232' }} 
-                        placeholder={customers.CID} readonly/>
+                        <label for="Inputc-id" className="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Customer ID  </label>
+                        <input type="text" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232' }} 
+                        placeholder={customers.CustomerID} />
                     </div>
 
                     <div className="col-sm-4">
-                        <label for="Input-name" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Customer Name </label>
-                        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
+                        <label for="Input-name" className="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Customer Name </label>
+                        <input type="text" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
                         placeholder={customers.Name} 
                         onChange={(e) => {
                             setName(e.target.value);
@@ -131,9 +131,9 @@ export default function EditCustomer(){
                         />
                     </div>
 
-                    <div class="col-sm-4">
-                        <label for="Input-nic" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>NIC</label>
-                        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
+                    <div className="col-sm-4">
+                        <label for="Input-nic" className="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>NIC</label>
+                        <input type="text" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
                         placeholder={customers.NIC} 
                         onChange={(e) => {
                             setNIC(e.target.value);
@@ -144,27 +144,27 @@ export default function EditCustomer(){
                 </div>
                 <br/><br/>
                 <div className="row">
-                    <div class="col-sm-4">
-                        <label for="Input-phone" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Phone Number <span style={{color:'red'}}>*</span> </label>
-                        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
+                    <div className="col-sm-4">
+                        <label for="Input-phone" className="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Phone Number <span style={{color:'red'}}>*</span> </label>
+                        <input type="text" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
                         placeholder={customers.PhoneNumber} 
                         onChange={(e) => {
                             setPhoneNumber(e.target.value);
                         }}
                         />
                     </div>
-                    <div class="col-sm-4">
-                        <label for="Input-address" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Address <span style={{color:'red'}}>*</span></label>
-                        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
+                    <div className="col-sm-4">
+                        <label for="Input-address" className="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Address <span style={{color:'red'}}>*</span></label>
+                        <input type="text" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
                         placeholder={customers.Address} 
                         onChange={(e) => {
                             setAddress(e.target.value);
                         }}
                         />
                     </div>
-                    <div class="col-sm-4">
-                        <label for="Input-email" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Email<span style={{color:'red'}}>*</span> </label>
-                        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
+                    <div className="col-sm-4">
+                        <label for="Input-email" className="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Email<span style={{color:'red'}}>*</span> </label>
+                        <input type="text" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
                         placeholder={customers.Email} 
                         onChange={(e) => {
                             setEmail(e.target.value);
@@ -175,33 +175,40 @@ export default function EditCustomer(){
                 <br/><br/>
 
                 <div className="row">
-                    <div class="col-sm-4">
-                        <label for="Input-occupcation" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}> Occupcation <span style={{color:'red'}}>*</span> </label>
-                        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
+                    <div className="col-sm-4">
+                        <label for="Input-occupcation" className="form-label" style={{color:'#3F3232', fontWeight:'bold'}}> Occupcation <span style={{color:'red'}}>*</span> </label>
+                        <input type="text" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
                         placeholder={customers.Occupcation} 
                         onChange={(e) => {
                             setOccupcation(e.target.value);
                         }}
                         />
                     </div>
-                    <div class="col-sm-4">
-                        <label for="Input-gender" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}> Gender<span style={{color:'red'}}>*</span></label>
-                        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
-                        placeholder={customers.Gender}
-                       onChange={(e) => {
-                        setGender(e.target.value);
-                       }}
-                       />
+                    <div className="col-sm-4">
+                        <label for="Input-gender" className="form-label" style={{color:'#3F3232', fontWeight:'bold'}}> Gender<span style={{color:'red'}}>*</span></label>
+                        <select class="form-select"  aria-label="Default select example" style={{color:'#3F3232',border:'1px solid #3F3232'}}
+                         onChange={(e)=>{
+                             setGender(e.target.value);
+                         }}
+                         required>
+                            
+                            <option >Select the Gender</option>
+                            <option value="Male" selected={customers.Gender=='Male'}>Male</option>
+                            <option value="Female" selected={customers.Gender=='Female'}>Female</option>
+                        </select>
 
                     </div>
-                    <div class="col-sm-4">
-                        <label for="Input-member" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Member<span style={{color:'red'}}>*</span> </label>
-                        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
-                        placeholder={customers.Member}
-                       onChange={(e) => {
-                        setMember(e.target.value);
-                       }}
-                       />
+                    <div className="col-sm-4">
+                        <label for="Input-member" className="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Member<span style={{color:'red'}}>*</span> </label>
+                        <select class="form-select" aria-label="Default select example" style={{color:'#3F3232',border:'1px solid #3F3232'}}
+                         onChange={(e)=>{
+                             setMember(e.target.value);
+                         }}
+                         required>
+                            <option selected>Select Membership status</option>
+                            <option value="Yes" selected={customers.Member=='Yes'}>Yes</option>
+                            <option value="No" selected={customers.Member=='No'}>No</option>
+                        </select>
     
                     </div>
                 </div>
@@ -212,11 +219,11 @@ export default function EditCustomer(){
                         <span style={{float:'left', color : '#3FC1C9', fontWeight:'bold'}}>Disabled fields cannot be edited !</span>
                     </div>
                     <div className="col-sm" style={{float:'right'}}>
-                        <button type="submit" class="btn" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'120px', float:'right'}}
+                        <button type="submit" className="btn" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'120px', float:'right'}}
                         // onClick={() => updateItem(items._id)}
                         >Submit</button>
                        
-                        <button type="reset" class="btn" style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}>Clear</button>
+                        <button type="reset" className="btn" style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}>Clear</button>
                         
                     </div>
                 </div>
