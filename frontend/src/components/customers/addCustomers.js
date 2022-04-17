@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-export default function AddItems(){
+export default function AddCustomers(){
 
     const[CustomerID,setCustomerID] = useState("");
     const[Name,setName] = useState("");
@@ -33,9 +33,9 @@ export default function AddItems(){
             
         }
 
-        console.log(newUser);
+        console.log(newCustomer);
   
-        axios.post("http://localhost:8070/user/add",newUser).then(()=>{
+        axios.post("http://localhost:8070/customers/add",newCustomer).then(()=>{
   
           setCustomerID(" ");
           setName("");
