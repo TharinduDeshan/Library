@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-export default function EditItems(){
+export default function EditItems(props){
 
   const[items,setItems] = useState("");
 
@@ -33,7 +33,7 @@ export default function EditItems(){
 
     useEffect(()=>{
         function getItems(){
-            axios.get("http://localhost:8070/items/get/623729699d9796c7d397cb8f")
+            axios.get("http://localhost:8070/items/get/625bf92d653c75bea85783ee")
             .then((res)=>{
                 console.log(res)
                 setItems(res.data)
@@ -50,7 +50,7 @@ export default function EditItems(){
 
       function updateItem(e) {
    
-        const objectId = "623729699d9796c7d397cb8f";
+        const objectId = "625bf92d653c75bea85783ee";
     
         e.preventDefault();
     
@@ -81,7 +81,7 @@ export default function EditItems(){
               timer: 1500
             })
     
-            // props.history.push("/customers/home");
+            // props.history.push("/scategory");
       
           })
           .catch((err) => {

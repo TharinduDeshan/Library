@@ -29,7 +29,7 @@ function StaffHeader(){
                 <ul class="navbar-nav ms-auto" style={{fontSize: '22px',fontWeight: 'bold',color: '#3F3232'}}>
 
                     <li class="nav-item" style={{ marginRight: '25px',}}>
-                    <a class="nav-link" href="/"  id="overview">Home</a>
+                    <a class="nav-link" href="/shome"  id="overview">Home</a>
                     </li>
                     
                     <li class="nav-item" style={{ marginRight: '25px'}}>
@@ -54,5 +54,5 @@ function StaffHeader(){
     )
 }
 
-export default Header
+export default StaffHeader
 
