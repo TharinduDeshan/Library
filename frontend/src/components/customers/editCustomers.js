@@ -33,15 +33,12 @@ export default function EditCustomer(){
     const[Gender,setGender] = useState("");
     const[Member,setMember] = useState("");
 
-    
-
-
     useEffect(()=>{
         function getCustomers(){
             axios.get("http://localhost:8070/customers/get/623729699d9796c7d397cb8f")
             .then((res)=>{
                 console.log(res)
-                setItems(res.data)
+                setCustomers(res.data)
             }).catch((err)=>{
                 alert(err.errorMsg)    
             })
