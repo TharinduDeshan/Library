@@ -3,6 +3,17 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../../css/search.css"
 
+import p3 from "./images/book1.jpg";
+import p4 from "./images/book2.jpg";
+import p5 from "./images/book3.jpg";
+import p6 from "./images/book4.jpg";
+import p7 from "./images/book5.jpg";
+import p8 from "./images/book6.jpg";
+
+import p10 from "./images/edit.png";
+import p11 from "./images/trash.png";
+import p12 from "./images/loupe.png";
+
 export default function StaffCategory(props) {
 
     // const[item,setItem] = useState("");
@@ -98,7 +109,7 @@ export default function StaffCategory(props) {
                         <div className="searchbar" >
                             <input className="search_input" type="text" name="" onChange={(e) => handleSearch(e.target.value)}/>
                             <a type="button" className="search_icon"  >
-                            <img id="img141" src="../images/loupe.png" />
+                            <img id="img141" src={p12} />
                             </a>
                         </div>
                     </div>
@@ -156,21 +167,21 @@ export default function StaffCategory(props) {
                 </div>
                 <div className="col-8">
                 <h3>Books</h3>
-                <br/><br/>
+                <br/>
 
-                <div className="row">
+                <div className="row text-center" style={{fontWeight:'bold'}}>
          
                     <div className="col ">
                     <a href="/edit" style={{border:'0px',color:'#3F3232', font:'roboto'}}  id="link" className="list-group-item list-group-item-action" >
                            
-                        <img  src = {'../images/book2.jpg'}  className="img-fluid" alt="Responsive "/>
+                        <img  src = {p3}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
                         <br/>
                         <span>HellFire</span>
                         <div className="col">
                         &ensp;&ensp;
-                         <img id="img141" src="../images/edit.png" />
+                         <img id="img141" src={p10} style={{width:'10%'}}/>
                          &ensp;&ensp;
-                         <img id="img141" src="../images/trash.png" />
+                         <img id="img141" src={p11} style={{width:'10%'}}/>
                         </div>
                         </a>
                     </div>
@@ -178,14 +189,14 @@ export default function StaffCategory(props) {
                     <div className="col ">
                     <a href="/edit" style={{border:'0px',color:'#3F3232', font:'roboto'}}  id="link" className="list-group-item list-group-item-action" >
                            
-                        <img  src = {'../images/book2.jpg'}  className="img-fluid" alt="Responsive "/>
+                        <img  src = {p4}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
                         <br/>
                         <span>PlayToys</span>
                         <div className="col">
                         &ensp;&ensp;
-                         <img id="img141" src="../images/edit.png" />
+                        <img id="img141" src={p10} style={{width:'10%'}}/>
                          &ensp;&ensp;
-                         <img id="img141" src="../images/trash.png" />
+                         <img id="img141" src={p11} style={{width:'10%'}}/>
                         </div>
                         </a>
                     </div>
@@ -193,14 +204,14 @@ export default function StaffCategory(props) {
                     <div className="col ">
                     <a href="/edit" style={{border:'0px',color:'#3F3232', font:'roboto'}}  id="link" className="list-group-item list-group-item-action" >
                            
-                        <img  src = {'../images/book2.jpg'}  className="img-fluid" alt="Responsive "/>
+                        <img  src = {p5}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
                         <br/>
-                        <span>PlayToys</span>
+                        <span>Dune</span>
                         <div className="col">
                         &ensp;&ensp;
-                         <img id="img141" src="../images/edit.png" />
+                        <img id="img141" src={p10} style={{width:'10%'}}/>
                          &ensp;&ensp;
-                         <img id="img141" src="../images/trash.png" />
+                         <img id="img141" src={p11} style={{width:'10%'}}/>
                         </div>
                         </a>
                     </div>
@@ -208,14 +219,14 @@ export default function StaffCategory(props) {
                     <div className="col ">
                     <a href="/edit" style={{border:'0px',color:'#3F3232', font:'roboto'}}  id="link" className="list-group-item list-group-item-action" >
                            
-                        <img  src = {'../images/book2.jpg'}  className="img-fluid" alt="Responsive "/>
+                        <img  src = {p6}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
                         <br/>
-                        <span>PlayToys</span>
+                        <span>Michel</span>
                         <div className="col">
                         &ensp;&ensp;
-                         <img id="img141" src="../images/edit.png" />
+                        <img id="img141" src={p10} style={{width:'10%'}}/>
                          &ensp;&ensp;
-                         <img id="img141" src="../images/trash.png" />
+                         <img id="img141" src={p11} style={{width:'10%'}}/>
                         </div>
                         </a>
                     </div>
@@ -223,67 +234,58 @@ export default function StaffCategory(props) {
                     
                 </div>
 
-                <br/><br/>
+                <br/>
 
-                <div className="row">
+                <div className="row text-center" style={{fontWeight:'bold'}}>
                     
                 <div className="col ">
                     <a href="/edit" style={{border:'0px',color:'#3F3232', font:'roboto'}}  id="link" className="list-group-item list-group-item-action" >
                            
-                        <img  src = {'../images/book2.jpg'}  className="img-fluid" alt="Responsive "/>
+                        <img  src = {p7}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
                         <br/>
                         <span>Lord Of the Rings</span>
                         <div className="col">
                         &ensp;&ensp;
-                         <img id="img141" src="../images/edit.png" />
+                        <img id="img141" src={p10} style={{width:'10%'}}/>
                          &ensp;&ensp;
-                         <img id="img141" src="../images/trash.png" />
+                         <img id="img141" src={p11} style={{width:'10%'}}/>
                         </div>
                         </a>
                     </div>
                     <div className="col ">
                     <a href="/edit" style={{border:'0px',color:'#3F3232', font:'roboto'}}  id="link" className="list-group-item list-group-item-action" >
                            
-                        <img  src = {'../images/book2.jpg'}  className="img-fluid" alt="Responsive "/>
+                        <img  src = {p8}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
                         <br/>
                         <span>Kite Runner</span>
                         <div className="col">
                         &ensp;&ensp;
-                         <img id="img141" src="../images/edit.png" />
+                        <img id="img141" src={p10} style={{width:'10%'}}/>
                          &ensp;&ensp;
-                         <img id="img141" src="../images/trash.png" />
+                         <img id="img141" src={p11} style={{width:'10%'}}/>
                         </div>
                         </a>
                     </div>
                     <div className="col ">
                     <a href="/edit" style={{border:'0px',color:'#3F3232', font:'roboto'}}  id="link" className="list-group-item list-group-item-action" >
                            
-                        <img  src = {'../images/book2.jpg'}  className="img-fluid" alt="Responsive "/>
+                        <img  src = {p3}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
                         <br/>
-                        <span>Narnia</span>
+                        <span>{title}</span>
                         <div className="col">
                         &ensp;&ensp;
-                         <img id="img141" src="../images/edit.png" />
+                        <img id="img141" src={p10} style={{width:'10%'}}/>
                          &ensp;&ensp;
-                         <img id="img141" src="../images/trash.png" />
+                         <img id="img141" src={p11} style={{width:'10%'}}/>
                         </div>
                         </a>
                     </div>
                     <div className="col ">
-                    <a href="/edit" style={{border:'0px',color:'#3F3232', font:'roboto'}}  id="link" className="list-group-item list-group-item-action" >
-                           
-                        <img  src = {'../images/book2.jpg'}  className="img-fluid" alt="Responsive "/>
-                        <br/>
-                        <span>harry Potter</span>
-                        <div className="col">
-                        &ensp;&ensp;
-                         <img id="img141" src="../images/edit.png" />
-                         &ensp;&ensp;
-                         <img id="img141" src="../images/trash.png" />
-                        </div>
-                        </a>
+                   
                     </div>
                 </div>
+                <br/><br/>
+
 
                 </div>
 

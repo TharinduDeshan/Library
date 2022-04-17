@@ -12,6 +12,7 @@ import ContactUs from './components/customers/contact';
 import StaffCategory from './components/staff/staffCategories';
 import Cart from './components/customers/cart';
 import StaffHeader from './components/navigations/staffHeader'
+import Footer from './components/navigations/footer';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
        <Route exact path="/edit" element={<EditItems/>} />
      
        </Routes> 
+       {/* <Footer/> */}
      </Router>
 
     
