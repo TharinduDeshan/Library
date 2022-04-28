@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../css/search.css"
 
+import p5 from "./images/book3.jpg";
+
 export default function Category(props) {
 
 
@@ -46,10 +48,10 @@ export default function Category(props) {
 
                 <div className="row">
          
-                    <div className="col ">
+                    <div className="col " data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <img  src = {'../images/book2.jpg'}  className="img-fluid" alt="Responsive "/>
                         <br/>
-                        <span className="modal-dialog modal-dialog-centered">Story Books</span>
+                        <span>Story Books</span>
                     </div>
 
                     
@@ -102,18 +104,43 @@ export default function Category(props) {
             </div>
 
 
-            <div class="modal" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                   
-                    <div class="modal-body">
-                        <p>Modal body text goes here.</p>
-                    </div>
-                    
-                    </div>
-                </div>
-                </div>
 
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+  
+      <div class="modal-body">
+     
+          <div className="row">
+              
+                          <div className="col-5">
+              
+                 <img src={p5} style={{width:'80%', marginLeft:'30px', marginTop:'15px'}} />
+
+            </div>
+            <div className="col-7">
+              
+                <label style={{fontSize:'22px',paddingBottom:'2px',fontWeight:'bold', paddingTop:'15px'}}>Book Name</label><br/>
+                <label style={{paddingBottom:'1px'}}>Author name</label><br/>
+                <label style={{paddingBottom:'1px'}}>Category</label><br/>
+                <label style={{paddingBottom:'10px'}}>12/12/2020</label><br/>
+                <label style={{fontSize:'18px',paddingBottom:'30px',fontWeight:'bold'}}>Rs. 200/=</label><br/>
+
+                <button type="submit" class="btn" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'200px', boxShadow:'5px 5px #dcdcdc'}}>Add to Cart</button>
+
+
+            </div>
+          </div>
+          <div className="row" style={{margin:'10px', marginTop:'20px', lineHeight:'1.2'}}>
+              <p>The definition of a description is a statement that gives details about someone or something. An example of description is a story about the places visited on a family trip. noun</p>
+          </div>
+        
+      </div>
+ 
+    </div>
+  </div>
+</div>
     </div>
 
   );
