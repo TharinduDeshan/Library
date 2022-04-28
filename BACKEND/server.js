@@ -34,6 +34,9 @@ connection.once("open", () => {
 const itemRouter = require("./routes/items.js");
 app.use("/items", itemRouter);
 
+const cartRouter = require("./routes/carts.js");
+app.use("/cart", cartRouter);
+
 // const customerRouter = require("./routes/customers.js");
 // app.use("/customer", itemRouter);
 

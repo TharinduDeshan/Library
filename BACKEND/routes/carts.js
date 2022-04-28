@@ -1,5 +1,5 @@
 const router = require("express").Router();
-let Item = require("../modules/Item");
+let Cart = require("../modules/cart");
 
 //Insert
 router.route("/add").post((req, res) => {
@@ -8,7 +8,7 @@ router.route("/add").post((req, res) => {
     const itemIDs     = req.body.itemIDs;
     const orderDate  = req.body.orderDate;
 
-  const newItem = new Item({
+  const newCart = new Cart({
     customerID,
     itemIDs,
     orderDate
@@ -16,6 +16,7 @@ router.route("/add").post((req, res) => {
 
     //Insert the created object to the DB //.save()->pass the obeject to the mongo DB through the schema in the model
     newCart.save().then(() => {
+      
 
         res.json("Cart Created"); //Pass to the frontend as response in json format
     }).catch((err) => {
@@ -28,7 +29,7 @@ router.route("/add").post((req, res) => {
 router.route("/getAllCarts").get((req, res) => {
 
     //Variable declared at line 5
-    cart.find().then((carts) => {
+    Cart.find().then((carts) => {
 
         res.json(carts);
     }).catch((err) => {

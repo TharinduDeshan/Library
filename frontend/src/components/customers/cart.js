@@ -4,31 +4,53 @@ import { Link } from "react-router-dom";
 
 export default function Cart(props) {
 
-    let item = [];
+    let cart = [];
+    let items = [];
+    let ItemIds = [];
 
     useEffect(() => {
-        function getItems() {
+        function getCart() {
           axios
-            .get("http://localhost:8070/items/get")
+            .get("http://localhost:8070/cart/getOneCart/625c12c9f36bd7f6a5c6748d")
             .then((res) => {
                 console.log(res.data)
-                // setItem(res.data)
-                item = (res.data)
+                cart = (res.data)
+                console.log(cart.itemIDs)
+               
+                ItemIds = cart.itemIds
 
-               
-            console.log(item)
-               
-             
+                for (let i = 0; i < cart.itemIDs.length; i++) {
+                    ItemIds = cart.itemIDs[i]
+                    console.log(ItemIds)
+                  }
+                  console.log(ItemIds)
             })
             .catch((err) => {
               alert(err);
             });
         }
+        axios
+        .get("http://localhost:8070/items/get")
+        .then((res) => {
+            console.log(res.data)
+            const filter = res.data.filter(
+                (item) =>
+                  item._id === ItemIds
+
+              );
+              
+              items=filter
+              console.log(items)
+         
+        })
+        .catch((err) => {
+          alert(err.message);
+        });
     
-    
-    
-        getItems();
+        getCart();
       }, []);
+
+
 
 
   return (
