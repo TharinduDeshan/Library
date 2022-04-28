@@ -13,6 +13,7 @@ import p5 from "./images/book3.jpg";
 import p6 from "./images/book4.jpg";
 import p7 from "./images/book5.jpg";
 import p8 from "./images/book6.jpg";
+import Footer from "../navigations/footer";
 
 
 export default function StaffHome(props) {
@@ -20,7 +21,6 @@ export default function StaffHome(props) {
 
   return (
   <div className=" text-center">
-      <br/>
       <img src={p2} className="img-fluid" alt="Re " style={{height:'40%'}}/>
      <br/><br/>
 
@@ -99,6 +99,9 @@ export default function StaffHome(props) {
             <span>Magazines</span>  </a>
          </div>
     </div>
+    <br/>
+
+
      
 
   </div>

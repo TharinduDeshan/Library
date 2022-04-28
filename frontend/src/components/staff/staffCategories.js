@@ -71,7 +71,7 @@ export default function StaffCategory(props) {
         );
         console.log(userSearch);
         let x = result;
-        // createReview(r, x);
+        // getItems(r, x);
         if (result.length != 0) {
           document.getElementById("itemsTxt").innerHTML = "";
         } else if (result.length == 0) {

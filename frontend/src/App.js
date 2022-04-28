@@ -36,6 +36,8 @@ function App() {
        <Route exact path="/scategory" element={<StaffCategory/>} />
        <Route exact path="/add" element={<AddItems/>} />
        <Route exact path="/edit" element={<EditItems/>} />
+
+       <Route path="/shome" component={Footer} />
      
        </Routes> 
        {/* <Footer/> */}

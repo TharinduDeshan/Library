@@ -33,7 +33,7 @@ export default function EditItems(props){
 
     useEffect(()=>{
         function getItems(){
-            axios.get("http://localhost:8070/items/get/625bf92d653c75bea85783ee")
+            axios.get("http://localhost:8070/items/get/625bf949653c75bea85783f0")
             .then((res)=>{
                 console.log(res)
                 setItems(res.data)
@@ -50,7 +50,7 @@ export default function EditItems(props){
 
       function updateItem(e) {
    
-        const objectId = "625bf92d653c75bea85783ee";
+        const objectId = "625bf949653c75bea85783f0";
     
         e.preventDefault();
     
