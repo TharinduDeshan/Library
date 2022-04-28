@@ -6,6 +6,7 @@ export default function Cart(props) {
 
     let cart = [];
     let items = [];
+    // let[items,setItems] = useState("");
     let ItemIds = [];
 
     useEffect(() => {
@@ -21,7 +22,7 @@ export default function Cart(props) {
 
                 for (let i = 0; i < cart.itemIDs.length; i++) {
                     ItemIds = cart.itemIDs[i]
-                    console.log(ItemIds)
+                    // console.log(ItemIds)
                   }
                   console.log(ItemIds)
             })
@@ -38,9 +39,10 @@ export default function Cart(props) {
                   item._id === ItemIds
 
               );
-              
-              items=filter
+              console.log(filter)
+              items=filter[0]
               console.log(items)
+              console.log(items.Title)
          
         })
         .catch((err) => {
@@ -70,9 +72,9 @@ export default function Cart(props) {
                     <img style={{width:'200px'}}  src="../images/book1.jpg" />
                 </div>
                 <div className="col-6" style={{color:'#3F3232', fontWeight:'bold'}}>
-                    <span style={{fontSize:'18px'}}>Book Name</span>
+                    <span style={{fontSize:'18px'}}>{items.Title}</span>
                     <br/>
-                    <span>&nbsp;&nbsp;Author</span>
+                    <span>&nbsp;&nbsp;{items.Author}</span>
                     <br/>  <br/>
                     <span>&nbsp;&nbsp;Rs.300/=</span>
                 </div>
