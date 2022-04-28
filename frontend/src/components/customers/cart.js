@@ -4,7 +4,31 @@ import { Link } from "react-router-dom";
 
 export default function Cart(props) {
 
- 
+    let item = [];
+
+    useEffect(() => {
+        function getItems() {
+          axios
+            .get("http://localhost:8070/items/get")
+            .then((res) => {
+                console.log(res.data)
+                // setItem(res.data)
+                item = (res.data)
+
+               
+            console.log(item)
+               
+             
+            })
+            .catch((err) => {
+              alert(err);
+            });
+        }
+    
+    
+    
+        getItems();
+      }, []);
 
 
   return (

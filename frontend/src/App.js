@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from './components/customers/home'
 import AddItems from './components/items/addItems';
-import Header from './components/navigations/header';
+// import Header from './components/navigations/header';
 import EditItems from './components/items/editItems';
 import Category from './components/customers/category';
 import StaffHome from './components/staff/staffHome';
@@ -11,13 +11,16 @@ import EditCustomer from './components/customers/editCustomers';
 import ContactUs from './components/customers/contact';
 import StaffCategory from './components/staff/staffCategories';
 import Cart from './components/customers/cart';
+import StaffHeader from './components/navigations/staffHeader'
+import Footer from './components/navigations/footer';
 
 function App() {
   return (
 
 
     <Router>
-        <Header/>
+        {/* <Header/> */}
+        <StaffHeader/>
 
       <Routes>
 
@@ -30,11 +33,14 @@ function App() {
        <Route exact path="/cart" element={<Cart/>} />
 
        <Route exact path="/shome" element={<StaffHome/>} />
-       <Route exact path="/sCat" element={<StaffCategory/>} />
+       <Route exact path="/scategory" element={<StaffCategory/>} />
        <Route exact path="/add" element={<AddItems/>} />
        <Route exact path="/edit" element={<EditItems/>} />
+
+       <Route path="/shome" component={Footer} />
      
        </Routes> 
+       {/* <Footer/> */}
      </Router>
 
     

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-export default function AddItems(){
+export default function AddItems(props){
 
     const[Title,setTitle] = useState("");
     const[Author,setAuthor] = useState("");
@@ -65,7 +65,7 @@ export default function AddItems(){
                 showConfirmButton: false,
                 timer: 1500,
               });     
-            //   props.history.push("/Seller/Home");
+              // props.history.push("/shome");
             })
             .catch((err) => {
               alert(err);

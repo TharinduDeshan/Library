@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-export default function EditItems(){
+export default function EditItems(props){
 
   const[items,setItems] = useState("");
 
@@ -33,7 +33,7 @@ export default function EditItems(){
 
     useEffect(()=>{
         function getItems(){
-            axios.get("http://localhost:8070/items/get/623729699d9796c7d397cb8f")
+            axios.get("http://localhost:8070/items/get/625bf949653c75bea85783f0")
             .then((res)=>{
                 console.log(res)
                 setItems(res.data)
@@ -50,7 +50,7 @@ export default function EditItems(){
 
       function updateItem(e) {
    
-        const objectId = "623729699d9796c7d397cb8f";
+        const objectId = "625bf949653c75bea85783f0";
     
         e.preventDefault();
     
@@ -81,7 +81,7 @@ export default function EditItems(){
               timer: 1500
             })
     
-            // props.history.push("/customers/home");
+            // props.history.push("/scategory");
       
           })
           .catch((err) => {
@@ -145,19 +145,22 @@ export default function EditItems(){
                     </div>
 
                     <div class="col-sm">
-                        <label for="exampleInputEmail1" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Category </label>
-                        {/* <select class="form-select" aria-label="Default select example" style={{border:'1px solid #3F3232'}}>
+                    <label for="exampleInputEmail1" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Category <span style={{color:'red'}}>*</span></label>
+                        <select class="form-select" aria-label="Default select example" style={{color:'#3F3232',border:'1px solid #3F3232'}} onChange={(e)=>{
+                            setCategory(e.target.value);
+                            
+                        }}
+                        required>
                             <option selected>{items.Category}</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select> */}
-                        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
-                        placeholder={items.Category}
-                       onChange={(e) => {
-                        setCategory(e.target.value);
-                       }}
-                       />
+                            {/* <option value="Books">Books</option> */}
+                            <option value="Children Books">Children Books</option>
+                            <option value="Articles">Articles</option>
+                            <option value="Magazines">Magazines</option>
+                            <option value="Movies and Comic Books">Movies and Comic Books</option>
+                            <option value="News Papers">News Papers</option>
+                            <option value="Educational">Educational</option>
+                            <option value="Musics">Musics</option>
+                        </select>
                     </div>
                 </div>
                 <br/><br/>
