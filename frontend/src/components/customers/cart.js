@@ -30,6 +30,12 @@ export default function Cart(props) {
               alert(err);
             });
         }
+      
+        getCart();
+        getItems();
+      }, []);
+
+      function getItems(){
         axios
         .get("http://localhost:8070/items/get")
         .then((res) => {
@@ -48,11 +54,8 @@ export default function Cart(props) {
         .catch((err) => {
           alert(err.message);
         });
-    
-        getCart();
-      }, []);
-
-
+        
+      }
 
 
   return (

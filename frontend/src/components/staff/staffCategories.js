@@ -21,83 +21,82 @@ export default function StaffCategory(props) {
     const[title,setTitle] = useState("");
     let item = [];
 
+    let topic = "";
+
+
     useEffect(() => {
         function getItems() {
           axios
             .get("http://localhost:8070/items/get")
             .then((res) => {
                 console.log(res.data)
-                // setItem(res.data)
-                item = (res.data)
 
-                //     for(let i=0;i<items.length;i++){
-                //         const filter = res.data.filter(
-                //             (items) =>
-                //             items.Category === "Books"
-                //         );
-                //         // console.log(filter[i].Title)
-                //         // setItem(filter)
-                //         item = filter
-                //           console.log(item.Title)
-                // }
-
-               
-            console.log(item)
-                 for(let i=0;i<item.length;i++){
-
-                    console.log(item[i].Title)
-                    setTitle(item[i].Title)
-         
+                    for(let i=0;i<res.data.length;i++){
+                        const filter = res.data.filter(
+                            (items) =>
+                            items.Category === "Books"
+                        );
+                        // console.log(filter[i].Title)
+                        // setItem(filter)
+                        item = filter
+                        console.log(item[i])
+                        // topic = item[i].Title
                 }
-             
+
+                 console.log(item)
+
+                //  for(let i=0;i<item.length;i++){
+
+                //     console.log(item[i].Title)
+                //     setTitle(item[i].Title)
+         
+                // }
             })
             .catch((err) => {
               alert(err);
             });
         }
     
-    
-    
         getItems();
       }, []);
 
 
-    function filterContent(data, userSearch) {
-        let result = data.filter(
-          (post) =>
-            post.Item_name.toLowerCase().includes(userSearch) ||
-            post.Brand.toLowerCase().includes(userSearch) ||
-            post.Model.toLowerCase().includes(userSearch)
-        );
-        console.log(userSearch);
-        let x = result;
-        // getItems(r, x);
-        if (result.length != 0) {
-          document.getElementById("itemsTxt").innerHTML = "";
-        } else if (result.length == 0) {
-          document.getElementById("itemsTxt").innerHTML = "No Result Found!";
-        }
-      }
+    // function filterContent(data, userSearch) {
+    //     let result = data.filter(
+    //       (post) =>
+    //         post.Item_name.toLowerCase().includes(userSearch) ||
+    //         post.Brand.toLowerCase().includes(userSearch) ||
+    //         post.Model.toLowerCase().includes(userSearch)
+    //     );
+    //     console.log(userSearch);
+    //     let x = result;
+    //     // getItems(r, x);
+    //     if (result.length != 0) {
+    //       document.getElementById("itemsTxt").innerHTML = "";
+    //     } else if (result.length == 0) {
+    //       document.getElementById("itemsTxt").innerHTML = "No Result Found!";
+    //     }
+    //   }
     
-      // search
-      function handleSearch(e) {
-        let userSearch = e;
-        //document.getElementsByTagName("CircleLoader").loading = '{true}';
-        document.getElementById("itemsTxt").innerHTML = "";
+    //   // search
+    //   function handleSearch(e) {
+    //     let userSearch = e;
+    //     //document.getElementsByTagName("CircleLoader").loading = '{true}';
+    //     document.getElementById("itemsTxt").innerHTML = "";
     
-        axios
-          .get("http://localhost:8070/items/get")
-          .then((res) => {
-            // console.log(res.data);
+    //     axios
+    //       .get("http://localhost:8070/items/get")
+    //       .then((res) => {
+    //         // console.log(res.data);
     
-            if (userSearch != null) {
-              filterContent(res.data, userSearch);
-            }
-          })
-          .catch((err) => {
-            alert(err);
-          });
-      }
+    //         if (userSearch != null) {
+    //           filterContent(res.data, userSearch);
+    //         }
+    //       })
+    //       .catch((err) => {
+    //         alert(err);
+    //       });
+    //   }
 
 
   return (
@@ -107,7 +106,9 @@ export default function StaffCategory(props) {
                 <div className="container h-100">
                     <div className="d-flex justify-content-center h-100">
                         <div className="searchbar" >
-                            <input className="search_input" type="text" name="" onChange={(e) => handleSearch(e.target.value)}/>
+                            <input className="search_input" type="text" name="" 
+                            // onChange={(e) => handleSearch(e.target.value)}
+                            />
                             <a type="button" className="search_icon"  >
                             <img id="img141" src={p12} />
                             </a>
@@ -169,66 +170,96 @@ export default function StaffCategory(props) {
                 <h3>Books</h3>
                 <br/>
 
+        {item.map((i)=>{
+            return(
+                <div className="col ">
+                
+                    
+                    <img  src = {p3}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
+                    <br/>
+                    <span>{i.topic}</span>
+                    <div className="col">
+                    &ensp;&ensp;
+                    <a href="/edit" id="link">
+                         <img id="img141" src={p10} style={{width:'10%'}}/>
+                    </a>
+                    &ensp;&ensp;
+                    <img id="img141" src={p11} style={{width:'10%'}}/>
+                    </div>
+                   
+                </div>
+            )
+        })}
+
                 <div className="row text-center" style={{fontWeight:'bold'}}>
          
                     <div className="col ">
-                    <a href="/edit" style={{border:'0px',color:'#3F3232', font:'roboto'}}  id="link" className="list-group-item list-group-item-action" >
-                           
+                      
                         <img  src = {p3}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
                         <br/>
-                        <span>HellFire</span>
+                        <span>HellFiree</span>
                         <div className="col">
                         &ensp;&ensp;
+                    
+                         <a href="/edit" id="link">
                          <img id="img141" src={p10} style={{width:'10%'}}/>
+                         </a>
+                      
                          &ensp;&ensp;
                          <img id="img141" src={p11} style={{width:'10%'}}/>
                         </div>
-                        </a>
+                       
                     </div>
 
                     <div className="col ">
-                    <a href="/edit" style={{border:'0px',color:'#3F3232', font:'roboto'}}  id="link" className="list-group-item list-group-item-action" >
+                    
                            
                         <img  src = {p4}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
                         <br/>
                         <span>PlayToys</span>
                         <div className="col">
                         &ensp;&ensp;
-                        <img id="img141" src={p10} style={{width:'10%'}}/>
+                        <a href="/edit" id="link">
+                         <img id="img141" src={p10} style={{width:'10%'}}/>
+                         </a>
                          &ensp;&ensp;
                          <img id="img141" src={p11} style={{width:'10%'}}/>
                         </div>
-                        </a>
+                     
                     </div>
 
                     <div className="col ">
-                    <a href="/edit" style={{border:'0px',color:'#3F3232', font:'roboto'}}  id="link" className="list-group-item list-group-item-action" >
+                    
                            
                         <img  src = {p5}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
                         <br/>
                         <span>Dune</span>
                         <div className="col">
                         &ensp;&ensp;
-                        <img id="img141" src={p10} style={{width:'10%'}}/>
+                        <a href="/edit" id="link">
+                         <img id="img141" src={p10} style={{width:'10%'}}/>
+                         </a>
                          &ensp;&ensp;
                          <img id="img141" src={p11} style={{width:'10%'}}/>
                         </div>
-                        </a>
+                    
                     </div>
 
                     <div className="col ">
-                    <a href="/edit" style={{border:'0px',color:'#3F3232', font:'roboto'}}  id="link" className="list-group-item list-group-item-action" >
+                    
                            
                         <img  src = {p6}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
                         <br/>
                         <span>Michel</span>
                         <div className="col">
                         &ensp;&ensp;
-                        <img id="img141" src={p10} style={{width:'10%'}}/>
+                        <a href="/edit" id="link">
+                         <img id="img141" src={p10} style={{width:'10%'}}/>
+                         </a>
                          &ensp;&ensp;
                          <img id="img141" src={p11} style={{width:'10%'}}/>
                         </div>
-                        </a>
+       
                     </div>
 
                     
@@ -239,46 +270,52 @@ export default function StaffCategory(props) {
                 <div className="row text-center" style={{fontWeight:'bold'}}>
                     
                 <div className="col ">
-                    <a href="/edit" style={{border:'0px',color:'#3F3232', font:'roboto'}}  id="link" className="list-group-item list-group-item-action" >
+                    
                            
                         <img  src = {p7}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
                         <br/>
                         <span>Lord Of the Rings</span>
                         <div className="col">
                         &ensp;&ensp;
-                        <img id="img141" src={p10} style={{width:'10%'}}/>
+                        <a href="/edit" id="link">
+                         <img id="img141" src={p10} style={{width:'10%'}}/>
+                         </a>
                          &ensp;&ensp;
                          <img id="img141" src={p11} style={{width:'10%'}}/>
                         </div>
-                        </a>
+                     
                     </div>
                     <div className="col ">
-                    <a href="/edit" style={{border:'0px',color:'#3F3232', font:'roboto'}}  id="link" className="list-group-item list-group-item-action" >
+                    
                            
                         <img  src = {p8}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
                         <br/>
                         <span>Kite Runner</span>
                         <div className="col">
                         &ensp;&ensp;
-                        <img id="img141" src={p10} style={{width:'10%'}}/>
+                        <a href="/edit" id="link">
+                         <img id="img141" src={p10} style={{width:'10%'}}/>
+                         </a>
                          &ensp;&ensp;
                          <img id="img141" src={p11} style={{width:'10%'}}/>
                         </div>
-                        </a>
+                     
                     </div>
                     <div className="col ">
-                    <a href="/edit" style={{border:'0px',color:'#3F3232', font:'roboto'}}  id="link" className="list-group-item list-group-item-action" >
+                    
                            
                         <img  src = {p3}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
                         <br/>
                         <span>{title}</span>
                         <div className="col">
                         &ensp;&ensp;
-                        <img id="img141" src={p10} style={{width:'10%'}}/>
+                        <a href="/edit" id="link">
+                         <img id="img141" src={p10} style={{width:'10%'}}/>
+                         </a>
                          &ensp;&ensp;
                          <img id="img141" src={p11} style={{width:'10%'}}/>
                         </div>
-                        </a>
+                      
                     </div>
                     <div className="col ">
                    
