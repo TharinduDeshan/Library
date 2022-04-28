@@ -86,8 +86,6 @@ export default function StaffHome(props) {
          </div>
     </div>
      
-    
-
   </div>
   );
 }
