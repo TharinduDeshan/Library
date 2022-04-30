@@ -11,7 +11,7 @@ export default function Cart(props) {
     let [ItemIds, setItemIds] = useState([]);
     let [AllItems, setAllItems] = useState([]);
 
-    let [gItems, setgItems] = useState([]);
+    let [abc, setabc] = useState([]);
     let AllItemsArr = [];
 
     let [allItemsTotal, setAllItemsTotal] = useState(0);
@@ -47,36 +47,26 @@ export default function Cart(props) {
                 // console.log(res.data)
                
                 ItemIds = res.data.itemIDs
-                console.log(ItemIds)
+                // console.log(ItemIds)
+
+                axios
+                .get("http://localhost:8070/items/get")
+                .then((res) => { 
+                 
+                    AllItems = res.data
+                    // console.log(AllItems)
+                    // console.log(ItemIds)
+    
+                    getItemss(ItemIds,AllItems);
+    
+                })
+                .catch((err) => {
+                  alert(err.message);
+                });
 
             })
             .catch((err) => {
               alert(err);
-            });
-
-            axios
-            .get("http://localhost:8070/items/get")
-            .then((res) => {
-               
-
-                // const filter = res.data.filter(
-                //     (item) =>
-                //       item._id === ItemIds
-    
-                //   );
-                //   console.log(filter)
-                //   items=filter[0]
-                //   console.log(items)
-                //   console.log(items.Title)
-             
-                AllItems = res.data
-                console.log(AllItems)
-
-                getItemss(ItemIds,AllItems);
-
-            })
-            .catch((err) => {
-              alert(err.message);
             });
         }
       
@@ -84,43 +74,40 @@ export default function Cart(props) {
       }, []);
 
 
-      function getItemss(allItems, items) {
+      function getItemss(AllItems, ItemIds) {
         let j = 0;
+        console.log(ItemIds)
+        console.log(AllItems)
     
-        for (let i = 0; i < items.length; i++) {
+        for (let i = 0; i < ItemIds.length; i++) {
           j = 0;
     
-          for (j = 0; j < allItems.length; j++) {
-            if (items[i] === allItems[j]._id) {
+          for (j = 0; j < AllItems.length; j++) {
+            if (ItemIds[i] === AllItems[j]._id) {
               ItemDetails = {
-                ItemID: allItems[j]._id,
-                Title: allItems[j].Title,
-                Author: allItems[j].Author,
-                Category: allItems[j].Category,
-                Price: allItems[j].Price,
-                Quantity: allItems[j].Quantity,
-                SubTitle: allItems[j].SubTitle,
-                Image: allItems[j].Images[0],
-                Date: allItems[j].Date,
+                ItemID: ItemIds[i]._id,
+                Title: AllItems[j].Title,
+                Author: AllItems[j].Author,
+                Category: AllItems[j].Category,
+                Price: AllItems[j].Price,
+                Quantity: AllItems[j].Quantity,
+                SubTitle: AllItems[j].SubTitle,
+                Image: AllItems[j].Images[0],
+                Date: ItemIds[i].orderDate,
               };
-    
-              console.log(allItemsTotal);
               setAllItemsTotal(
-                Number(allItemsTotal) + Number(allItems[j].FinalPrice)
+                Number(allItemsTotal) + Number(AllItems[j].Price)
               );
               allItemsTotal =
-                Number(allItemsTotal) + Number(allItems[j].FinalPrice);
+                Number(allItemsTotal) + Number(AllItems[j].Price);
               AllItemsArr.push(ItemDetails);
-              
+             console.log(AllItemsArr)
             }
           }
         }
-    
-        setgItems(AllItemsArr);
+        setabc(AllItemsArr);
       }
         
-
-
 
   return (
 
@@ -133,28 +120,30 @@ export default function Cart(props) {
     <div className="row">
         <div className="col-7 ">
         <hr/>
-        {gItems.map((item, index) => {
+        {abc.map((item) => {
+            
                   return (
+                      
                     <div className="row">
-                    <div className="col-3">
-                        <img style={{width:'200px'}}  src="../images/book1.jpg" />
-                    </div>
-                    <div className="col-6" style={{color:'#3F3232', fontWeight:'bold'}}>
-                        <span style={{fontSize:'18px'}}>{item.Title}</span>
-                        <br/>
-                        <span>&nbsp;&nbsp;{item.Author}</span>
-                        <br/>  <br/>
-                        <span>&nbsp;&nbsp;Rs.300/=</span>
-                    </div>
-                    <div className="col-3">
+                        <div className="col-3">
+                            <img style={{width:'200px'}}  src="../images/book1.jpg" />
+                        </div>
+                        <div className="col-6" style={{color:'#3F3232', fontWeight:'bold'}}>
+                            <span style={{fontSize:'18px'}}>{item.Title}</span>
+                            <br/>
+                            <span>&nbsp;&nbsp;{item.Author}</span>
+                            <br/>  <br/>
+                            <span>&nbsp;&nbsp;Rs.{item.Price}/=</span>
+                        </div>
+                        <div className="col-3">
+                            
+                            <img style={{width:'200px'}}  src="../images/trash.png" />
+                            <br/><br/><br/>
+                            <label>QTY</label>
+                            <input type="number" pattern="[1-9]" Min="1" class="form-control" defaultValue='1' id="quantity" aria-describedby="textHelp" style={{border:'0px solid #3F3232', width:'70px'}}/>
                         
-                        <img style={{width:'200px'}}  src="../images/trash.png" />
-                        <br/><br/><br/>
-                        <label>QTY</label>
-                        <input type="number" pattern="[1-9]" Min="1" class="form-control" defaultValue='1' id="quantity" aria-describedby="textHelp" style={{border:'0px solid #3F3232', width:'70px'}}/>
-                       
+                        </div>
                     </div>
-                </div>
                   )})}
             {/* <div className="row">
                 <div className="col-3">
