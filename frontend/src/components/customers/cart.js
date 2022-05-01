@@ -163,8 +163,8 @@ export default function Cart(props) {
                     </div>
                   </div>
                   )})}
-                  
-            {/* <div className="row">
+
+        {/* <div className="row">
                 <div className="col-3">
                     <img style={{width:'200px'}}  src="../images/book1.jpg" />
                 </div>

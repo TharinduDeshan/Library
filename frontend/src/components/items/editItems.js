@@ -28,11 +28,14 @@ export default function EditItems(props){
     const[Category,setCategory] = useState("");
     const[Description,setDescription] = useState("");
 
-    
+    let objectId = "";
 
 
     useEffect(()=>{
         function getItems(){
+            // objectId = localStorage.getItem("CustomerID");
+            objectId = props.match.params.id;
+            console.log(objectId)
             axios.get("http://localhost:8070/items/get/625bf949653c75bea85783f0")
             .then((res)=>{
                 console.log(res)
@@ -47,11 +50,9 @@ export default function EditItems(props){
     console.log(items.Price)
 
 
-
       function updateItem(e) {
    
         const objectId = "625bf949653c75bea85783f0";
-    
         e.preventDefault();
     
         const data = {
