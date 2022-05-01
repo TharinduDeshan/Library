@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 // import Footer from './components/navigations/footer';
 
 
-import p2 from "./images/home5.jpg";
+import p2 from "../../images/home5.jpg";
 
-import p3 from "./images/book1.jpg";
-import p4 from "./images/book2.jpg";
-import p5 from "./images/book3.jpg";
-import p6 from "./images/book4.jpg";
-import p7 from "./images/book5.jpg";
-import p8 from "./images/book6.jpg";
+import p3 from "../../images/book1.jpg"
+import p4 from "../../images/book2.jpg";
+import p5 from "../../images/book3.jpg";
+import p6 from "../../images/book4.jpg";
+import p7 from "../../images/book5.jpg";
+import p8 from "../../images/book6.jpg";
 import Footer from "../navigations/footer";
 
 

@@ -3,23 +3,24 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../../css/search.css"
 
-import p3 from "./images/book1.jpg";
-import p4 from "./images/book2.jpg";
-import p5 from "./images/book3.jpg";
-import p6 from "./images/book4.jpg";
-import p7 from "./images/book5.jpg";
-import p8 from "./images/book6.jpg";
+import p3 from "../../images/book1.jpg"
+import p4 from "../../images/book2.jpg";
+import p5 from "../../images/book3.jpg";
+import p6 from "../../images/book4.jpg";
+import p7 from "../../images/book5.jpg";
+import p8 from "../../images/book6.jpg";
 
-import p10 from "./images/edit.png";
-import p11 from "./images/trash.png";
-import p12 from "./images/loupe.png";
+import p10 from "../../images/edit.png";
+import p11 from "../../images/trash.png";
+import p12 from "../../images/loupe.png";
 
 export default function StaffCategory(props) {
 
     // const[item,setItem] = useState("");
 
     const[title,setTitle] = useState("");
-    let item = [];
+    // let item = [];
+    let [item, setitem] = useState([]);
 
     let topic = "";
 
@@ -31,19 +32,15 @@ export default function StaffCategory(props) {
             .then((res) => {
                 console.log(res.data)
 
-                    for(let i=0;i<res.data.length;i++){
-                        const filter = res.data.filter(
-                            (items) =>
-                            items.Category === "Books"
-                        );
-                        // console.log(filter[i].Title)
-                        // setItem(filter)
-                        item = filter
-                        console.log(item[i])
-                        // topic = item[i].Title
-                }
+                const filter = res.data.filter(
+                    (items)=>
+                    items.Category ==="Books"
+                );
 
-                 console.log(item)
+         
+
+                 console.log(filter)
+                 setitem(filter)
 
                 //  for(let i=0;i<item.length;i++){
 
@@ -60,6 +57,13 @@ export default function StaffCategory(props) {
         getItems();
       }, []);
 
+      function updateItem(id){
+        console.log(id)
+
+        let ItemID = localStorage.getItem("ItemID");
+
+        props.history.push("/items/editItems.js")
+      }
 
     // function filterContent(data, userSearch) {
     //     let result = data.filter(
@@ -167,31 +171,39 @@ export default function StaffCategory(props) {
 
                 </div>
                 <div className="col-8">
-                <h3>Books</h3>
+                <h3> &ensp; &ensp; Books</h3>
                 <br/>
-
+                <div className="row">
         {item.map((i)=>{
             return(
-                <div className="col ">
                 
-                    
-                    <img  src = {p3}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
+                <div className="col-3 text-center">
+                
+                   
+                    <img  src = {p3}  className="img-fluid" alt="Responsive " style={{width:'50%', marginBottom:'10px'}}/>
                     <br/>
-                    <span>{i.topic}</span>
+                    <span><b>{i.Title}</b></span>
                     <div className="col">
-                    &ensp;&ensp;
-                    <a href="/edit" id="link">
-                         <img id="img141" src={p10} style={{width:'10%'}}/>
-                    </a>
-                    &ensp;&ensp;
-                    <img id="img141" src={p11} style={{width:'10%'}}/>
+                    &ensp;
+                    <button className="btn" style={{width:'50px'}}
+                    onClick={()=>updateItem(i._id)}
+                    >
+                         <img id="img141" src={p10} style={{width:'100%'}}/>
+                    </button>
+                    <button className="btn" style={{width:'50px'}}>
+                        <img id="img141" src={p11} style={{width:'100%'}}/>
+                    </button>
+                    
                     </div>
                    
                 </div>
+              
             )
         })}
-
-                <div className="row text-center" style={{fontWeight:'bold'}}>
+          
+</div>
+<br/>
+                {/* <div className="row text-center" style={{fontWeight:'bold'}}>
          
                     <div className="col ">
                       
@@ -321,7 +333,7 @@ export default function StaffCategory(props) {
                    
                     </div>
                 </div>
-                <br/><br/>
+                <br/><br/> */}
 
 
                 </div>

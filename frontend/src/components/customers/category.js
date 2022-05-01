@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../css/search.css"
 
-import p5 from "./images/book3.jpg";
+// import p5 from "./images/book1.jpg"
+import p5 from "../../images/book1.jpg"
 
 export default function Category(props) {
 
@@ -49,14 +50,14 @@ export default function Category(props) {
                 <div className="row">
          
                     <div className="col " data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <img  src = {'../images/book2.jpg'}  className="img-fluid" alt="Responsive "/>
+                        <img  src = {p5}  className="img-fluid" alt="Responsive "/>
                         <br/>
                         <span>Story Books</span>
                     </div>
 
                     
                     <div className="col">
-                        <img src={'../images/book2.jpg'} className="img-fluid" alt="Responsive "/>
+                        <img src={'./images/book2.jpg'} className="img-fluid" alt="Responsive "/>
                         <br/>
                         <span>Story Books</span>
                     </div>
