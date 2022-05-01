@@ -17,7 +17,7 @@ export default function Cart(props) {
     let AllItemsArr = [];
 
     let [allItemsTotal, setAllItemsTotal] = useState(0);
-    // let [CartItems, setCartItems] = useState([]);
+    let [CartItems, setCartItems] = useState(0);
 
     let ItemID = "";
     let Title = "";
@@ -43,6 +43,7 @@ export default function Cart(props) {
 
     useEffect(() => {
         function getCart() {
+            
           axios
             .get("http://localhost:8070/cart/getOneCart/625c12c9f36bd7f6a5c6748d")
             .then((res) => {
@@ -58,6 +59,8 @@ export default function Cart(props) {
                     AllItems = res.data
                     console.log(AllItems)
                     console.log(ItemIds)
+
+                    setCartItems(ItemIds.length)
     
                     getItemss(ItemIds,AllItems);
     
@@ -79,6 +82,8 @@ export default function Cart(props) {
       function getItemss( ItemIds, AllItems) {
         let j = 0;
         
+        setAllItemsTotal(0)
+
         console.log(AllItems)
         console.log(ItemIds)
     
@@ -124,12 +129,13 @@ export default function Cart(props) {
         <br/>
 
     <div className="row">
-        <div className="col-7 ">
-        <hr/>
+        <div className="col-7 overflow-auto">
+        {/* <hr/> */}
         {abc.map((item) => {
             
                   return (
-                      
+                      <div>
+                           <hr/>
                     <div className="row">
                         <div className="col-3">
                             <img style={{width:'200px'}}  src="../images/book1.jpg" />
@@ -142,20 +148,22 @@ export default function Cart(props) {
                             <span>&nbsp;{item.Category}</span>
                             <br/>  <br/>
                             <span>&nbsp;Rs.{item.Price}/=</span>
+                          
                         </div>
                         <div className="col-3">
                             
-                            <img style={{width:'20px'}}  src={T} />
+                            <img style={{width:'20px', boxShadow: '0 3px 10px rgb(0 0 0 / 0.2)'}}  src={T} />
                             <br/><br/><br/>
-                            <label>QTY</label>
+                            {/* <label>QTY</label>
                             <input type="number" pattern="[1-9]" Min="1" class="form-control" defaultValue='1' id="quantity" aria-describedby="textHelp" style={{border:'0px solid #3F3232', width:'70px'}}/>
-                        
+                         */}
                         </div>
-                        
-                        <hr/>
+                        <br/>
+                       
                     </div>
-                  
+                  </div>
                   )})}
+                  
             {/* <div className="row">
                 <div className="col-3">
                     <img style={{width:'200px'}}  src="../images/book1.jpg" />
@@ -189,9 +197,9 @@ export default function Cart(props) {
                     <span>Sub Total  : </span>
                 </div>
                 <div className="col text-end">
-                    <span>   5</span>
+                    <span>   {CartItems}</span>
                     <br/><br/>
-                    <span>  Rs. 500/=</span>
+                    <span>  Rs. {allItemsTotal}/=</span>
                 </div>
             </div>
             <br/>
@@ -208,7 +216,6 @@ export default function Cart(props) {
                 </div>
         </div>
     </div>
-
     </div>
 
   );
