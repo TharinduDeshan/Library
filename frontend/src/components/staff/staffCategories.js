@@ -23,6 +23,7 @@ export default function StaffCategory(props) {
     const[title,setTitle] = useState("");
     // let item = [];
     let [item, setitem] = useState([]);
+    let [Category, setCategory] = useState([]);
 
     let topic = "";
 
@@ -132,7 +133,7 @@ export default function StaffCategory(props) {
           });
       }
 
-      function filterChildrenBooks(type){
+      function filterItems(type){
         //   alert('asd')
 
           axios
@@ -144,6 +145,8 @@ export default function StaffCategory(props) {
                   (items)=>
                   items.Category === type
               );
+
+              setCategory(type)
 
                console.log(filter)
                setitem(filter)
@@ -179,42 +182,42 @@ export default function StaffCategory(props) {
                 <div className="col-3" style={{color:'#3F3232', fontWeight:'bold', marginLeft:'80px', width:'20%'}}>
 <br/><br/>
                     <h4>Other Categories</h4>
-                    <span id="link" >
+                    <span id="link" onClick={()=>filterItems("Books")}>
                         <a href="#" style={{border:'0px',color:'#3F3232', font:'roboto', width:'80%'}} id="link" className="list-group-item list-group-item-action" >
                             Books
                         </a>
                     </span>
-                    <span id="link" onClick={()=>filterChildrenBooks("Childrens Books")}>
+                    <span id="link" onClick={()=>filterItems("Childrens Books")}>
                         <a href="#" style={{border:'0px',color:'#3F3232', font:'roboto', width:'80%'}}  id="link" className="list-group-item list-group-item-action" >
                             Childrens Books
                         </a>
                     </span>
-                    <span id="link" onClick={()=>filterChildrenBooks("Magazines")}>
+                    <span id="link" onClick={()=>filterItems("Magazines")}>
                         <a href="#" style={{border:'0px',color:'#3F3232', font:'roboto', width:'80%'}}  id="link" className="list-group-item list-group-item-action" >
                             Magazines
                         </a>
                     </span>
-                    <span id="link">
+                    <span id="link"  onClick={()=>filterItems("Articles")}>
                         <a href="#" style={{border:'0px',color:'#3F3232', font:'roboto', width:'80%'}}  id="link" className="list-group-item list-group-item-action" >
                             Articles
                         </a>
                     </span>
-                    <span id="link">
+                    <span id="link"  onClick={()=>filterItems("News Papers")}>
                         <a href="#" style={{border:'0px',color:'#3F3232', font:'roboto', width:'80%'}}  id="link" className="list-group-item list-group-item-action" >
                             News Papers
                         </a>
                     </span>
-                    <span id="link">
+                    <span id="link"  onClick={()=>filterItems("Musics")}>
                         <a href="#" style={{border:'0px',color:'#3F3232', font:'roboto', width:'80%'}}  id="link" className="list-group-item list-group-item-action" >
                             Musics
                         </a>
                     </span>
-                    <span id="link">
+                    <span id="link"  onClick={()=>filterItems("Movies & Comic Books")}>
                         <a href="#" style={{border:'0px',color:'#3F3232', font:'roboto', width:'80%'}}  id="link" className="list-group-item list-group-item-action" >
                             Movies & Comic Books
                         </a>
                     </span>
-                    <span id="link">
+                    <span id="link"  onClick={()=>filterItems("Educational")}>
                         <a href="#" style={{border:'0px',color:'#3F3232', font:'roboto', width:'80%'}}  id="link" className="list-group-item list-group-item-action" >
                             Educational
                         </a>
@@ -223,7 +226,7 @@ export default function StaffCategory(props) {
 
                 </div>
                 <div className="col-8">
-                <h3> &ensp;&ensp; Books</h3>
+                <h3> &ensp;&ensp; {Category}</h3>
                 <br/>
                 <div className="row">
                     <div className = "col-md-12 ">
@@ -265,159 +268,11 @@ export default function StaffCategory(props) {
             )
         })}
           
-</div>
-<br/>
-                {/* <div className="row text-center" style={{fontWeight:'bold'}}>
-         
-                    <div className="col ">
-                      
-                        <img  src = {p3}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
-                        <br/>
-                        <span>HellFiree</span>
-                        <div className="col">
-                        &ensp;&ensp;
-                    
-                         <a href="/edit" id="link">
-                         <img id="img141" src={p10} style={{width:'10%'}}/>
-                         </a>
-                      
-                         &ensp;&ensp;
-                         <img id="img141" src={p11} style={{width:'10%'}}/>
-                        </div>
-                       
-                    </div>
-
-                    <div className="col ">
-                    
-                           
-                        <img  src = {p4}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
-                        <br/>
-                        <span>PlayToys</span>
-                        <div className="col">
-                        &ensp;&ensp;
-                        <a href="/edit" id="link">
-                         <img id="img141" src={p10} style={{width:'10%'}}/>
-                         </a>
-                         &ensp;&ensp;
-                         <img id="img141" src={p11} style={{width:'10%'}}/>
-                        </div>
-                     
-                    </div>
-
-                    <div className="col ">
-                    
-                           
-                        <img  src = {p5}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
-                        <br/>
-                        <span>Dune</span>
-                        <div className="col">
-                        &ensp;&ensp;
-                        <a href="/edit" id="link">
-                         <img id="img141" src={p10} style={{width:'10%'}}/>
-                         </a>
-                         &ensp;&ensp;
-                         <img id="img141" src={p11} style={{width:'10%'}}/>
-                        </div>
-                    
-                    </div>
-
-                    <div className="col ">
-                    
-                           
-                        <img  src = {p6}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
-                        <br/>
-                        <span>Michel</span>
-                        <div className="col">
-                        &ensp;&ensp;
-                        <a href="/edit" id="link">
-                         <img id="img141" src={p10} style={{width:'10%'}}/>
-                         </a>
-                         &ensp;&ensp;
-                         <img id="img141" src={p11} style={{width:'10%'}}/>
-                        </div>
-       
-                    </div>
-
-                    
-                </div>
-
-                <br/>
-
-                <div className="row text-center" style={{fontWeight:'bold'}}>
-                    
-                <div className="col ">
-                    
-                           
-                        <img  src = {p7}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
-                        <br/>
-                        <span>Lord Of the Rings</span>
-                        <div className="col">
-                        &ensp;&ensp;
-                        <a href="/edit" id="link">
-                         <img id="img141" src={p10} style={{width:'10%'}}/>
-                         </a>
-                         &ensp;&ensp;
-                         <img id="img141" src={p11} style={{width:'10%'}}/>
-                        </div>
-                     
-                    </div>
-                    <div className="col ">
-                    
-                           
-                        <img  src = {p8}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
-                        <br/>
-                        <span>Kite Runner</span>
-                        <div className="col">
-                        &ensp;&ensp;
-                        <a href="/edit" id="link">
-                         <img id="img141" src={p10} style={{width:'10%'}}/>
-                         </a>
-                         &ensp;&ensp;
-                         <img id="img141" src={p11} style={{width:'10%'}}/>
-                        </div>
-                     
-                    </div>
-                    <div className="col ">
-                    
-                           
-                        <img  src = {p3}  className="img-fluid" alt="Responsive " style={{width:'50%'}}/>
-                        <br/>
-                        <span>{title}</span>
-                        <div className="col">
-                        &ensp;&ensp;
-                        <a href="/edit" id="link">
-                         <img id="img141" src={p10} style={{width:'10%'}}/>
-                         </a>
-                         &ensp;&ensp;
-                         <img id="img141" src={p11} style={{width:'10%'}}/>
-                        </div>
-                      
-                    </div>
-                    <div className="col ">
-                   
-                    </div>
-                </div>
-                <br/><br/> */}
-
-
-                </div>
-
             </div>
-
-
-            <div class="modal" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                   
-                    <div class="modal-body">
-                        <p>Modal body text goes here.</p>
-                    </div>
-                    
-                    </div>
-                </div>
-                </div>
-
+            <br/>
+        </div>
     </div>
+</div>
 
   );
 }
