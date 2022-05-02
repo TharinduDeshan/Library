@@ -34,7 +34,7 @@ export default function EditItems(props){
     useEffect(()=>{
         function getItems(){
             // objectId = localStorage.getItem("CustomerID");
-            objectId = props.match.params.id;
+            // objectId = props.match.params.id;
             console.log(objectId)
             axios.get("http://localhost:8070/items/get/625bf949653c75bea85783f0")
             .then((res)=>{

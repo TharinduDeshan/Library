@@ -38,47 +38,47 @@ export default function AddItems(props){
             Images,
             Category,
         }
-       
+       console.log(Images)
         console.log(newItem);
 
-        if (checkValidations()) {
-            Swal.fire("Please Enter Valid Details!");
-          } else {
-             axios
-            .post("http://localhost:8070/items/add",newItem)
-            .then(() => {
+        // if (checkValidations()) {
+        //     Swal.fire("Please Enter Valid Details!");
+        //   } else {
+        //      axios
+        //     .post("http://localhost:8070/items/add",newItem)
+        //     .then(() => {
 
-            setTitle(" ");
-            setAuthor(" ");
-            setDate(" ");
-            setQuantity(" ");
-            setPrice(" ");
-            setSubTitle(" ");
-            setDescription(" ");
-            setImages(" ");
-            setCategory(" ");
+        //     setTitle(" ");
+        //     setAuthor(" ");
+        //     setDate(" ");
+        //     setQuantity(" ");
+        //     setPrice(" ");
+        //     setSubTitle(" ");
+        //     setDescription(" ");
+        //     setImages(" ");
+        //     setCategory(" ");
       
-              Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "Your Item has been saved",
-                showConfirmButton: false,
-                timer: 1500,
-              });     
-              // props.history.push("/shome");
-            })
-            .catch((err) => {
-              alert(err);
+        //       Swal.fire({
+        //         position: "center",
+        //         icon: "success",
+        //         title: "Your Item has been saved",
+        //         showConfirmButton: false,
+        //         timer: 1500,
+        //       });     
+        //       // props.history.push("/shome");
+        //     })
+        //     .catch((err) => {
+        //       alert(err);
       
-              Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Something went wrong!",
-                footer: "Please try again!",
-              });
-            //   props.history.push("/Seller/Home");
-            });
-          }
+        //       Swal.fire({
+        //         icon: "error",
+        //         title: "Oops...",
+        //         text: "Something went wrong!",
+        //         footer: "Please try again!",
+        //       });
+        //     //   props.history.push("/Seller/Home");
+        //     });
+          // }
       }
 
       function checkValidations() {

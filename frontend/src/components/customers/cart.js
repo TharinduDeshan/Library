@@ -1,5 +1,6 @@
 import React, { useState , useEffect} from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 import T from "./images/trash.png"
@@ -119,6 +120,49 @@ export default function Cart(props) {
         console.log(AllItemsArr)
       }
         
+
+        //Remove Items From the Cart
+
+  // function removeItems(id, index, price) {
+  //   let Citems = [];
+  //   const customerID = localStorage.getItem("CustomerID");
+  //   axios
+  //     .get("https://tech-scope-online.herokuapp.com/ShoppingCart/getOneCart/" + customerID)
+  //     .then((res) => {
+  //       Citems = res.data.itemIDs;
+  //       let CartID = res.data._id;
+  //       const remainingItems = Citems.filter((pack) => pack !== id);
+  //       let ItemIDs = remainingItems;
+  //       const updatedCart = {
+  //         customerID,
+  //         ItemIDs,
+  //       };
+  //       axios
+  //         .put(
+  //           "https://tech-scope-online.herokuapp.com/ShoppingCart/updateSItem/" + CartID,
+  //           updatedCart
+  //         )
+  //         .then((res) => {
+  //           Swal.fire("Success", "Item Removed From The Cart", "success");
+  //         })
+  //         .catch((err) => {
+  //           console.log(err);
+  //         });
+  //       axios
+  //         .get("https://tech-scope-online.herokuapp.com/items/getItems")
+  //         .then((res) => {
+  //           Allitems = res.data;
+  //           GrandTotal = document.getElementById("GrandTotal").value - price;
+  //           getItemss(Allitems, remainingItems);
+  //           document.getElementById("GrandTotal").value = GrandTotal;
+  //           document.getElementById("GrandTotal2").value = GrandTotal + 100;
+  //         })
+  //         .catch((err) => {});
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }
 
   return (
 
