@@ -215,7 +215,7 @@ export default function Category(props) {
                     <br/>
                     <span style={{fontWeight:'bold', float:'center'}}>{i.Title}</span>
                    
-                    <br/> <br/> <br/>
+                    <br/> <br/> <br/> 
                 </div>
                
               
