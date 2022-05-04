@@ -75,7 +75,6 @@ export default function Home(props) {
     </div>
     <br/><br/>
 
- 
 
   </div>
   );
