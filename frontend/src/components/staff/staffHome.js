@@ -82,14 +82,14 @@ export default function StaffHome(props) {
 
          
          <div className="col" onClick={()=>filterItems("Books")}>
-             <a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
+             <a href="/scategory" style={{color:'#3F3232', textDecoration:'none'}}>
              <img src = {p4}  class="img-fluid" alt="Responsive " style={{width:'40%'}}/>
              <br/>
              <span>Children Books</span>
              </a>
          </div>
          <div className="col" onClick={()=>filterItems("Books")}> 
-         <a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
+         <a href="/scategory" style={{color:'#3F3232', textDecoration:'none'}}>
              <img  src = {p5}  class="img-fluid" alt="Responsive " style={{width:'40%'}}/>
              <br/>
             <span>Articles</span>
@@ -97,7 +97,7 @@ export default function StaffHome(props) {
          </div>
         
          <div className="col" onClick={()=>filterItems("Books")}>
-             <a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
+             <a href="/scategory" style={{color:'#3F3232', textDecoration:'none'}}>
             <img  src = {p6}  class="img-fluid" alt="Responsive " style={{width:'40%'}}/>
             <br/>
             <span>Movies and comics</span>  </a>
@@ -108,25 +108,25 @@ export default function StaffHome(props) {
     <div className="row" style={{fontWeight:'bold', fontSize:'18px', marginLeft:'30px', marginRight:'30px'}}>
          
          <div className="col" onClick={()=>filterItems("Books")}>
-             <a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
+             <a href="/scategory" style={{color:'#3F3232', textDecoration:'none'}}>
             <img  src = {p7}  class="img-fluid" alt="Responsive " style={{width:'40%'}}/>
             <br/>
             <span>Musics</span>  </a>
          </div>
          <div className="col" onClick={()=>filterItems("Books")}>
-             <a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
+             <a href="/scategory" style={{color:'#3F3232', textDecoration:'none'}}>
              <img  src = {p8}  class="img-fluid" alt="Responsive " style={{width:'40%'}}/>
              <br/>
             <span>Educationl</span>  </a>
          </div>
          <div className="col" onClick={()=>filterItems("Books")}>
-             <a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
+             <a href="/scategory" style={{color:'#3F3232', textDecoration:'none'}}>
             <img  src = {p3}  class="img-fluid" alt="Responsive " style={{width:'40%'}}/>
             <br/>
             <span>News Papers</span>  </a>
          </div>
          <div className="col" onClick={()=>filterItems("Books")}>
-             <a href="/category" style={{color:'#3F3232', textDecoration:'none'}}>
+             <a href="/scategory" style={{color:'#3F3232', textDecoration:'none'}}>
             <img  src = {p4}  class="img-fluid" alt="Responsive " style={{width:'40%'}}/>
             <br/>
             <span>Magazines</span>  </a>

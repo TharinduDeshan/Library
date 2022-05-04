@@ -26,7 +26,8 @@ export default function Category(props) {
     let [Category, setCategory] = useState([]);
 
     let topic = "";
-
+    // let [name, setName] = useState("")
+    let [none, setNone] = useState("")
    let [errorText, seterrorText] = useState("")
     useEffect(() => {
         function getItems() {
@@ -115,8 +116,15 @@ export default function Category(props) {
 
               setCategory(type)
 
-               console.log(filter)
+               console.log(filter.length)
                setitem(filter)
+
+               if(filter.length != 0){
+                    setNone("")
+               }
+               else if(filter.length == 0){
+                   setNone("No Items Found")
+               }
 
           })
           .catch((err) => {
@@ -196,17 +204,18 @@ export default function Category(props) {
                 <h3> &ensp;&ensp; {Category}</h3>
                 <br/>
                 <div className="row">
-                    <div className = "col-md-12 ">
+                    {/* <div className = "col-md-12 "> */}
                         <h4 className = "text-danger">{errorText}</h4>
-                    </div>
+                        <h4 className = "text-danger">{none}</h4>
+                    {/* </div> */}
         {item.map((i)=>{
             return(
                 
-                <div className="col-3 text-center">
+                <div className="col-3 text-center" >
                 
-                   
+                   <div data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <img  src={p3}  className="img-fluid" alt="Responsive " style={{width:'45%', marginBottom:'5px'}}
-                    // src = {"./images/book1.jpg" || p3}
+                    // src = {"../../images/book1.jpg" || p3}
                     //  onError={(e) => {
                     //     e.target.onerror = null;
                     //     e.target.src = {p3};
@@ -214,7 +223,7 @@ export default function Category(props) {
                       />
                     <br/>
                     <span style={{fontWeight:'bold', float:'center'}}>{i.Title}</span>
-                   
+                    </div>
                     <br/> <br/> <br/> 
                 </div>
                
