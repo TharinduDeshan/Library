@@ -13,7 +13,6 @@ export default function Cart(props) {
 
     let [ItemIds, setItemIds] = useState([]);
     let [AllItems, setAllItems] = useState([]);
-
     let [abc, setabc] = useState([]);
     let AllItemsArr = [];
 
