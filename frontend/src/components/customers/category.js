@@ -21,12 +21,18 @@ export default function Category(props) {
 
     // const p3 = "../../images/book1.jpg"
     const[title,setTitle] = useState("");
+
+    // const[customerID,setcustomerID] = useState("");
+    const[itemIDs,setitemIDs] = useState("");
+    const[orderDate,setorderDate] = useState("");
     // let item = [];
     let [item, setitem] = useState([]);
     let [Category, setCategory] = useState([]);
+    let [ItemIds, setItemIds] = useState([]);
 
     let topic = "";
-
+    // let [name, setName] = useState("")
+    let [none, setNone] = useState("")
    let [errorText, seterrorText] = useState("")
     useEffect(() => {
         function getItems() {
@@ -37,7 +43,7 @@ export default function Category(props) {
 
                 const filter = res.data.filter(
                     (items)=>
-                    items.Category ==="Books"
+                    items.Category ==="Books"   //temporary category
                 );
 
                  console.log(filter)
@@ -101,7 +107,6 @@ export default function Category(props) {
       }
 
       function filterItems(type){
-        //   alert('asd')
 
           axios
           .get("http://localhost:8070/items/get")
@@ -115,13 +120,108 @@ export default function Category(props) {
 
               setCategory(type)
 
-               console.log(filter)
+               console.log(filter.length)
                setitem(filter)
+
+               if(filter.length != 0){
+                    setNone("")
+               }
+               else if(filter.length == 0){
+                   setNone("No Items Found")
+               }
 
           })
           .catch((err) => {
             alert(err);
           });
+      }
+
+      function Cart(){
+        const id="625bf949653c75bea85783f0" //temporary id
+        const customerID ="625c12c9f36bd7f6a5c6748d"  //temporary id
+
+        axios
+        .get("http://localhost:8070/cart/getAllCarts")
+        .then((res) => {
+            console.log(res.data)
+
+            const filter = res.data.filter(
+                (cusID)=>
+                cusID.customerID ===customerID 
+            );
+
+            if(filter.length==0){
+
+                const newCart ={
+                    customerID : customerID,
+                    itemIDs: id
+                }
+                    axios
+                    .post("http://localhost:8070/cart/add" , newCart)  
+                    .then((res)=>{                
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "Item added to cart Successfully!",
+                            showConfirmButton: false,
+                            timer: 1500,
+                        });
+                    })
+                    .catch((err) => {
+                    alert(err);
+                    });
+            }
+            else if(filter.length==1){
+            
+                axios
+                .get("http://localhost:8070/cart/getOneCart/" + customerID) 
+                .then((res) => {
+                    console.log(res.data)
+                
+                    let cartID = res.data._id;
+                    let newItems = res.data.itemIDs;
+
+                        let flags = 0;
+                        for(let i = 0; i < newItems.length; i++){
+                            if(id === newItems[i]){
+                                flags = 1;
+                            }
+                        }
+                        newItems.push(id)
+
+                            const updatedCart={
+                                itemIDs :newItems
+                            }
+
+                            if(flags === 0){
+                                axios
+                                .put("http://localhost:8070/cart/updateCartItems/" + customerID, updatedCart)
+                                .then((res)=>{
+                                    Swal.fire({
+                                        position: "center",
+                                        icon: "success",
+                                        title: "Item added to cart Successfully!",
+                                        showConfirmButton: false,
+                                        timer: 1500,
+                                    });
+                                })
+                                .catch((err) => {
+                                alert(err);
+                                });
+                            }
+                            else if(flags === 1){
+                                Swal.fire("Item Already in Your Shopping Cart.");
+                            }
+                    })
+                    .catch((err) => {
+                    alert(err);
+                    });
+                }
+        })
+        .catch((err) => {
+            alert(err);
+        });
+
       }
 
 
@@ -196,17 +296,18 @@ export default function Category(props) {
                 <h3> &ensp;&ensp; {Category}</h3>
                 <br/>
                 <div className="row">
-                    <div className = "col-md-12 ">
                         <h4 className = "text-danger">{errorText}</h4>
-                    </div>
+                        <h4 className = "text-danger">{none}</h4>
+                   
+
         {item.map((i)=>{
             return(
                 
-                <div className="col-3 text-center">
+                <div className="col-3 text-center" >
                 
-                   
+                   <div data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <img  src={p3}  className="img-fluid" alt="Responsive " style={{width:'45%', marginBottom:'5px'}}
-                    // src = {"./images/book1.jpg" || p3}
+                    // src = {"../../images/book1.jpg" || p3}
                     //  onError={(e) => {
                     //     e.target.onerror = null;
                     //     e.target.src = {p3};
@@ -214,11 +315,10 @@ export default function Category(props) {
                       />
                     <br/>
                     <span style={{fontWeight:'bold', float:'center'}}>{i.Title}</span>
-                   
+                    </div>
                     <br/> <br/> <br/> 
                 </div>
-               
-              
+            
             )
         })}
           
@@ -247,7 +347,9 @@ export default function Category(props) {
                                 <label style={{paddingBottom:'10px'}}>12/12/2020</label><br/>
                                 <label style={{fontSize:'18px',paddingBottom:'30px',fontWeight:'bold'}}>Rs. 200/=</label><br/>
 
-                                <button type="submit" class="btn" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'200px', boxShadow:'5px 5px #dcdcdc'}}>Add to Cart</button>
+                                <button type="submit" class="btn" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'200px', boxShadow:'5px 5px #dcdcdc'}}
+                                onClick={()=>Cart()}
+                                >Add to Cart</button>
 
                             </div>
                         </div>
