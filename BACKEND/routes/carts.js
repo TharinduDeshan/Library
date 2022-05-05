@@ -6,12 +6,12 @@ router.route("/add").post((req, res) => {
 
     const customerID  = req.body.customerID;
     const itemIDs     = req.body.itemIDs;
-    const orderDate  = req.body.orderDate;
+    // const orderDate  = req.body.orderDate;
 
   const newCart = new Cart({
     customerID,
     itemIDs,
-    orderDate
+    // orderDate
   });
 
     //Insert the created object to the DB //.save()->pass the obeject to the mongo DB through the schema in the model
@@ -125,14 +125,14 @@ router.route("/updateCartItems/:id").put(async (req, res) => {
         const {
           customerID,
           itemIDs,
-          orderDate
+          // orderDate
         
         } = req.body;
       
         const updateItem = {
           customerID,
           itemIDs,
-          orderDate
+          // orderDate
       
         };
       
