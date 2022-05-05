@@ -11,6 +11,8 @@ import EditCustomer from './components/customers/editCustomers';
 import ContactUs from './components/customers/contact';
 import StaffCategory from './components/staff/staffCategories';
 import Cart from './components/customers/cart';
+import StaffHeader from './components/navigations/staffHeader'
+import Footer from './components/navigations/footer';
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
 
     <Router>
         <Header/>
+        {/* <StaffHeader/> */}
 
       <Routes>
 
@@ -30,11 +33,14 @@ function App() {
        <Route exact path="/cart" element={<Cart/>} />
 
        <Route exact path="/shome" element={<StaffHome/>} />
-       <Route exact path="/sCat" element={<StaffCategory/>} />
+       <Route exact path="/scategory" element={<StaffCategory/>} />
        <Route exact path="/add" element={<AddItems/>} />
        <Route exact path="/edit" element={<EditItems/>} />
+
+       <Route path="/shome" component={Footer} />
      
        </Routes> 
+       {/* <Footer/> */}
      </Router>
 
     

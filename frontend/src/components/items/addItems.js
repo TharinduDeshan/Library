@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-export default function AddItems(){
+export default function AddItems(props){
 
     const[Title,setTitle] = useState("");
     const[Author,setAuthor] = useState("");
@@ -12,6 +12,7 @@ export default function AddItems(){
     const[Price,setPrice] = useState("");
     const[Category,setCategory] = useState("");
     const[Images,setImages] = useState("");
+    const[Image,setImage] = useState("");
     const[Description,setDescription] = useState("");
     const[ItemAvailabilityStatus,setItemAvailabilityStatus] = useState("");
 
@@ -26,6 +27,9 @@ export default function AddItems(){
     function sendData(e){
 
         e.preventDefault();
+
+        let imgPath = Image.split("\\");
+        setImages(imgPath[2])
              
         const newItem = {
             Title,
@@ -35,10 +39,9 @@ export default function AddItems(){
             Quantity,
             Price,
             Description,
-            Images,
+            Images : imgPath[2],
             Category,
         }
-       
         console.log(newItem);
 
         if (checkValidations()) {
@@ -55,7 +58,8 @@ export default function AddItems(){
             setPrice(" ");
             setSubTitle(" ");
             setDescription(" ");
-            setImages(" ");
+            // setImages(imgPath[2]);
+            // setImages(" ");
             setCategory(" ");
       
               Swal.fire({
@@ -65,7 +69,7 @@ export default function AddItems(){
                 showConfirmButton: false,
                 timer: 1500,
               });     
-            //   props.history.push("/Seller/Home");
+              // props.history.push("/shome");
             })
             .catch((err) => {
               alert(err);
@@ -205,7 +209,7 @@ export default function AddItems(){
                     <label for="formFile" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Select a Cover Image </label>
                     <input class="form-control" type="file" id="formFile" style={{border:'1px solid #3F3232'}}
                         onChange={(e)=>{
-                            setImages(e.target.value);
+                            setImage(e.target.value);
                         }}/>
                        
                     </div>

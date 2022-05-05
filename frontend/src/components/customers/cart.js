@@ -1,10 +1,175 @@
 import React, { useState , useEffect} from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+
+// import Images from "../../images"
+
+import T from "../../images/trash.png"
+import P1 from "../../images/book1.jpg"
 
 export default function Cart(props) {
 
- 
+
+    // let imgPath = P1.split("/");
+    // console.log(imgPath)
+    // console.log(imgPath[0]+imgPath[1]+imgPath[2]+imgPath[3])
+    // let img = imgPath[0]+imgPath[1]+imgPath[2]+imgPath[3]
+
+    // let cart = [];
+    let items = [];
+    // let[items,setItems] = useState("");
+
+    let [ItemIds, setItemIds] = useState([]);
+    let [AllItems, setAllItems] = useState([]);
+    let [abc, setabc] = useState([]);
+    let AllItemsArr = [];
+
+    let [allItemsTotal, setAllItemsTotal] = useState(0);
+    let [CartItems, setCartItems] = useState(0);
+
+    let ItemID = "";
+    let Title = "";
+    let Author = "";
+    let Category = "";
+    let Price = "";
+    let Quantity = "";
+    let SubTitle = "";
+    let Date = "";
+    let Image = "";
+  
+    let ItemDetails = {
+      ItemID,
+      Title,
+      Author,
+      Category,
+      Price,
+      Quantity,
+      SubTitle,
+      Date,
+      Image
+    };
+
+    const customerID = "625c12c9f36bd7f6a5c6748d"
+
+    useEffect(() => {
+     
+        function getCart() {
+            
+          axios
+            .get("http://localhost:8070/cart/getOneCart/" + customerID)
+            .then((res) => {
+                // console.log(res.data)
+               
+                ItemIds = res.data.itemIDs
+                // console.log(ItemIds)
+
+                axios
+                .get("http://localhost:8070/items/get")
+                .then((res) => { 
+                 
+                    AllItems = res.data
+                    // console.log(AllItems)
+                    // console.log(ItemIds)
+
+                    setCartItems(ItemIds.length)
+    
+                    getItemss(ItemIds,AllItems);
+    
+                })
+                .catch((err) => {
+                  alert(err.message);
+                });
+
+            })
+            .catch((err) => {
+              alert(err);
+            });
+        }
+      
+        getCart();
+      }, []);
+
+
+      function getItemss( ItemIds, AllItems) {
+        let j = 0;
+        
+        setAllItemsTotal(0)
+
+        // console.log(AllItems)
+        // console.log(ItemIds)
+    
+        for (let i = 0; i < ItemIds.length; i++) {
+          j = 0;
+          
+          for (j = 0; j < AllItems.length; j++) {
+            
+            if (ItemIds[i] === AllItems[j]._id) {
+              ItemDetails = {
+                ItemID: AllItems[j]._id,
+                Title: AllItems[j].Title,
+                Author: AllItems[j].Author,
+                Category: AllItems[j].Category,
+                Price: AllItems[j].Price,
+                Quantity: AllItems[j].Quantity,
+                SubTitle: AllItems[j].SubTitle,
+                Image: AllItems[j].Images[0],
+                Date: ItemIds[i].orderDate,   
+              };
+              
+              setAllItemsTotal(
+                Number(allItemsTotal) + Number(AllItems[j].Price)
+              );
+              allItemsTotal =
+                Number(allItemsTotal) + Number(AllItems[j].Price);
+              AllItemsArr.push(ItemDetails);
+            //  console.log(AllItemsArr)
+            }
+          }
+        }
+        setabc(AllItemsArr);
+        console.log(AllItemsArr)
+      }
+      // console.log(ItemDetails)
+        
+
+        //Remove Items From the Cart
+
+        function removeItems(id){
+          console.log(id)
+          
+          axios
+          .get("http://localhost:8070/cart/getOneCart/" + customerID)
+          .then((res) => {
+            console.log(res.data)
+
+              let cartID = res.data._id;
+
+              const filter = res.data.filter(
+                (itemss)=>
+                itemss.itemIDs !== id 
+               );
+
+            console.log(filter)
+
+            const updatedCart={
+              itemIDs : filter
+          }
+
+            axios
+            .put("http://localhost:8070/cart/updateCartItems/" + customerID, updatedCart)
+            .then((res)=>{
+              Swal.fire("Success", "Item Removed From The Cart", "success");
+            })
+            .catch((err) => {
+            alert(err);
+            });
+
+          })
+          .catch((err) => {
+            alert(err);
+            });
+        }
 
 
   return (
@@ -16,31 +181,57 @@ export default function Cart(props) {
         <br/>
 
     <div className="row">
-        <div className="col-7 ">
-        <hr/>
+        <div className="col-7" style={{marginLeft:'20px', marginTop:'-30px',height:'400px', overflowY: "scroll"}}>
+          
+        {abc.map((item) => {
 
-            <div className="row">
-                <div className="col-3">
-                    <img style={{width:'200px'}}  src="../images/book1.jpg" />
-                </div>
-                <div className="col-6" style={{color:'#3F3232', fontWeight:'bold'}}>
-                    <span style={{fontSize:'18px'}}>Book Name</span>
-                    <br/>
-                    <span>&nbsp;&nbsp;Author</span>
-                    <br/>  <br/>
-                    <span>&nbsp;&nbsp;Rs.300/=</span>
-                </div>
-                <div className="col-3">
-                    
-                    <img style={{width:'200px'}}  src="../images/trash.png" />
-                    <br/><br/><br/>
-                    <label>QTY</label>
-                    <input type="number" pattern="[1-9]" Min="1" class="form-control" defaultValue='1' id="quantity" aria-describedby="textHelp" style={{border:'0px solid #3F3232', width:'70px'}}/>
-                   
-                </div>
-            </div>
+          console.log(item.Image)
+            
+                  return (
+                      <div>
+                        <br/>
+                         <hr style={{width:'90%', height:'3px', marginLeft:'30px'}}/>
+                       
+                    <div className="row">
+                        <div className="col-3 text-center" 
+                        // style={{backgroundColor:'red'}}
+                        >
+                            <img style={{width:'120px', height:'150px'}}  
+                            src={"../../images/"+item.Image} 
+                            // src={P1}
+                            />
+                        </div>
+                        <div className="col-6" style={{color:'#3F3232', fontWeight:'bold'}}>
+                            <span style={{fontSize:'20px', fontWeight:'bold'}}>{item.Title}</span>
+                            <br/>
+                            <span>&nbsp;{item.Author}</span>
+                            {/* <br/>
+                            <span>&nbsp;{item.Category}</span> */}
+                            <br/>  <br/>
+                            <span>&nbsp;Rs.{item.Price}/=</span>
+                          
+                        </div>
+                        <div className="col-3">
+                            <button className="btn"
+                            onClick={()=>removeItems(item.ItemID)}>
+                              <img style={{width:'23px'}}  src={T} />
+                            </button>
+                            <br/><br/><br/>
+                            
+                        </div>
+                        <br/>
+                        
+                    </div>
+                    {/* <br/>
+                           <hr style={{width:'90%', height:'2px', marginLeft:'30px'}}/> */}
+                  </div>
+                  )})}
+
 
         </div>
+        {/* <div className="col-1" style={{marginLeft:'80px'}}>
+
+        </div> */}
 
         <div className="col-3" style={{marginLeft:'80px'}}>
             <h4>Total</h4>
@@ -52,9 +243,9 @@ export default function Cart(props) {
                     <span>Sub Total  : </span>
                 </div>
                 <div className="col text-end">
-                    <span>   5</span>
+                    <span>   {CartItems}</span>
                     <br/><br/>
-                    <span>  Rs. 500/=</span>
+                    <span>  Rs. {allItemsTotal}/=</span>
                 </div>
             </div>
             <br/>
@@ -71,7 +262,6 @@ export default function Cart(props) {
                 </div>
         </div>
     </div>
-
     </div>
 
   );
