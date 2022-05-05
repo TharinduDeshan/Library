@@ -110,7 +110,7 @@ export default function EditCustomer(){
         <div className="container" style={{width:'80%'}}>
             <br/><br/>
 
-            <h2 className="text-center" style={{color:'#3F3232', fontWeight:'bold'}}>Edit the {customers.Category}</h2>
+            <h2 className="text-center" style={{color:'#3F3232', fontWeight:'bold'}}>Edit Customer Data {customers.Category}</h2>
             <br/><br/>
             <form onSubmit = {updateCustomer} id="create-course-form">
                 <div className="row">
@@ -118,7 +118,7 @@ export default function EditCustomer(){
                     <div className="col-sm-4">
                         <label for="Inputc-id" className="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Customer ID  </label>
                         <input type="text" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232' }} 
-                        placeholder={customers.CustomerID} />
+                        placeholder={customers.CustomerID} disabled />
                     </div>
 
                     <div className="col-sm-4">
