@@ -31,8 +31,21 @@ connection.once("open", () => {
 })
 
 //Make access to routes
-const itemRouter = require("./routes/items.js");
+const itemRouter = require("./routers/items");
 app.use("/items", itemRouter);
+
+app.use(express.json())
+
+
+
+const stffMemberRouter = require('./routers/staffMemberDetails')
+app.use('/staffMemberDetails', stffMemberRouter)
+
+const customerRouter = require('./routers/customers')
+app.use('/customers', customerRouter)
+
+const customerDetailsRouter = require('./routers/customerDetails')
+app.use('/customerDetails', customerDetailsRouter)
 
 
 //Running the app on the defined port
