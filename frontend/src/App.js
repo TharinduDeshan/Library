@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from './components/customers/home'
 import AddItems from './components/items/addItems';
-// import Header from './components/navigations/header';
+import Header from './components/navigations/header';
 import EditItems from './components/items/editItems';
 import Category from './components/customers/category';
 import StaffHome from './components/staff/staffHome';
@@ -19,8 +19,8 @@ function App() {
 
 
     <Router>
-        {/* <Header/> */}
-        <StaffHeader/>
+        <Header/>
+        {/* <StaffHeader/> */}
 
       <Routes>
 

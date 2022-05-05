@@ -12,6 +12,7 @@ export default function AddItems(props){
     const[Price,setPrice] = useState("");
     const[Category,setCategory] = useState("");
     const[Images,setImages] = useState("");
+    const[Image,setImage] = useState("");
     const[Description,setDescription] = useState("");
     const[ItemAvailabilityStatus,setItemAvailabilityStatus] = useState("");
 
@@ -26,6 +27,9 @@ export default function AddItems(props){
     function sendData(e){
 
         e.preventDefault();
+
+        let imgPath = Image.split("\\");
+        setImages(imgPath[2])
              
         const newItem = {
             Title,
@@ -35,10 +39,9 @@ export default function AddItems(props){
             Quantity,
             Price,
             Description,
-            Images,
+            Images : imgPath[2],
             Category,
         }
-       console.log(Images)
         console.log(newItem);
 
         if (checkValidations()) {
@@ -55,7 +58,8 @@ export default function AddItems(props){
             setPrice(" ");
             setSubTitle(" ");
             setDescription(" ");
-            setImages(" ");
+            // setImages(imgPath[2]);
+            // setImages(" ");
             setCategory(" ");
       
               Swal.fire({
@@ -205,7 +209,7 @@ export default function AddItems(props){
                     <label for="formFile" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Select a Cover Image </label>
                     <input class="form-control" type="file" id="formFile" style={{border:'1px solid #3F3232'}}
                         onChange={(e)=>{
-                            setImages(e.target.value);
+                            setImage(e.target.value);
                         }}/>
                        
                     </div>
