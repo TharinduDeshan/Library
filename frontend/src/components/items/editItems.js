@@ -62,7 +62,6 @@ export default function EditItems(props){
           Description
         }
 
-        console.log(data);
       
           axios
           .patch("http://localhost:8070/items/update/" + objectId, data)
