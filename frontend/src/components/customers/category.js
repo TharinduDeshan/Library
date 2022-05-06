@@ -20,7 +20,7 @@ export default function Category(props) {
     // const[item,setItem] = useState("");
 
     // const p3 = "../../images/book1.jpg"
-    const[title,setTitle] = useState("");
+    // const[title,setTitle] = useState("");
 
     // const[customerID,setcustomerID] = useState("");
     const[itemIDs,setitemIDs] = useState("");
@@ -34,6 +34,18 @@ export default function Category(props) {
     // let [name, setName] = useState("")
     let [none, setNone] = useState("")
    let [errorText, seterrorText] = useState("")
+
+   const [title,setTitle]=useState();
+   const [author,setAuthor]=useState();
+   const [description,setDescription]=useState();
+   const [date,setDate]=useState();
+   const [price,setPrice]=useState();
+   const [cat,setCat]=useState();
+   const [catID,setCatID]=useState();
+
+   const [modalOpenForItem, setModalOpenForItem] = useState(false);
+
+   const pageTitle="Books"
     useEffect(() => {
         function getItems() {
           axios
@@ -43,11 +55,13 @@ export default function Category(props) {
 
                 const filter = res.data.filter(
                     (items)=>
-                    items.Category ==="Books"   //temporary category
+                    items.Category ===pageTitle 
                 );
 
                  console.log(filter)
                  setitem(filter)
+
+                 setCategory(pageTitle)
 
                 //  for(let i=0;i<item.length;i++){
 
@@ -136,8 +150,9 @@ export default function Category(props) {
           });
       }
 
-      function Cart(){
-        const id="625bf949653c75bea85783f0" //temporary id
+      function Cart(id){
+        //   alert(id)
+        //const id="625bf949653c75bea85783f0" //temporary id
         const customerID ="625c12c9f36bd7f6a5c6748d"  //temporary id
 
         axios
@@ -224,6 +239,17 @@ export default function Category(props) {
 
       }
 
+      function modalOpen(data){
+
+        setTitle(data.Title)
+        setAuthor(data.Author)
+        setPrice(data.Price)
+        setDescription(data.Description)
+        setDate(data.Date)
+        setCat(data.Category)
+        setCatID(data._id)
+      }
+
 
   return (
 
@@ -305,7 +331,10 @@ export default function Category(props) {
                 
                 <div className="col-3 text-center" >
                 
-                   <div data-bs-toggle="modal" data-bs-target="#exampleModal">
+                   <div data-bs-toggle="modal" data-bs-target="#exampleModal" 
+                   onClick={()=>modalOpen(i)}
+                   >
+
                     <img  src={p3}  className="img-fluid" alt="Responsive " style={{width:'45%', marginBottom:'5px'}}
                     // src = {"../../images/book1.jpg" || p3}
                     //  onError={(e) => {
@@ -336,31 +365,34 @@ export default function Category(props) {
                         <div className="row">
                             
                             <div className="col-5">
-                                <img src={p5} style={{width:'80%', marginLeft:'30px', marginTop:'15px'}} />
+                                <img src={p5} style={{width:'80%', marginLeft:'20px', marginTop:'15px'}} />
                             </div>
 
                             <div className="col-7">
                             
-                                <label style={{fontSize:'22px',paddingBottom:'2px',fontWeight:'bold', paddingTop:'15px'}}>Book Name</label><br/>
-                                <label style={{paddingBottom:'1px'}}>Author name</label><br/>
-                                <label style={{paddingBottom:'1px'}}>Category</label><br/>
-                                <label style={{paddingBottom:'10px'}}>12/12/2020</label><br/>
-                                <label style={{fontSize:'18px',paddingBottom:'30px',fontWeight:'bold'}}>Rs. 200/=</label><br/>
+                                <label style={{fontSize:'22px',paddingBottom:'2px',fontWeight:'bold', paddingTop:'15px'}}>{title}</label><br/>
+                                <label style={{paddingBottom:'1px'}}>{author}</label><br/>
+                                <label style={{paddingBottom:'1px'}}>{cat}</label><br/>
+                                <label style={{paddingBottom:'10px'}}>{date}</label><br/>
+                                <label style={{fontSize:'18px',paddingBottom:'30px',fontWeight:'bold'}}>Rs. {price}/=</label><br/>
 
                                 <button type="submit" class="btn" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'200px', boxShadow:'5px 5px #dcdcdc'}}
-                                onClick={()=>Cart()}
+                                onClick={()=>Cart(catID)}
                                 >Add to Cart</button>
 
                             </div>
                         </div>
 
                         <div className="row" style={{margin:'10px', marginTop:'20px', lineHeight:'1.2'}}>
-                            <p>The definition of a description is a statement that gives details about someone or something. An example of description is a story about the places visited on a family trip. noun</p>
+                            <p>{description}</p>
                         </div>   
                     </div>
                 </div>
             </div>
         </div>
+
+
+      
     </div>
 
   );

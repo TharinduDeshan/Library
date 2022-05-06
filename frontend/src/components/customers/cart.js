@@ -53,40 +53,27 @@ export default function Cart(props) {
     const customerID = "625c12c9f36bd7f6a5c6748d"
 
     useEffect(() => {
-     
-        function getCart() {
-            
+        function getCart() {       
           axios
             .get("http://localhost:8070/cart/getOneCart/" + customerID)
             .then((res) => {
-                // console.log(res.data)
-               
                 ItemIds = res.data.itemIDs
-                // console.log(ItemIds)
 
                 axios
                 .get("http://localhost:8070/items/get")
                 .then((res) => { 
-                 
                     AllItems = res.data
-                    // console.log(AllItems)
-                    // console.log(ItemIds)
-
                     setCartItems(ItemIds.length)
-    
                     getItemss(ItemIds,AllItems);
-    
                 })
                 .catch((err) => {
                   alert(err.message);
                 });
-
             })
             .catch((err) => {
               alert(err);
             });
         }
-      
         getCart();
       }, []);
 
@@ -144,8 +131,9 @@ export default function Cart(props) {
             console.log(res.data)
 
               let cartID = res.data._id;
+              let itemssIds = res.data.itemIDs;
 
-              const filter = res.data.filter(
+              const filter = itemssIds.filter(
                 (itemss)=>
                 itemss.itemIDs !== id 
                );
@@ -176,12 +164,12 @@ export default function Cart(props) {
 
     <div style={{color:'#3F3232', marginLeft:'60px'}}>
         <br/>
-        <h3>My Cart</h3>
+        <h2><label style={{fontSize:'130%'}}>M</label>y Cart</h2>
 
         <br/>
 
     <div className="row">
-        <div className="col-7" style={{marginLeft:'20px', marginTop:'-30px',height:'400px', overflowY: "scroll"}}>
+        <div className="col-7" style={{marginLeft:'15px', marginTop:'-30px',height:'550px', overflowY: "scroll"}}>
           
         {abc.map((item) => {
 
@@ -197,8 +185,8 @@ export default function Cart(props) {
                         // style={{backgroundColor:'red'}}
                         >
                             <img style={{width:'120px', height:'150px'}}  
-                            src={"../../images/"+item.Image} 
-                            // src={P1}
+                            // src={"../../images/"+item.Image} 
+                            src={P1}
                             />
                         </div>
                         <div className="col-6" style={{color:'#3F3232', fontWeight:'bold'}}>

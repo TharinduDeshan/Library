@@ -66,7 +66,6 @@ export default function StaffCategory(props) {
 
       function deleteItem(id){
         console.log(id)
-
   
           Swal.fire({
             title: "Are you sure?",
