@@ -48,9 +48,6 @@ function App() {
        <Route path="/report" element={<ItemReport/>} />
      
       </Routes> 
-      {/* <Footer/> */}
-
-      
 
      </Router>
 
