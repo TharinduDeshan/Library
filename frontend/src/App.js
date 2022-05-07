@@ -20,8 +20,6 @@ function App() {
 
 
     <Router>
-        {/* <Header/> */}
-        {/* <StaffHeader/> */}
 
       <Routes>
        <Route path="/customer" element={<Header/>} />
