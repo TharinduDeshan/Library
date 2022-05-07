@@ -156,7 +156,7 @@ export default function EditMember(){
                     <div className="col-sm-4">
                         <label for="Input-address" className="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Address <span style={{color:'red'}}>*</span></label>
                         <input type="text" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
-                        placeholder={customers.Address} 
+                        placeholder={members.Address} 
                         onChange={(e) => {
                             setAddress(e.target.value);
                         }}
