@@ -15,10 +15,7 @@ export default function EditItems(props){
   let flag = 0;
 
   const [data, setData] = useState({
-    // Quantity: "",
-    // Price: "",
-    // Category: "",
-    // Description: "",
+   
   });
 
 
