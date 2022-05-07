@@ -251,6 +251,7 @@ export default function Cart(props) {
                 </div>
         </div>
     </div>
+    <br/><br/><br/><br/><br/>
     </div>
 
   );

@@ -245,6 +245,8 @@ export default function AddItems(props){
                 </div>
             </form>
         </div>
+
+        <br/><br/><br/><br/><br/><br/>
         </div>
     )
 
