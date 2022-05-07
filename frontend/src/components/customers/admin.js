@@ -5,34 +5,32 @@ import { Link } from "react-router-dom";
 import "../../css/search.css"
 
 export default function Admin(props) {
-    const[title,setTitle] = useState("");
+    cconst[CustomerID,setCustomerID] = useState("");
+    const[Name,setName] = useState("");
+    const[NIC,setNIC] = useState("");
+    const[PhoneNumber,setPhoneNumber] = useState("");
+    const[Address,setAddress] = useState("");
+    const[Email,setEmail] = useState("");
+    const[Occupcation,setOccupcation] = useState("");
+    const[Gender,setGender] = useState("");
+    const[Member,setMember] = useState("");
 
-    // const[customerID,setcustomerID] = useState("");
-    const[itemIDs,setitemIDs] = useState("");
-    const[orderDate,setorderDate] = useState("");
-    // let item = [];
-    let [item, setitem] = useState([]);
-    let [Category, setCategory] = useState([]);
-    let [ItemIds, setItemIds] = useState([]);
-
-    let topic = "";
-    // let [name, setName] = useState("")
-    let [none, setNone] = useState("")
+    //let [none, setNone] = useState("")
     let [errorText, seterrorText] = useState("")
     useEffect(() => {
-        function getItems() {
+        function getCustomers() {
           axios
-            .get("http://localhost:8070/items/get")
+            .get("http://localhost:8070/customers/get")
             .then((res) => {
                 console.log(res.data)
 
-                const filter = res.data.filter(
-                    (items)=>
-                    items.Category ==="Books"   //temporary category
-                );
+                // const filter = res.data.filter(
+                //     (items)=>
+                //     items.Category ==="Books"   //temporary category
+                // );
 
-                 console.log(filter)
-                 setitem(filter)
+                //  console.log(filter)
+                //  setitem(filter)
 
                
             })
@@ -45,27 +43,37 @@ export default function Admin(props) {
       }, []);
 
 return (
-      <div>
-          <p>hello</p>
+      <div className="customer" key={customer.CustomerID}>
+        <h2>Customer Informations</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>NAME</th>
+              <th>NIC</th>
+              <th>PhoneNumber</th>
+              <th>Address</th>
+              <th>Email</th>
+              <th>Occupcation</th>
+              <th>Gender</th>
+              <th>Member</th>
+            </tr>
+          </thead>
+          <tbody>
+            {customer.map((customer) => (
+              <tr>
+                <td>{customer.CustomerID}</td>
+                <td>{customer.Name}</td>
+                <td>{customer.NIC}</td>
+                <td>{customer.PhoneNumber}</td>
+                <td>{customer.Email}</td>
+                <td>{customer.Occupcation}</td>
+                <td>{customer.Gender}</td>
+                <td>{customer.Member}</td>               
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-        
-    // <div  style={{color:'#3F3232'}}>
-    // <div className="searchbaar">
-    //     <div className="container h-100">
-    //         <div className="d-flex justify-content-center h-100">
-    //             <div className="searchbar" >
-    //                 <input className="search_input" type="text" name="" 
-    //                 onChange={(e) => handleSearch(e.target.value)}
-    //                 />
-    //                 <a type="button" className="search_icon"  >
-    //                 <img id="img141" src={p12} />
-    //                 </a>
-    //             </div>
-    //         </div>
-    //     </div>
-    // </div>
-
-    // </div>             
-
   );
 }
