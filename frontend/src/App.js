@@ -38,9 +38,11 @@ function App() {
        <Route path="/staff/editItem/:id" element={<><StaffHeader /><EditItems /><Footer/></>} />
 
        <Route path="/staff/addCustomer" element={<><StaffHeader /><AddCustomer /><Footer/></>} />
+       {/* <Route path="/admin" element={<><StaffHeader /><Admin/><Footer/></>} /> */}
 
        
        <Route path="/" element={<WelcomePage />} />
+       <Route path="/admin" element={<Admin />} />
      
       </Routes> 
       {/* <Footer/> */}

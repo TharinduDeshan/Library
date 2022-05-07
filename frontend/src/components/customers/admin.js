@@ -4,6 +4,12 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import "../../css/search.css"
 
+// import "datatables.net-dt/js/dataTables.dataTables"
+
+// import "datatables.net-dt/css/jquery.dataTables.min.css"
+
+// import $ from "jquery";
+
 export default function Admin(props) {
     const[CustomerID,setCustomerID] = useState("");
     const[Name,setName] = useState("");
@@ -17,7 +23,7 @@ export default function Admin(props) {
 
     const[customer,setCustomer] = useState("");
 
-    
+
     //let [none, setNone] = useState("")
     let [errorText, seterrorText] = useState("")
     useEffect(() => {
@@ -28,6 +34,12 @@ export default function Admin(props) {
                 console.log(res.data)
                 setCustomer(res.data)
                 console.log(customer)
+
+              //   $(document).ready(function () {
+
+              //     $('#example').DataTable();
+  
+              // });
                
             })
             .catch((err) => {
@@ -41,6 +53,7 @@ export default function Admin(props) {
 return (
       <div className="customer" key={customer.CustomerID}>
         <h2>Customer Informations</h2>
+        {/* <table class="table table-striped table-bordered text-center" id="example" > */}
         <table>
           <thead>
             <tr>
