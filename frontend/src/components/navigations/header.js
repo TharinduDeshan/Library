@@ -36,7 +36,7 @@ function Header(){
                     <a class="nav-link"  href="/contact" id="contactus">Contact Us</a>
                     </li>
                     <li class="nav-item" style={{ marginRight: '25px'}}>
-                    <a class="nav-link" href="/cart" id="features">My Cart</a>
+                    <a class="nav-link" href="/cart/:id" id="features">My Cart</a>
                     </li>
                     <li class="nav-item" style={{ marginRight: '25px'}}>
                     <button type="button" style={{ backgroundColor: '#F2AB39', border: 'none', width: '100px'}} class="btn btn-primary">Sign Out</button>

@@ -26,16 +26,16 @@ function App() {
 
        <Route exact path="/" element={<Home/>} />
     
-       <Route exact path="/category" element={<Category/>} />
+       <Route exact path="/category/:type" element={<Category/>} />
        <Route exact path="/addCustomer" element={<AddCustomer/>} />
        <Route exact path="/ediCustomer" element={<EditCustomer/>} />
        <Route exact path="/contact" element={<ContactUs/>} />
        <Route exact path="/cart" element={<Cart/>} />
 
        <Route exact path="/shome" element={<StaffHome/>} />
-       <Route exact path="/scategory" element={<StaffCategory/>} />
+       <Route exact path="/scategory/:type" element={<StaffCategory/>} />
        <Route exact path="/add" element={<AddItems/>} />
-       <Route exact path="/edit" element={<EditItems/>} />
+       <Route exact path="/edit/:id" element={<EditItems/>} />
 
        <Route path="/shome" component={Footer} />
      

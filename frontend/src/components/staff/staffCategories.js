@@ -1,7 +1,7 @@
 import React, { useState , useEffect} from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../../css/search.css"
 
 import p3 from "../../images/book1.jpg";
@@ -27,6 +27,10 @@ export default function StaffCategory(props) {
 
     let topic = "";
 
+    const history = useNavigate();
+    const {type} = useParams();
+    console.log(type)
+
    let [errorText, seterrorText] = useState("")
     useEffect(() => {
         function getItems() {
@@ -37,18 +41,13 @@ export default function StaffCategory(props) {
 
                 const filter = res.data.filter(
                     (items)=>
-                    items.Category ==="Books"
+                    items.Category ===type
                 );
 
                  console.log(filter)
                  setitem(filter)
 
-                //  for(let i=0;i<item.length;i++){
-
-                //     console.log(item[i].Title)
-                //     setTitle(item[i].Title)
-         
-                // }
+                 setCategory(type)
             })
             .catch((err) => {
               alert(err);
@@ -61,12 +60,11 @@ export default function StaffCategory(props) {
       function updateItem(id){
         console.log(id)
 
-        props.history.push("/edit")
+        history(`/edit/${id}`)
       }
 
       function deleteItem(id){
         console.log(id)
-
   
           Swal.fire({
             title: "Are you sure?",
