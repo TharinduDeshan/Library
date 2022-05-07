@@ -41,6 +41,7 @@ function App() {
 
        
        <Route path="/" element={<WelcomePage />} />
+       <Route path="/admin" element={<Admin />} />
      
       </Routes> 
       {/* <Footer/> */}
