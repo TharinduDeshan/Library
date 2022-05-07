@@ -1,5 +1,12 @@
 const router = require("express").Router();
+<<<<<<< HEAD:BACKEND/routers/items.js
 let Item = require("../models/Item");
+=======
+let Item = require("../modules/Item");
+// const pdf = require('html-pdf');
+// const pdfTemplate = require("../documents/studentReport");
+// const pdftem = require("../documents/ReviewReport");
+>>>>>>> 11b332770f83287169b12784b39d788a354ad9e9:BACKEND/routes/items.js
 
 //Insert
 router.route("/add").post((req, res) => {
@@ -68,7 +75,7 @@ router.route("/get").get((reg, res) => {
 });
 
 // update
-router.route("/update/:id").put(async (req, res) => {
+router.route("/update/:id").patch(async (req, res) => {
   let itemID = req.params.id;
   const {
     Quantity,
@@ -126,6 +133,23 @@ router.route("/get/:id").get(async (req, res) => {
         .send({ status: "Error with get user", error: err.message });
     });
 });
+
+router.post('/create-pdf',(req,res) => {
+  pdf.create(pdftem(req.body),{}).toFile('./routes/itemreport.pdf',(err) =>{
+    if(err){
+      res.send(Promise.reject());
+    }
+
+    res.send(Promise.resolve());
+  });
+});
+
+// get PDF
+router.get('/fetch-pdf',(req,res)=>{
+  res.sendFile(`${__dirname}/itemreport.pdf`)
+            // absolute directory
+})
+
 
 
 module.exports = router;
