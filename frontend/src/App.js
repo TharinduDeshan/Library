@@ -13,6 +13,7 @@ import StaffCategory from './components/staff/staffCategories';
 import Cart from './components/customers/cart';
 import StaffHeader from './components/navigations/staffHeader'
 import Footer from './components/navigations/footer';
+import Admin from './components/customers/admin';
 import WelcomePage from './components/navigations/welcomePage';
 
 function App() {
