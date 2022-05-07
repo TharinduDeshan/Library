@@ -7,6 +7,9 @@ import "datatables.net-dt/js/dataTables.dataTables"
 import "datatables.net-dt/css/jquery.dataTables.min.css"
 import $ from "jquery";
 
+import p10 from "../../images/edit.png";
+import p11 from "../../images/trash.png";
+
 export default function Admin(props) {
     const[CustomerID,setCustomerID] = useState("");
     const[Name,setName] = useState("");
