@@ -13,8 +13,10 @@ import StaffCategory from './components/staff/staffCategories';
 import Cart from './components/customers/cart';
 import StaffHeader from './components/navigations/staffHeader'
 import Footer from './components/navigations/footer';
-import Admin from './components/customers/admin';
+import Admin from './components/customers/viewCustomers';
 import WelcomePage from './components/navigations/welcomePage';
+import ViewCustomers from './components/customers/viewCustomers';
+import ItemReport from './components/services/itemReport';
 
 function App() {
   return (
@@ -41,7 +43,9 @@ function App() {
 
        
        <Route path="/" element={<WelcomePage />} />
-       <Route path="/admin" element={<Admin />} />
+       <Route path="/admin" element={<ViewCustomers />} />
+
+       <Route path="/report" element={<ItemReport/>} />
      
       </Routes> 
       {/* <Footer/> */}
