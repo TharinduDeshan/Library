@@ -5,17 +5,18 @@ import { Link } from "react-router-dom";
 import "../../css/search.css"
 
 export default function ViewCustomers(props) {
-    const[CustomerID,setCustomerID] = useState("");
-    const[Name,setName] = useState("");
-    const[NIC,setNIC] = useState("");
-    const[PhoneNumber,setPhoneNumber] = useState("");
-    const[Address,setAddress] = useState("");
-    const[Email,setEmail] = useState("");
-    const[Occupcation,setOccupcation] = useState("");
-    const[Gender,setGender] = useState("");
-    const[Member,setMember] = useState("");
+    // const[CustomerID,setCustomerID] = useState("");
+    // const[Name,setName] = useState("");
+    // const[NIC,setNIC] = useState("");
+    // const[PhoneNumber,setPhoneNumber] = useState("");
+    // const[Address,setAddress] = useState("");
+    // const[Email,setEmail] = useState("");
+    // const[Occupcation,setOccupcation] = useState("");
+    // const[Gender,setGender] = useState("");
+    // const[Member,setMember] = useState("");
 
-    const[customerDetails,setCustomerDetails] = useState("");
+    let[customerDetails,setCustomerDetails] = useState([]);
+    
 
     //let [none, setNone] = useState("")
     let [errorText, seterrorText] = useState("")
@@ -56,7 +57,7 @@ return (
             </tr>
           </thead>
           <tbody>
-            {customerDetails.map((customer) => (
+          {customerDetails.map((customer) => (
               <tr>
                 <td>{customer.CustomerID}</td>
                 <td>{customer.Name}</td>
