@@ -185,8 +185,9 @@ export default function Cart(props) {
                         // style={{backgroundColor:'red'}}
                         >
                             <img style={{width:'120px', height:'150px'}}  
-                            // src={"../../images/"+item.Image} 
-                            src={P1}
+                            src="frontend/src/images/book1.jpg"
+                            // src={`../../images/${item.Image}`}
+                            
                             />
                         </div>
                         <div className="col-6" style={{color:'#3F3232', fontWeight:'bold'}}>

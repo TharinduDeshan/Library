@@ -1,7 +1,7 @@
 import React, { useState , useEffect} from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "../../css/search.css"
 
 import p3 from "../../images/book1.jpg";
@@ -45,6 +45,9 @@ export default function Category(props) {
 
    const [modalOpenForItem, setModalOpenForItem] = useState(false);
 
+   const {type} = useParams();
+   console.log(type)
+
    const pageTitle="Books"
     useEffect(() => {
         function getItems() {
@@ -55,13 +58,13 @@ export default function Category(props) {
 
                 const filter = res.data.filter(
                     (items)=>
-                    items.Category ===pageTitle 
+                    items.Category ===type 
                 );
 
                  console.log(filter)
                  setitem(filter)
 
-                 setCategory(pageTitle)
+                 setCategory(type)
 
                 //  for(let i=0;i<item.length;i++){
 
