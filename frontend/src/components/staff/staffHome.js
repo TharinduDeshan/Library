@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // import Footer from './components/navigations/footer';
 
@@ -18,31 +18,14 @@ import Footer from "../navigations/footer";
 
 export default function StaffHome(props) {
 
+    const history = useNavigate();
+
     let [item, setitem] = useState([]);
     let [Category, setCategory] = useState([]);
 
     function filterItems(type){
-        //   alert('asd')
 
-          axios
-          .get("http://localhost:8070/items/get")
-          .then((res) => {
-              console.log(res.data)
-
-              const filter = res.data.filter(
-                  (items)=>
-                  items.Category === type
-              );
-
-              setCategory(type)
-
-               console.log(filter)
-               setitem(filter)
-
-          })
-          .catch((err) => {
-            alert(err);
-          });
+        history(`/staff/scategory/${type}`)
       }
 
   return (
@@ -52,19 +35,19 @@ export default function StaffHome(props) {
 
     <div className="row" style={{color:'#3F3232', fontWeight:'bold', fontSize:'18px'}}>
         
-        <div className="col-sm">
-            <a style={{color:'#3F3232', textDecoration:'underline'}} class="navbar-brand" href="/scategory">Categories</a>
+        <div className="col-sm list-group-item list-group-item-action" style={{border:'0px'}}>
+            <a style={{color:'#3F3232', textDecoration:'underline',border:'0px'}} class="navbar-brand " href="/scategory">Categories</a>
         </div>
-        <div className="col-sm">
-            <a style={{color:'#3F3232'}}  class="navbar-brand" href="/add">Add Items</a>
+        <div className="col-sm list-group-item list-group-item-action" style={{border:'0px'}}>
+            <a style={{color:'#3F3232'}}  class="navbar-brand" href="/staff/addItem">Add Items</a>
         </div>
-        <div className="col-sm">
+        <div className="col-sm list-group-item list-group-item-action" style={{border:'0px'}}>
             <a style={{color:'#3F3232'}}  class="navbar-brand" href="#">Issued Items</a>
         </div>
-        <div className="col-sm">
-            <a style={{color:'#3F3232'}}  class="navbar-brand" href="#">Add Customers</a>
+        <div className="col-sm list-group-item list-group-item-action" style={{border:'0px'}}>
+            <a style={{color:'#3F3232'}}  class="navbar-brand" href="/staff/addCustomer">Add Customers</a>
         </div>
-        <div className="col-sm">
+        <div className="col-sm list-group-item list-group-item-action" style={{border:'0px'}}>
             <a style={{color:'#3F3232'}}  class="navbar-brand" href="#">New Membership</a>
         </div>
     </div>
@@ -73,34 +56,34 @@ export default function StaffHome(props) {
      <div className="row" style={{fontWeight:'bold', fontSize:'18px', marginLeft:'30px', marginRight:'30px'}}>
          
          <div className="col" onClick={()=>filterItems("Books")}>
-             <a href="/scategory" style={{color:'#3F3232', textDecoration:'none'}}>
+             
             <img  src = {p3}  class="img-fluid" alt="Responsive " style={{width:'40%'}}/>
             <br/>
             <span >Books</span>
-            </a>
+            
          </div>
 
          
          <div className="col" onClick={()=>filterItems("Books")}>
-             <a href="/scategory" style={{color:'#3F3232', textDecoration:'none'}}>
+             
              <img src = {p4}  class="img-fluid" alt="Responsive " style={{width:'40%'}}/>
              <br/>
              <span>Children Books</span>
-             </a>
+             
          </div>
          <div className="col" onClick={()=>filterItems("Books")}> 
-         <a href="/scategory" style={{color:'#3F3232', textDecoration:'none'}}>
+         
              <img  src = {p5}  class="img-fluid" alt="Responsive " style={{width:'40%'}}/>
              <br/>
             <span>Articles</span>
-            </a>
+            
          </div>
         
          <div className="col" onClick={()=>filterItems("Books")}>
-             <a href="/scategory" style={{color:'#3F3232', textDecoration:'none'}}>
+             
             <img  src = {p6}  class="img-fluid" alt="Responsive " style={{width:'40%'}}/>
             <br/>
-            <span>Movies and comics</span>  </a>
+            <span>Movies and comics</span>  
          </div>
     </div>
     <br/><br/>
@@ -108,33 +91,33 @@ export default function StaffHome(props) {
     <div className="row" style={{fontWeight:'bold', fontSize:'18px', marginLeft:'30px', marginRight:'30px'}}>
          
          <div className="col" onClick={()=>filterItems("Books")}>
-             <a href="/scategory" style={{color:'#3F3232', textDecoration:'none'}}>
+             
             <img  src = {p7}  class="img-fluid" alt="Responsive " style={{width:'40%'}}/>
             <br/>
-            <span>Musics</span>  </a>
+            <span>Musics</span>  
          </div>
          <div className="col" onClick={()=>filterItems("Books")}>
-             <a href="/scategory" style={{color:'#3F3232', textDecoration:'none'}}>
+             
              <img  src = {p8}  class="img-fluid" alt="Responsive " style={{width:'40%'}}/>
              <br/>
-            <span>Educationl</span>  </a>
+            <span>Educationl</span>  
          </div>
          <div className="col" onClick={()=>filterItems("Books")}>
-             <a href="/scategory" style={{color:'#3F3232', textDecoration:'none'}}>
+             
             <img  src = {p3}  class="img-fluid" alt="Responsive " style={{width:'40%'}}/>
             <br/>
-            <span>News Papers</span>  </a>
+            <span>News Papers</span>  
          </div>
          <div className="col" onClick={()=>filterItems("Books")}>
-             <a href="/scategory" style={{color:'#3F3232', textDecoration:'none'}}>
+             
             <img  src = {p4}  class="img-fluid" alt="Responsive " style={{width:'40%'}}/>
             <br/>
-            <span>Magazines</span>  </a>
+            <span>Magazines</span>  
          </div>
     </div>
     <br/>
 
-
+    <br/><br/><br/><br/>
      
   </div>
   );
