@@ -1,5 +1,8 @@
 const router = require("express").Router();
 let Item = require("../modules/Item");
+// const pdf = require('html-pdf');
+// const pdfTemplate = require("../documents/studentReport");
+// const pdftem = require("../documents/ReviewReport");
 
 //Insert
 router.route("/add").post((req, res) => {
@@ -9,7 +12,7 @@ router.route("/add").post((req, res) => {
   const Quantity = parseInt(req.body.Quantity);
   const Price = req.body.Price;
   const Description = req.body.Description;
-//   const Images = req.body.Images;
+  const Images = req.body.Images;
   const Category = req.body.Category;
   const ItemAvailabilityStatus = req.body.ItemAvailabilityStatus;
   const Date = req.body.Date;
@@ -22,7 +25,7 @@ router.route("/add").post((req, res) => {
     Quantity,
     Price,
     Description,
-    // Images,
+    Images,
     Category,
     ItemAvailabilityStatus,
     Date,
@@ -41,7 +44,7 @@ router.route("/add").post((req, res) => {
           Quantity: newItem.Quantity,
           Price: newItem.Price,
           Description: newItem.Description,
-        //   Images: newItem.Images,
+          Images: newItem.Images,
           Category: newItem.Category,
           ItemAvailabilityStatus : newItem.ItemAvailabilityStatus,
           Date : newItem.Date,
@@ -68,7 +71,7 @@ router.route("/get").get((reg, res) => {
 });
 
 // update
-router.route("/update/:id").put(async (req, res) => {
+router.route("/update/:id").patch(async (req, res) => {
   let itemID = req.params.id;
   const {
     Quantity,
@@ -126,6 +129,23 @@ router.route("/get/:id").get(async (req, res) => {
         .send({ status: "Error with get user", error: err.message });
     });
 });
+
+router.post('/create-pdf',(req,res) => {
+  pdf.create(pdftem(req.body),{}).toFile('./routes/itemreport.pdf',(err) =>{
+    if(err){
+      res.send(Promise.reject());
+    }
+
+    res.send(Promise.resolve());
+  });
+});
+
+// get PDF
+router.get('/fetch-pdf',(req,res)=>{
+  res.sendFile(`${__dirname}/itemreport.pdf`)
+            // absolute directory
+})
+
 
 
 module.exports = router;

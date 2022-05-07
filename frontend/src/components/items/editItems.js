@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
-export default function EditItems(){
+export default function EditItems(props){
 
   const[items,setItems] = useState("");
 
@@ -15,10 +16,7 @@ export default function EditItems(){
   let flag = 0;
 
   const [data, setData] = useState({
-    // Quantity: "",
-    // Price: "",
-    // Category: "",
-    // Description: "",
+   
   });
 
 
@@ -28,17 +26,22 @@ export default function EditItems(){
     const[Category,setCategory] = useState("");
     const[Description,setDescription] = useState("");
 
-    
+    const objectId = "625bf949653c75bea85783f0";
 
+    const {id} = useParams();
+    console.log(id)
 
     useEffect(()=>{
         function getItems(){
-            axios.get("http://localhost:8070/items/get/623729699d9796c7d397cb8f")
+            // objectId = localStorage.getItem("CustomerID");
+            // objectId = props.match.params.id;
+            console.log(id)
+            axios.get("http://localhost:8070/items/get/" + id)
             .then((res)=>{
-                console.log(res)
+                console.log(res.data)
                 setItems(res.data)
             }).catch((err)=>{
-                alert(err.errorMsg)    
+                console.log(err.errorMsg)    
             })
         }
         getItems();
@@ -47,39 +50,9 @@ export default function EditItems(){
     console.log(items.Price)
 
 
-    // function updateItem(id) {
-    //     const objectId = "623d9001e14fb57281e5ea5f";
-    //     console.log(id);
-    
-    //     // alert("d0");
-    //     // e.preventDefault();
-    
-    //     const UpdatedItem = {
-    //       Price,
-    //       Quantity,
-    //       Category,
-    //       Description
-    //     }
-    
-    //     console.log(UpdatedItem);
-    //     //document.write("newStudent");
-    //     axios
-    //       .put("http://localhost:8070/items/update/" + id, UpdatedItem)
-    //       .then(() => {
-    //         //alert("Student Updated");
-    //         document.getElementById("txt").innerHTML =
-    //           "Student Updated Successfully!";
-    //       })
-    //       .catch((err) => {
-    //         alert(err);
-    //       });
-    //   }
-
-
       function updateItem(e) {
    
-        const objectId = "623729699d9796c7d397cb8f";
-    
+        const objectId = "625bf949653c75bea85783f0";
         e.preventDefault();
     
         const data = {
@@ -89,10 +62,9 @@ export default function EditItems(){
           Description
         }
 
-        console.log(data);
       
           axios
-          .put("http://localhost:8070/items/update/" + objectId, data)
+          .patch("http://localhost:8070/items/update/" + objectId, data)
           .then(() => {
 
             setQuantity(" ");
@@ -109,7 +81,7 @@ export default function EditItems(){
               timer: 1500
             })
     
-            // props.history.push("/customers/home");
+            // props.history.push("/scategory");
       
           })
           .catch((err) => {
@@ -120,55 +92,6 @@ export default function EditItems(){
         
       }
     
-    //   function handle(e) {
-    //     const newdata = { ...data };
-    //     newdata[e.target.id] = e.target.value;
-    //     setData(newdata);
-
-    //     // if(e.target.id == "Quantity"){
-    //     //     if(e.target.value > 100){
-    //     //       setErrorMsg("Quantity cannot be more than 100");
-    //     //       setSuccMsg("")
-    //     //       flag = 0;
-    //     //     //   setButtonStatus(true);
-    //     //     }else if(e.target.value <= 0){
-    //     //       setErrorMsg("Quantity cannot be less than 0");
-    //     //       setSuccMsg("")
-    //     //       flag = 0;
-    //     //     //   setButtonStatus(true);
-    //     //     }else if((e.target.value).length == 0){
-      
-    //     //     }else if((e.target.value) > 0 && (e.target.value) < 200){
-            
-    //     //         setSuccMsg("All Set!")
-    //     //         setErrorMsg("");
-    //     //         flag = 1;
-    //     //         // setButtonStatus(false);
-    //     //       }else{
-    //     //       setErrorMsg("");
-    //     //       flag = 1;
-    //     //     //   setButtonStatus(false);
-    //     //     }
-            
-    //     //   } 
-          
-    //     //   if(e.target.id == "Price"){
-    //     //     if(e.target.value > 1000){
-    //     //       setError2Msg("Price cannot exceed 1000");
-    //     //       flag = 0;
-    //     //     //   setButtonStatus(true);
-    //     //     }else if(e.target.value <= 0){
-    //     //       setError2Msg("Price cannot be Zero or less");
-    //     //       flag = 0;
-    //     //     //   setButtonStatus(true);
-    //     //     }else{
-    //     //       setError2Msg("");
-    //     //       flag = 1;
-    //     //     //   setButtonStatus(false);
-    //     //     }
-    //     //   }
-    //   }
-
 
     return(
 
@@ -222,19 +145,22 @@ export default function EditItems(){
                     </div>
 
                     <div class="col-sm">
-                        <label for="exampleInputEmail1" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Category </label>
-                        {/* <select class="form-select" aria-label="Default select example" style={{border:'1px solid #3F3232'}}>
+                    <label for="exampleInputEmail1" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Category <span style={{color:'red'}}>*</span></label>
+                        <select class="form-select" aria-label="Default select example" style={{color:'#3F3232',border:'1px solid #3F3232'}} onChange={(e)=>{
+                            setCategory(e.target.value);
+                            
+                        }}
+                        required>
                             <option selected>{items.Category}</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select> */}
-                        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
-                        placeholder={items.Category}
-                       onChange={(e) => {
-                        setCategory(e.target.value);
-                       }}
-                       />
+                            {/* <option value="Books">Books</option> */}
+                            <option value="Children Books">Children Books</option>
+                            <option value="Articles">Articles</option>
+                            <option value="Magazines">Magazines</option>
+                            <option value="Movies and Comic Books">Movies and Comic Books</option>
+                            <option value="News Papers">News Papers</option>
+                            <option value="Educational">Educational</option>
+                            <option value="Musics">Musics</option>
+                        </select>
                     </div>
                 </div>
                 <br/><br/>
@@ -263,12 +189,14 @@ export default function EditItems(){
                         // onClick={() => updateItem(items._id)}
                         >Submit</button>
                        
-                        <button type="cancel" class="btn" style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}>Clear</button>
+                        <button type="reset" class="btn" style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}>Clear</button>
                         
                     </div>
                 </div>
             </form>
         </div>
+
+        <br/><br/><br/><br/><br/><br/>
         </div>
     )
 

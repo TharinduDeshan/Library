@@ -34,9 +34,9 @@ const ItemSchema = new Schema({
             required : false
     },
 
-    // Images : [{
-    //     type : String,
-    // }],
+    Images : [{
+        type : String,
+    }],
 
     Category : {
         type : String,

@@ -34,6 +34,16 @@ connection.once("open", () => {
 const itemRouter = require("./routes/items.js");
 app.use("/items", itemRouter);
 
+const cartRouter = require("./routes/carts.js");
+app.use("/cart", cartRouter);
+
+const issuedRouter = require("./routes/issued.js");
+app.use("/issued", issuedRouter);
+
+// const customerRouter = require("./routes/customers.js");
+// app.use("/customer", itemRouter);
+
+
 
 //Running the app on the defined port
 app.listen(PORT, () => {
