@@ -82,7 +82,7 @@ export default function AddMembers(){
                         />
                     </div>
                     <div className="col-sm-4">
-                        <label for="Input-name" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Customer Name </label>
+                        <label for="Input-name" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}> Member Name </label>
                         <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
                          onChange={(e)=>{
                              setName(e.target.value);
@@ -90,7 +90,7 @@ export default function AddMembers(){
                         required/>
                     </div>
                     <div className="col-sm-4">
-                        <label for="Input-nic" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Customer NIC </label>
+                        <label for="Input-nic" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}> Member NIC </label>
                         <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
                          onChange={(e)=>{
                              setNIC(e.target.value);
@@ -152,7 +152,7 @@ export default function AddMembers(){
                         
                     </div>
                     <div class="col-sm-4">
-                        <label for="Input-member" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Member<span style={{color:'red'}}>*</span> </label>
+                        <label for="Input-member" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Registred Date<span style={{color:'red'}}>*</span> </label>
                         <input type="date" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
                         onChange={(e)=>{
                             setRegistredDate(e.target.value);
