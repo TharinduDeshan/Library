@@ -16,6 +16,7 @@ import Footer from './components/navigations/footer';
 import Admin from './components/customers/admin';
 import WelcomePage from './components/navigations/welcomePage';
 import AddMembers from './components/customers/addMembers';
+import EditMembers from './components/members/addMembers';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
        <Route path="/staff/addCustomer" element={<><StaffHeader /><AddCustomer /><Footer/></>} />
 
        <Route path="/staff/addMember" element={<><StaffHeader /><AddMembers /><Footer/></>} />
+       <Route path="/staff/editMember" element={<><StaffHeader /><EditMembers /><Footer/></>} />
        {/* <Route path="/admin" element={<><StaffHeader /><Admin/><Footer/></>} /> */}
 
        
