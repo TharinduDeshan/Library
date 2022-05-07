@@ -330,6 +330,7 @@ export default function Category(props) {
                    
 
         {item.map((i)=>{
+            console.log(i.Images)
             return(
                 
                 <div className="col-3 text-center" >
@@ -338,8 +339,8 @@ export default function Category(props) {
                    onClick={()=>modalOpen(i)}
                    >
 
-                    <img  src={p3}  className="img-fluid" alt="Responsive " style={{width:'45%', marginBottom:'5px'}}
-                    // src = {"../../images/book1.jpg" || p3}
+                    <img className="img-fluid" alt="Responsive " style={{width:'45%', marginBottom:'5px'}}
+                    src={"/Images/" + i.Images}
                     //  onError={(e) => {
                     //     e.target.onerror = null;
                     //     e.target.src = {p3};

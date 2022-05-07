@@ -25,26 +25,26 @@ function App() {
 
       <Routes>
        <Route path="/customer" element={<Header/>} />
-       <Route path="/customer/home" element={<><Header /><Home /></>} />
-       <Route path="/customer/cart/:id" element={<><Header /><Cart /></>} />
-       <Route path="/customer/category/:type" element={<><Header /><Category /></>} />
+       <Route path="/customer/home" element={<><Header /><Home /><Footer/></>} />
+       <Route path="/customer/cart/:id" element={<><Header /><Cart /><Footer/></>} />
+       <Route path="/customer/category/:type" element={<><Header /><Category /><Footer/></>} />
        
-       <Route path="/customer/ediCustomer" element={<><Header /><ediCustomer /></>} />
+       <Route path="/customer/ediCustomer" element={<><Header /><ediCustomer /><Footer/></>} />
 
 
        <Route path="/staff" element={<StaffHeader/>} />
-       <Route path="/staff/staffHome" element={<><StaffHeader /><StaffHome /></>} />
-       <Route path="/staff/scategory/:type" element={<><StaffHeader /><StaffCategory /></>} />
-       <Route path="/staff/addItem" element={<><StaffHeader /><AddItems /></>} />
-       <Route path="/staff/editItem/:id" element={<><StaffHeader /><EditItems /></>} />
+       <Route path="/staff/staffHome" element={<><StaffHeader /><StaffHome /><Footer/></>} />
+       <Route path="/staff/scategory/:type" element={<><StaffHeader /><StaffCategory /><Footer/></>} />
+       <Route path="/staff/addItem" element={<><StaffHeader /><AddItems /><Footer/></>} />
+       <Route path="/staff/editItem/:id" element={<><StaffHeader /><EditItems /><Footer/></>} />
 
-       <Route path="/staff/addCustomer" element={<><StaffHeader /><AddCustomer /></>} />
+       <Route path="/staff/addCustomer" element={<><StaffHeader /><AddCustomer /><Footer/></>} />
 
        
        <Route path="/" element={<WelcomePage />} />
      
       </Routes> 
-      <Footer/>
+      {/* <Footer/> */}
 
       
 
