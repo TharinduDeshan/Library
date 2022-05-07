@@ -39,7 +39,7 @@ function StaffHeader(){
                         </li>
                         
                         <li class="nav-item" style={{ marginRight: '25px'}}>
-                        <a class="nav-link"  href="/welcome" id="signout">
+                        <a class="nav-link"  href="/" id="signout">
                             <button type="button" style={{ backgroundColor: '#F2AB39', border: 'none', width: '100px'}} class="btn btn-primary">Sign Out</button>
                         </a></li>
                         {/* <div class="brt"><br/></div> */}
