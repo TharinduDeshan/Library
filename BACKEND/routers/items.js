@@ -1,12 +1,8 @@
 const router = require("express").Router();
-<<<<<<< HEAD:BACKEND/routers/items.js
-let Item = require("../models/Item");
-=======
 let Item = require("../modules/Item");
 // const pdf = require('html-pdf');
 // const pdfTemplate = require("../documents/studentReport");
 // const pdftem = require("../documents/ReviewReport");
->>>>>>> 11b332770f83287169b12784b39d788a354ad9e9:BACKEND/routes/items.js
 
 //Insert
 router.route("/add").post((req, res) => {
