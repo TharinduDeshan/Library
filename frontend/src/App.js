@@ -13,6 +13,7 @@ import StaffCategory from './components/staff/staffCategories';
 import Cart from './components/customers/cart';
 import StaffHeader from './components/navigations/staffHeader'
 import Footer from './components/navigations/footer';
+import Admin from './components/customers/admin';
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
        <Route exact path="/scategory" element={<StaffCategory/>} />
        <Route exact path="/add" element={<AddItems/>} />
        <Route exact path="/edit" element={<EditItems/>} />
+
+       <Route exact path="/admin" element={<Admin/>} />
 
        <Route path="/shome" component={Footer} />
      

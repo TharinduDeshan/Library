@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "../../css/search.css"
 
 export default function Admin(props) {
-    cconst[CustomerID,setCustomerID] = useState("");
+    const[CustomerID,setCustomerID] = useState("");
     const[Name,setName] = useState("");
     const[NIC,setNIC] = useState("");
     const[PhoneNumber,setPhoneNumber] = useState("");
@@ -15,6 +15,8 @@ export default function Admin(props) {
     const[Gender,setGender] = useState("");
     const[Member,setMember] = useState("");
 
+    const[customer,setCustomer] = useState("");
+
     //let [none, setNone] = useState("")
     let [errorText, seterrorText] = useState("")
     useEffect(() => {
@@ -23,6 +25,8 @@ export default function Admin(props) {
             .get("http://localhost:8070/customers/get")
             .then((res) => {
                 console.log(res.data)
+                setCustomer(res.data)
+                console.log(customer)
                
             })
             .catch((err) => {
@@ -30,7 +34,7 @@ export default function Admin(props) {
             });
         }
     
-        getItems();
+        getCustomers();
       }, []);
 
 return (
