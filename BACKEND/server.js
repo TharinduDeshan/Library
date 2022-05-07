@@ -40,6 +40,9 @@ app.use("/cart", cartRouter);
 const issuedRouter = require("./routes/issued.js");
 app.use("/issued", issuedRouter);
 
+const itemsRouter = require("./routes/items.js");
+app.use("/items", itemsRouter);
+
 // const customerRouter = require("./routes/customers.js");
 // app.use("/customer", itemRouter);
 

@@ -17,7 +17,6 @@ import p12 from "../../images/loupe.png";
 
 export default function StaffCategory(props) {
 
-    // const[item,setItem] = useState("");
 
     // const p3 = "../../images/book1.jpg"
     const[title,setTitle] = useState("");
