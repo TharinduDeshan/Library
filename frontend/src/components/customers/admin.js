@@ -23,15 +23,6 @@ export default function Admin(props) {
             .get("http://localhost:8070/customers/get")
             .then((res) => {
                 console.log(res.data)
-
-                // const filter = res.data.filter(
-                //     (items)=>
-                //     items.Category ==="Books"   //temporary category
-                // );
-
-                //  console.log(filter)
-                //  setitem(filter)
-
                
             })
             .catch((err) => {
