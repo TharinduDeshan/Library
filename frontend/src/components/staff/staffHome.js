@@ -25,7 +25,7 @@ export default function StaffHome(props) {
 
     function filterItems(type){
 
-        history(`/scategory/${type}`)
+        history(`/staff/scategory/${type}`)
       }
 
   return (
@@ -35,19 +35,19 @@ export default function StaffHome(props) {
 
     <div className="row" style={{color:'#3F3232', fontWeight:'bold', fontSize:'18px'}}>
         
-        <div className="col-sm">
-            <a style={{color:'#3F3232', textDecoration:'underline'}} class="navbar-brand" href="/scategory">Categories</a>
+        <div className="col-sm list-group-item list-group-item-action" style={{border:'0px'}}>
+            <a style={{color:'#3F3232', textDecoration:'underline',border:'0px'}} class="navbar-brand " href="/scategory">Categories</a>
         </div>
-        <div className="col-sm">
-            <a style={{color:'#3F3232'}}  class="navbar-brand" href="/add">Add Items</a>
+        <div className="col-sm list-group-item list-group-item-action" style={{border:'0px'}}>
+            <a style={{color:'#3F3232'}}  class="navbar-brand" href="/staff/addItem">Add Items</a>
         </div>
-        <div className="col-sm">
+        <div className="col-sm list-group-item list-group-item-action" style={{border:'0px'}}>
             <a style={{color:'#3F3232'}}  class="navbar-brand" href="#">Issued Items</a>
         </div>
-        <div className="col-sm">
-            <a style={{color:'#3F3232'}}  class="navbar-brand" href="#">Add Customers</a>
+        <div className="col-sm list-group-item list-group-item-action" style={{border:'0px'}}>
+            <a style={{color:'#3F3232'}}  class="navbar-brand" href="/staff/addCustomer">Add Customers</a>
         </div>
-        <div className="col-sm">
+        <div className="col-sm list-group-item list-group-item-action" style={{border:'0px'}}>
             <a style={{color:'#3F3232'}}  class="navbar-brand" href="#">New Membership</a>
         </div>
     </div>
@@ -117,7 +117,7 @@ export default function StaffHome(props) {
     </div>
     <br/>
 
-
+    <br/><br/><br/><br/>
      
   </div>
   );

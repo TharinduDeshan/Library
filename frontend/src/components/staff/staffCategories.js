@@ -60,7 +60,7 @@ export default function StaffCategory(props) {
       function updateItem(id){
         console.log(id)
 
-        history(`/edit/${id}`)
+        history(`/staff/editItem/${id}`)
       }
 
       function deleteItem(id){
@@ -270,6 +270,7 @@ export default function StaffCategory(props) {
             <br/>
         </div>
     </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
 
   );

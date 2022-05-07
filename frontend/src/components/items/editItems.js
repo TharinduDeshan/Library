@@ -195,6 +195,8 @@ export default function EditItems(props){
                 </div>
             </form>
         </div>
+
+        <br/><br/><br/><br/><br/><br/>
         </div>
     )
 

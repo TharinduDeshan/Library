@@ -20,7 +20,7 @@ export default function Home(props) {
 
    function filterItems(type){
        
-       history(`/category/${type}`)
+       history(`/customer/category/${type}`)
      }
 
   return (
