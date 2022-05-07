@@ -1,5 +1,8 @@
 const router = require("express").Router();
 let Item = require("../modules/Item");
+// const pdf = require('html-pdf');
+// const pdfTemplate = require("../documents/studentReport");
+// const pdftem = require("../documents/ReviewReport");
 
 //Insert
 router.route("/add").post((req, res) => {
@@ -126,6 +129,23 @@ router.route("/get/:id").get(async (req, res) => {
         .send({ status: "Error with get user", error: err.message });
     });
 });
+
+router.post('/create-pdf',(req,res) => {
+  pdf.create(pdftem(req.body),{}).toFile('./routes/itemreport.pdf',(err) =>{
+    if(err){
+      res.send(Promise.reject());
+    }
+
+    res.send(Promise.resolve());
+  });
+});
+
+// get PDF
+router.get('/fetch-pdf',(req,res)=>{
+  res.sendFile(`${__dirname}/itemreport.pdf`)
+            // absolute directory
+})
+
 
 
 module.exports = router;

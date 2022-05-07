@@ -14,36 +14,39 @@ import Cart from './components/customers/cart';
 import StaffHeader from './components/navigations/staffHeader'
 import Footer from './components/navigations/footer';
 import Admin from './components/customers/admin';
+import WelcomePage from './components/navigations/welcomePage';
 
 function App() {
   return (
 
 
     <Router>
-        <Header/>
-        {/* <StaffHeader/> */}
 
       <Routes>
+       <Route path="/customer" element={<Header/>} />
+       <Route path="/customer/home" element={<><Header /><Home /><Footer/></>} />
+       <Route path="/customer/cart/:id" element={<><Header /><Cart /><Footer/></>} />
+       <Route path="/customer/category/:type" element={<><Header /><Category /><Footer/></>} />
+       
+       <Route path="/customer/ediCustomer" element={<><Header /><ediCustomer /><Footer/></>} />
 
-       <Route exact path="/" element={<Home/>} />
-    
-       <Route exact path="/category" element={<Category/>} />
-       <Route exact path="/addCustomer" element={<AddCustomer/>} />
-       <Route exact path="/editCustomer" element={<EditCustomer/>} />
-       <Route exact path="/contact" element={<ContactUs/>} />
-       <Route exact path="/cart" element={<Cart/>} />
 
-       <Route exact path="/shome" element={<StaffHome/>} />
-       <Route exact path="/scategory" element={<StaffCategory/>} />
-       <Route exact path="/add" element={<AddItems/>} />
-       <Route exact path="/edit" element={<EditItems/>} />
+       <Route path="/staff" element={<StaffHeader/>} />
+       <Route path="/staff/staffHome" element={<><StaffHeader /><StaffHome /><Footer/></>} />
+       <Route path="/staff/scategory/:type" element={<><StaffHeader /><StaffCategory /><Footer/></>} />
+       <Route path="/staff/addItem" element={<><StaffHeader /><AddItems /><Footer/></>} />
+       <Route path="/staff/editItem/:id" element={<><StaffHeader /><EditItems /><Footer/></>} />
 
-       <Route exact path="/admin" element={<Admin/>} />
+       <Route path="/staff/addCustomer" element={<><StaffHeader /><AddCustomer /><Footer/></>} />
 
-       <Route path="/shome" component={Footer} />
+       
+       <Route path="/" element={<WelcomePage />} />
      
-       </Routes> 
-       {/* <Footer/> */}
+      </Routes> 
+      {/* <Footer/> */}
+
+      
+
      </Router>
 
     

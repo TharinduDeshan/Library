@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export default function EditItems(props){
 
@@ -15,10 +16,7 @@ export default function EditItems(props){
   let flag = 0;
 
   const [data, setData] = useState({
-    // Quantity: "",
-    // Price: "",
-    // Category: "",
-    // Description: "",
+   
   });
 
 
@@ -28,20 +26,22 @@ export default function EditItems(props){
     const[Category,setCategory] = useState("");
     const[Description,setDescription] = useState("");
 
-    let objectId = "";
+    const objectId = "625bf949653c75bea85783f0";
 
+    const {id} = useParams();
+    console.log(id)
 
     useEffect(()=>{
         function getItems(){
             // objectId = localStorage.getItem("CustomerID");
             // objectId = props.match.params.id;
-            console.log(objectId)
-            axios.get("http://localhost:8070/items/get/625bf949653c75bea85783f0")
+            console.log(id)
+            axios.get("http://localhost:8070/items/get/" + id)
             .then((res)=>{
-                console.log(res)
+                console.log(res.data)
                 setItems(res.data)
             }).catch((err)=>{
-                alert(err.errorMsg)    
+                console.log(err.errorMsg)    
             })
         }
         getItems();
@@ -195,6 +195,8 @@ export default function EditItems(props){
                 </div>
             </form>
         </div>
+
+        <br/><br/><br/><br/><br/><br/>
         </div>
     )
 
