@@ -41,7 +41,7 @@ function App() {
        <Route path="/staff/addCustomer" element={<><StaffHeader /><AddCustomer /></>} />
 
        
-       <Route path="/welcome" element={<WelcomePage />} />
+       <Route path="/" element={<WelcomePage />} />
      
       </Routes> 
       <Footer/>
