@@ -17,6 +17,7 @@ import Admin from './components/customers/admin';
 import WelcomePage from './components/navigations/welcomePage';
 import AddMembers from './components/members/addMembers';
 import EditMembers from './components/members/editMembers';
+import ShowMembers from './components/members/showMembers';
 
 function App() {
   return (
@@ -40,14 +41,16 @@ function App() {
        <Route path="/staff/editItem/:id" element={<><StaffHeader /><EditItems /><Footer/></>} />
 
        <Route path="/staff/addCustomer" element={<><StaffHeader /><AddCustomer /><Footer/></>} />
+       <Route path="/staff/admin" element={<><StaffHeader /><Admin /><Footer/></>} />
 
        <Route path="/staff/addMember" element={<><StaffHeader /><AddMembers /><Footer/></>} />
        <Route path="/staff/editMember" element={<><StaffHeader /><EditMembers /><Footer/></>} />
+       <Route path="/staff/ShowMember" element={<><StaffHeader /><ShowMembers /><Footer/></>} />
        {/* <Route path="/admin" element={<><StaffHeader /><Admin/><Footer/></>} /> */}
 
        
        <Route path="/" element={<WelcomePage />} />
-       <Route path="/admin" element={<Admin />} />
+       {/* <Route path="/admin" element={<Admin />} /> */}
      
       </Routes> 
       {/* <Footer/> */}

@@ -47,6 +47,41 @@ export default function ShowMember(props) {
         getMembers();
       }, []);
 
+      function deleteMember(id){
+        console.log(id)
+  
+          Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              
+              axios
+              .delete("http://localhost:8070/members/delete/" + id)
+              .then((res) => {
+
+                Swal.fire("Deleted!", "Your file has been deleted.", "success");
+
+            })
+            .catch((err) => {
+              alert(err);
+            });            
+            }
+          });
+      }
+
+      function updateMember(id){
+        console.log(id)
+
+        history(`/staff/editMember/${id}`)
+      }
+
+
 return (
       <div className="customer" key={member.MemberID}>
         <h2>Members Informations</h2>
@@ -62,6 +97,7 @@ return (
               <th>Occupcation</th>
               <th>Gender</th>
               <th>Registred Date</th>
+              <th>Action Button</th>
             </tr>
           </thead>
           <tbody>
@@ -73,7 +109,23 @@ return (
                 <td>{member.Email}</td>
                 <td>{member.Occupcation}</td>
                 <td>{member.Gender}</td>
-                <td>{member.RegistredDate}</td>               
+                <td>{member.RegistredDate}</td> 
+                <td>
+                  <div className="col">
+                    &ensp;
+                    <button className="btn" style={{width:'47px'}}onClick={()=>updateMember(i._id)}>
+                    
+                    <img id="img141" src={p10} style={{width:'100%'}}/>
+
+                    </button>
+                    <button className="btn" style={{width:'47px'}}onClick={()=>deleteMember(i._id)}>
+                    
+                    <img id="img141" src={p11} style={{width:'100%'}}/>
+
+                    </button>
+                    
+                  </div>
+                </td>
               </tr>
             ))}
           </tbody>

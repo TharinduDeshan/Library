@@ -120,19 +120,18 @@ router.route("/update/:id").patch(async (req, res) => {
 });
 
 // delete
-// router.route("/delete/:id").delete(async (req, res) => {
-//   let itemID = req.params.id;
+router.route("/delete/:id").delete(async (req, res) => {
+  let memberID = req.params.id;
 
-//   await Item.findByIdAndDelete(itemID)
-//     .then(() => {
-//       res.status(200).send({ status: "Item Deleted" });
-//     })
-//     .catch((err) => {
-//       console.log(err.message);
-//       res.status(500).send({ status: "Error with delete", error: err.message });
-//     });
-// });
-
+  await Member.findByIdAndDelete(memberID)
+    .then(() => {
+      res.status(200).send({ status: "Member Deleted" });
+    })
+    .catch((err) => {
+      console.log(err.message);
+      res.status(500).send({ status: "Error with delete", error: err.message });
+    });
+});
 // get one item details
 router.route("/get/:id").get(async (req, res) => {
   let memberID = req.params.id;
