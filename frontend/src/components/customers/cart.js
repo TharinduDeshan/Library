@@ -185,7 +185,7 @@ export default function Cart(props) {
                         // style={{backgroundColor:'red'}}
                         >
                             <img style={{width:'120px', height:'150px'}}  
-                            src="frontend/src/images/book1.jpg"
+                           src={"/Images/" + item.Image}
                             // src={`../../images/${item.Image}`}
                             
                             />
