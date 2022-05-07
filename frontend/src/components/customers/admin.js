@@ -17,6 +17,7 @@ export default function Admin(props) {
 
     const[customer,setCustomer] = useState("");
 
+    
     //let [none, setNone] = useState("")
     let [errorText, seterrorText] = useState("")
     useEffect(() => {
