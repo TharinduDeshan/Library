@@ -199,16 +199,9 @@ export default function EditMember(){
 
                     </div>
                     <div className="col-sm-4">
-                        <label for="Input-member" className="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Member<span style={{color:'red'}}>*</span> </label>
-                        {/* <select class="form-select" aria-label="Default select example" style={{color:'#3F3232',border:'1px solid #3F3232'}}
-                         onChange={(e)=>{
-                             setMember(e.target.value);
-                         }}
-                         required>
-                            <option selected>Select Membership status</option>
-                            <option value="Yes" selected={customers.Member=='Yes'}>Yes</option>
-                            <option value="No" selected={customers.Member=='No'}>No</option>
-                        </select> */}
+                        <label for="Input-member" className="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Registred Date<span style={{color:'red'}}>*</span> </label>
+                        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232'}}
+                        placeholder={members.RegistredDate}  />
     
                     </div>
                 </div>

@@ -15,8 +15,8 @@ import StaffHeader from './components/navigations/staffHeader'
 import Footer from './components/navigations/footer';
 import Admin from './components/customers/admin';
 import WelcomePage from './components/navigations/welcomePage';
-import AddMembers from './components/customers/addMembers';
-import EditMembers from './components/members/addMembers';
+import AddMembers from './components/members/addMembers';
+import EditMembers from './components/members/editMembers';
 
 function App() {
   return (
