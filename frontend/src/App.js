@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import "./App.css";
-import theme from "./theme";
-import AppRoutes from "./AppRoutes";
-import {ThemeProvider} from "@mui/material";
-
-function App() {
-  return (
-      <ThemeProvider theme={theme}>
-          <AppRoutes/>
-      </ThemeProvider>
-=======
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from './components/customers/home'
@@ -64,7 +52,6 @@ function App() {
      </Router>
 
     
->>>>>>> 11b332770f83287169b12784b39d788a354ad9e9
   );
 }
 
