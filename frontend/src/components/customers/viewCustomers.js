@@ -1,7 +1,7 @@
 import React, { useState , useEffect} from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../../css/search.css"
 import "datatables.net-dt/js/dataTables.dataTables"
 import "datatables.net-dt/css/jquery.dataTables.min.css"
@@ -10,7 +10,7 @@ import $ from "jquery";
 import p10 from "../../images/edit.png";
 import p11 from "../../images/trash.png";
 
-export default function Admin(props) {
+export default function ViewCustomers(props) {
     const[CustomerID,setCustomerID] = useState("");
     const[Name,setName] = useState("");
     const[NIC,setNIC] = useState("");
@@ -23,7 +23,7 @@ export default function Admin(props) {
 
     const[customer,setCustomer] = useState([]);
 
-
+    const history = useNavigate();
     //let [none, setNone] = useState("")
     let [errorText, seterrorText] = useState("")
     useEffect(() => {
@@ -87,6 +87,20 @@ export default function Admin(props) {
 return (
       <div className="customer" key={customer.CustomerID}>
         <h2>Customer Informations</h2>
+        {/* <div>
+        <div className="row">
+          <div>
+          <button>Submit</button>
+
+          </div>
+          <div className="col-sm-4">
+            
+          </div>
+          <div className="col-sm-4">
+            
+          </div>
+        </div>
+        <div className="row"> */}
         <table class="table table-striped table-bordered text-center" id="example" >
         {/* <table> */}
           <thead>
@@ -108,6 +122,7 @@ return (
                 <td>{customer.Name}</td>
                 <td>{customer.NIC}</td>
                 <td>{customer.PhoneNumber}</td>
+                <td>{customer.Address}</td>
                 <td>{customer.Email}</td>
                 <td>{customer.Occupcation}</td>
                 <td>{customer.Gender}</td>
@@ -115,12 +130,12 @@ return (
                 <td>
                   <div className="col">
                     &ensp;
-                    <button className="btn" style={{width:'47px'}}onClick={()=>updateCustomer(i._id)}>
+                    <button className="btn" style={{width:'47px'}}onClick={()=>updateCustomer(customer._id)}>
                     
                     <img id="img141" src={p10} style={{width:'100%'}}/>
 
                     </button>
-                    <button className="btn" style={{width:'47px'}}onClick={()=>deleteCustomer(i._id)}>
+                    <button className="btn" style={{width:'47px'}}onClick={()=>deleteCustomer(customer._id)}>
                     
                     <img id="img141" src={p11} style={{width:'100%'}}/>
 
@@ -132,6 +147,7 @@ return (
             ))}
           </tbody>
         </table>
+        {/* </div> */}
       </div>
   );
 }

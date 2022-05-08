@@ -13,11 +13,12 @@ import StaffCategory from './components/staff/staffCategories';
 import Cart from './components/customers/cart';
 import StaffHeader from './components/navigations/staffHeader'
 import Footer from './components/navigations/footer';
-import Admin from './components/customers/admin';
+import Admin from './components/customers/viewCustomers';
 import WelcomePage from './components/navigations/welcomePage';
 import AddMembers from './components/members/addMembers';
 import EditMembers from './components/members/editMembers';
-import ShowMembers from './components/members/showMembers';
+import ShowMembers from './components/members/showMember';
+import ViewCustomers from './components/customers/viewCustomers';
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
        <Route path="/customer/cart/:id" element={<><Header /><Cart /><Footer/></>} />
        <Route path="/customer/category/:type" element={<><Header /><Category /><Footer/></>} />
        
-       <Route path="/customer/ediCustomer" element={<><Header /><ediCustomer /><Footer/></>} />
+
+       <Route path="/staff/editCustomer/:id" element={<><StaffHeader /><EditCustomer /><Footer/></>} />
 
 
        <Route path="/staff" element={<StaffHeader/>} />
@@ -41,16 +43,16 @@ function App() {
        <Route path="/staff/editItem/:id" element={<><StaffHeader /><EditItems /><Footer/></>} />
 
        <Route path="/staff/addCustomer" element={<><StaffHeader /><AddCustomer /><Footer/></>} />
-       <Route path="/staff/admin" element={<><StaffHeader /><Admin /><Footer/></>} />
+       {/* <Route path="/staff/admin" element={<><StaffHeader /><Admin /><Footer/></>} /> */}
 
        <Route path="/staff/addMember" element={<><StaffHeader /><AddMembers /><Footer/></>} />
-       <Route path="/staff/editMember" element={<><StaffHeader /><EditMembers /><Footer/></>} />
+       <Route path="/staff/editMember/:id" element={<><StaffHeader /><EditMembers /><Footer/></>} />
        <Route path="/staff/ShowMember" element={<><StaffHeader /><ShowMembers /><Footer/></>} />
-       {/* <Route path="/admin" element={<><StaffHeader /><Admin/><Footer/></>} /> */}
+       <Route path="/staff/showCustomers" element={<><StaffHeader /><ViewCustomers/><Footer/></>} />
 
        
        <Route path="/" element={<WelcomePage />} />
-       {/* <Route path="/admin" element={<Admin />} /> */}
+       {/* <Route path="/" element={<EditCustomer />} /> */}
      
       </Routes> 
       {/* <Footer/> */}

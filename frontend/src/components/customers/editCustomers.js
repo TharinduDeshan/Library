@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function EditCustomer(){
 
@@ -33,9 +34,12 @@ export default function EditCustomer(){
     const[Gender,setGender] = useState("");
     const[Member,setMember] = useState("");
 
+    const {id} = useParams();
+    // const id="625bad7987e9fbf44353fcaa"
+
     useEffect(()=>{
         function getCustomers(){
-            axios.get("http://localhost:8070/customers/get/625bb469a0a36ec8f5047dae")
+            axios.get("http://localhost:8070/customers/get/" +id)
             .then((res)=>{
                 console.log(res)
                 setCustomers(res.data)
@@ -52,54 +56,54 @@ export default function EditCustomer(){
 
       function updateCustomer(e) {
    
-        const objectId = "625bb469a0a36ec8f5047dae";
+        // const objectId = id;
     
-        e.preventDefault();
+        // e.preventDefault();
     
-        const data = {
-          CustomerID,
-          Name,
-          NIC,
-          PhoneNumber,
-          Address,
-          Email,
-          Occupcation,
-          Gender,
-          Member
-        }
+        // const data = {
+        //   CustomerID,
+        //   Name,
+        //   NIC,
+        //   PhoneNumber,
+        //   Address,
+        //   Email,
+        //   Occupcation,
+        //   Gender,
+        //   Member
+        // }
 
-        console.log(data);
+        // console.log(data);
       
-          axios
-          .patch("http://localhost:8070/customers/update/" + objectId, data)
-          .then(() => {
+        //   axios
+        //   .patch("http://localhost:8070/customers/update/" + objectId, data)
+        //   .then(() => {
 
-            setCustomerID(" ");
-            setName(" ");
-            setNIC(" ");
-            setPhoneNumber(" ");
-            setAddress(" ");
-            setEmail(" ");
-            setOccupcation(" ");
-            setGender(" ");
-            setMember(" ");
+        //     setCustomerID(" ");
+        //     setName(" ");
+        //     setNIC(" ");
+        //     setPhoneNumber(" ");
+        //     setAddress(" ");
+        //     setEmail(" ");
+        //     setOccupcation(" ");
+        //     setGender(" ");
+        //     setMember(" ");
   
     
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: 'Your data has been updated',
-              showConfirmButton: false,
-              timer: 1500
-            })
+        //     Swal.fire({
+        //       position: 'center',
+        //       icon: 'success',
+        //       title: 'Your data has been updated',
+        //       showConfirmButton: false,
+        //       timer: 1500
+        //     })
     
-            // props.history.push("/customers/home");
+        //     // props.history.push("/customers/home");
       
-          })
-          .catch((err) => {
-            alert(err);
+        //   })
+        //   .catch((err) => {
+        //     alert(err);
        
-          });
+        //   });
         
         
       }

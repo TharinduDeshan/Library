@@ -1,7 +1,7 @@
 import React, { useState , useEffect} from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../../css/search.css"
 import "datatables.net-dt/js/dataTables.dataTables"
 import "datatables.net-dt/css/jquery.dataTables.min.css"
@@ -23,7 +23,7 @@ export default function ShowMember(props) {
 
     const[member,setMember] = useState([]);
 
-
+    const history = useNavigate();
     //let [none, setNone] = useState("")
     let [errorText, seterrorText] = useState("")
     useEffect(() => {
@@ -109,6 +109,7 @@ return (
                 <td>{member.Name}</td>
                 <td>{member.NIC}</td>
                 <td>{member.PhoneNumber}</td>
+                <td>{member.Address}</td>
                 <td>{member.Email}</td>
                 <td>{member.Occupcation}</td>
                 <td>{member.Gender}</td>
@@ -116,12 +117,12 @@ return (
                 <td>
                   <div className="col">
                     &ensp;
-                    <button className="btn" style={{width:'47px'}}onClick={()=>updateMember(i._id)}>
+                    <button className="btn" style={{width:'47px'}}onClick={()=>updateMember(member._id)}>
                     
                     <img id="img141" src={p10} style={{width:'100%'}}/>
 
                     </button>
-                    <button className="btn" style={{width:'47px'}}onClick={()=>deleteMember(i._id)}>
+                    <button className="btn" style={{width:'47px'}}onClick={()=>deleteMember(member._id)}>
                     
                     <img id="img141" src={p11} style={{width:'100%'}}/>
 
