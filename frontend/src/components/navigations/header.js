@@ -1,5 +1,5 @@
 import React from "react";
-
+const customerID ="625c12c9f36bd7f6a5c6748d" 
 function Header(){
 
     return(
@@ -33,7 +33,7 @@ function Header(){
                             <a class="nav-link"  href="/contact" id="contactus">Contact Us</a>
                         </li>
                         <li class="nav-item" style={{ marginRight: '25px'}}>
-                            <a class="nav-link" href="/customer/cart/:id" id="features">My Cart</a>
+                            <a class="nav-link" href={`/customer/cart/${customerID}`} id="features">My Cart</a>
                         </li>
 
                         <li class="nav-item" style={{ marginRight: '25px'}}>
