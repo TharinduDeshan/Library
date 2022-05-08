@@ -93,7 +93,7 @@ export default function StaffList(){
                 <div className="container h-100">
                     <div className="d-flex justify-content-center h-100">
                         <div className="searchbar" >
-                            <input className="search_input" placeholder="Search Username..." type="text" name="" 
+                            <input className="search_input" placeholder="Search by Username..." type="text" name="" 
                             onChange={(e) => handleSearch(e.target.value)}
                             />
                             <a type="button" className="search_icon"  >

@@ -21,6 +21,7 @@ import AddStaff from './components/staff/addStaff';
 import StaffList from './components/staff/viewStaffList';
 import UpdateStaff from './components/staff/updateStaff';
 import ViewStaff from './components/staff/viewStaff';
+import Login from './components/navigations/login'
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
 
        
        <Route path="/" element={<WelcomePage />} />
+       <Route path="/login" element={<Login />} />
        <Route path="/admin" element={<ViewCustomers />} />
 
        <Route path="/report" element={<ItemReport/>} />

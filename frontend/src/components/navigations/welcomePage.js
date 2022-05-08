@@ -17,7 +17,8 @@ export default function WelcomePage(props) {
 }
 
 function StaffLogin(){
-    history(`/staff/staffHome`)
+    // history(`/staff/staffHome`)
+    history(`/login`)
 }
 
 return (

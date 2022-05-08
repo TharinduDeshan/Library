@@ -119,6 +119,27 @@ router.route("/get/:id").get(async (req, res) => {
         });
     });
 });
+router.route("/login").post(async (req, res) => {
 
+  const Username = req.body.Username;
+  const Password = req.body.Password;
+
+  const items = await Staff.find({Username: Username,Password:Password})
+    .then((user) => {
+      // res.status(200).send({status:"Item fetched"});
+      console.log(user);
+      res.json(user);
+    })
+    .catch((err) => {
+      console.log(err.message);
+      res
+        .status(500)
+        .send({
+          status: "Error with get user",
+          error: err.message
+        });
+    });
+
+});
 
 module.exports = router;
