@@ -45,7 +45,9 @@ export default function StaffList(){
                             <td>{ staff.Telephone }</td>
 
                             <td className="alignv" >
-                                <Link to={`/staff/editStaff/${staff._id}`} className="btn btn-warning">Update</Link>
+                                <Link to={`/staff/view/${staff._id}`} className="btn btn-primary" style={{marginRight:'5px'}}>View</Link>
+                                <Link to={`/staff/editStaff/${staff._id}`} className="btn btn-warning" style={{marginRight:'5px'}}>Update</Link>
+                                <Link to={`/staff/editStaff/${staff._id}`} className="btn btn-danger">Delete</Link>
                                 {/* <button className="btn btn-success" onClick={updateQuestion(question.id) }>Update</button> */}
                             </td>
                         </tr>

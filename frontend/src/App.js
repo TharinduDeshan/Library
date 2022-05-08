@@ -20,6 +20,7 @@ import ItemReport from './components/services/itemReport';
 import AddStaff from './components/staff/addStaff';
 import StaffList from './components/staff/viewStaffList';
 import UpdateStaff from './components/staff/updateStaff';
+import ViewStaff from './components/staff/viewStaff';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
        <Route path="/staff/scategory/:type" element={<><StaffHeader /><StaffCategory /><Footer/></>} />
        <Route path="/staff/addStaff" element={<><StaffHeader /><AddStaff /><Footer/></>} />
        <Route path="/staff/editStaff/:id" element={<><StaffHeader /><UpdateStaff /><Footer/></>} />
+       <Route path="/staff/view/:id" element={<><StaffHeader /><ViewStaff /><Footer/></>} />
 
        <Route path="/staff/addCustomer" element={<><StaffHeader /><AddCustomer /><Footer/></>} />
 
