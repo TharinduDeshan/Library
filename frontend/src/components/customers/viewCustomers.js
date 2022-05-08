@@ -15,7 +15,7 @@ export default function ViewCustomers(props) {
     const[Gender,setGender] = useState("");
     const[Member,setMember] = useState("");
 
-    const[customerDetails,setCustomerDetails] = useState("");
+    const[customerDetails,setCustomerDetails] = useState([]);
 
     //let [none, setNone] = useState("")
     let [errorText, seterrorText] = useState("")

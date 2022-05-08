@@ -128,22 +128,24 @@ export default function Cart(props) {
           axios
           .get("http://localhost:8070/cart/getOneCart/" + customerID)
           .then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
 
               let cartID = res.data._id;
               let itemssIds = res.data.itemIDs;
+              console.log(itemssIds)
 
               const filter = itemssIds.filter(
                 (itemss)=>
-                itemss.itemIDs !== id 
+                itemss != id 
+                // {console.log(items)}
                );
-
+               
             console.log(filter)
 
             const updatedCart={
               itemIDs : filter
           }
-
+          console.log(updatedCart)
             axios
             .put("http://localhost:8070/cart/updateCartItems/" + customerID, updatedCart)
             .then((res)=>{

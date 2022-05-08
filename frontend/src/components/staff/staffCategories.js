@@ -30,6 +30,8 @@ export default function StaffCategory(props) {
     const {type} = useParams();
     console.log(type)
 
+    let [none, setNone] = useState("")
+
    let [errorText, seterrorText] = useState("")
     useEffect(() => {
         function getItems() {
@@ -148,6 +150,13 @@ export default function StaffCategory(props) {
                console.log(filter)
                setitem(filter)
 
+               if(filter.length != 0){
+                setNone("")
+                }
+                else if(filter.length == 0){
+                    setNone("No Items Found")
+                }
+
           })
           .catch((err) => {
             alert(err);
@@ -228,6 +237,8 @@ export default function StaffCategory(props) {
                 <div className="row">
                     <div className = "col-md-12 ">
                         <h4 className = "text-danger">{errorText}</h4>
+                        <h4 className = "text-danger">{none}</h4>
+                   
                     </div>
         {item.map((i)=>{
             return(
