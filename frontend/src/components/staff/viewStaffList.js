@@ -3,11 +3,12 @@ import axios from "axios";
 // import { useHistory } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
- 
+import p12 from "../../images/loupe.png";
 
 export default function StaffList(){
     const [staffList, setStaffList] = useState([]);
- 
+    let [errorText, seterrorText] = useState("")
+
     useEffect(() => {
         getStaffList();
     }, []);
@@ -17,6 +18,44 @@ export default function StaffList(){
         setStaffList(response.data);
     }
 
+    function handleSearch(e) {
+
+        let userSearch = e;
+        //document.getElementsByTagName("CircleLoader").loading = '{true}';
+        // document.getElementById("itemsTxt").innerHTML = "";
+    
+        axios
+          .get("http://localhost:8070/staff/get")
+          .then((res) => {
+            // console.log(res.data);
+    
+            if (userSearch != null) {
+              filterContent(res.data, userSearch);
+            }
+          })
+          .catch((err) => {
+            alert(err);
+          });
+      }
+      function filterContent(data, userSearch) {
+       
+        let result = data.filter(
+          (post) =>
+            post.Username.toLowerCase().includes(userSearch)
+        );
+        console.log(userSearch);
+        console.log(result)
+        setStaffList(result)
+        let x = result;
+        // getItems(r, x);
+        if (result.length != 0) {
+        //   document.getElementById("itemsTxt").innerHTML = "";
+        seterrorText("")
+        } else if (result.length == 0) {
+        //   document.getElementById("itemsTxt").innerHTML = "No Result Found!";
+        seterrorText("No Result Found")
+        }
+      }
     function deleteItem(id){
         console.log(id)
   
@@ -46,9 +85,25 @@ export default function StaffList(){
       }
     return (
         <div className="container" style={{width:'60%'}}>
-              <br/><br/>
+           
+            
             <h2 className="text-center" style={{color:'#3F3232', fontWeight:'bold'}}>Staff List</h2>
-            <br/><br/>
+            <br/>
+            <div className="searchbaar">
+                <div className="container h-100">
+                    <div className="d-flex justify-content-center h-100">
+                        <div className="searchbar" >
+                            <input className="search_input" placeholder="Search Username..." type="text" name="" 
+                            onChange={(e) => handleSearch(e.target.value)}
+                            />
+                            <a type="button" className="search_icon"  >
+                            <img id="img141" src={p12} />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
             {/* <Link to="/add" className="button is-primary mt-2">Add New</Link> */}
             <table className="table table-striped">
                 <thead>
@@ -84,6 +139,9 @@ export default function StaffList(){
                      
                 </tbody>
             </table>
+            <div className="row">
+                        <h6 className = "text-danger text-center">{errorText}</h6>
+                        </div>
         </div>
     )
 }
