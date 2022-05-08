@@ -29,23 +29,23 @@ export default function ResetPassword(){
       const {id} = useParams();
   
       useEffect(()=>{
-          function getAccount(){
-              axios.get("http://localhost:8070/account/get/" +id)
+          function getResetPW(){
+              axios.get("http://localhost:8070/customer/get/" +id)
               .then((res)=>{
                   console.log(res)
-                  setAccounts(res.data)
+                  setresetPWs(res.data)
               }).catch((err)=>{
                   alert(err.errorMsg)    
               })
           }
-          getAccount();
+          getResetPW();
       },[])
   
      // console.log(items.Price)
   
   
   
-        function updateAccount(e) {
+        function updateResetPW(e) {
      
           const objectId = id;
       
@@ -61,14 +61,10 @@ export default function ResetPassword(){
           console.log(data);
         
             axios
-            .patch("http://localhost:8070/accounts/update/" + objectId, data)
+            .patch("http://localhost:8070/customer/update/" + objectId, data)
             .then(() => {
   
               setUsername(" ");
-              setFirstName(" ");
-              setLastName(" ");
-              setNIC(" ");
-              setUserType(" ");
               setPassword(" ");
               setConfirmPassword(" ");
         
@@ -76,7 +72,7 @@ export default function ResetPassword(){
               Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Your data has been updated',
+                title: 'Your password has been updated',
                 showConfirmButton: false,
                 timer: 1500
               })
@@ -110,17 +106,17 @@ return(
                 <div class="row mt-2">
                     <div class="col-md-6"><label class="labels">Username</label>
                     <input type="text" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232' }} 
-                        placeholder={accounts.Username} disabled />
+                        placeholder={resetPWs.Username} disabled />
                    
                     <div class="col-md-12">
                         <label class="labels">Password</label>
                         <input type="password" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232' }} 
-                        placeholder={accounts.Password} enable />
+                        placeholder={resetPWs.Password} enable />
                     </div>   
                     <div class="col-md-12">
                         <label class="labels">Confirm Password</label>
                         <input type="password" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232' }} 
-                        placeholder={accounts.ConfirmPassword} enable />
+                        placeholder={resetPWs.ConfirmPassword} enable />
 
                     </div>
                     </div>
