@@ -94,13 +94,13 @@ return (
             <tr>
               <th>NAME</th>
               <th>NIC</th>
-              <th>PhoneNumber</th>
-              <th>Address</th>
-              <th>Email</th>
-              <th>Occupcation</th>
-              <th>Gender</th>
-              <th>Registred Date</th>
-              <th>Action Button</th>
+              <th>PHONE NUMBER</th>
+              <th>ADDRESS</th>
+              <th>EMAIL</th>
+              <th>OCCUPCATION</th>
+              <th>GENDER</th>
+              <th>REGISTRED DATE</th>
+              <th>ACTION BUTTON</th>
             </tr>
           </thead>
           <tbody>
