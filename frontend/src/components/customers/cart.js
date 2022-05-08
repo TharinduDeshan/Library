@@ -175,9 +175,6 @@ export default function Cart(props) {
           doc.text(30,750, '*************************************************************************************')
           doc.text(250,800, 'Thank You !')
 
-
-          // doc.setFont('courier');
-          // doc.setFontType('normal')
   
           doc.save("Item_Report.pdf")
       }
