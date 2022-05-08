@@ -42,7 +42,7 @@ export default function ViewStaff(){
         <div >
         <div className="container" style={{width:'40%'}}>
             <br/><br/>
-            <h2 className="text-center" style={{color:'#3F3232', fontWeight:'bold'}}>Update Staff Details</h2>
+            <h2 className="text-center" style={{color:'#3F3232', fontWeight:'bold'}}>Staff Details : {Username}</h2>
             <br/><br/>
             <form  id="create-course-form">
                 <div className="row">

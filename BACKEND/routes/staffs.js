@@ -86,7 +86,7 @@ router.route("/update/:id").put(async (req, res) => {
 router.route("/delete/:id").delete(async (req, res) => {
   let itemID = req.params.id;
 
-  await Item.findByIdAndDelete(itemID)
+  await Staff.findByIdAndDelete(itemID)
     .then(() => {
       res.status(200).send({
         status: "Item Deleted"
