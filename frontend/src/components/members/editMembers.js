@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function EditMember(){
 
@@ -33,9 +34,11 @@ export default function EditMember(){
     const[Gender,setGender] = useState("");
     const[RegistredDate,setRegistredDate] = useState("");
 
+    const {id} = useParams();
+
     useEffect(()=>{
         function getMembers(){
-            axios.get("http://localhost:8070/members/get/625bb469a0a36ec8f5047dae")
+            axios.get("http://localhost:8070/members/get/" +id)
             .then((res)=>{
                 console.log(res)
                 setMembers(res.data)
@@ -52,7 +55,7 @@ export default function EditMember(){
 
       function updateMember(e) {
    
-        const objectId = "625bb469a0a36ec8f5047dae";
+        const objectId = id;
     
         e.preventDefault();
     

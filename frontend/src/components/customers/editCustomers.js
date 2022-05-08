@@ -56,54 +56,54 @@ export default function EditCustomer(){
 
       function updateCustomer(e) {
    
-        // const objectId = id;
+        const objectId = id;
     
-        // e.preventDefault();
+        e.preventDefault();
     
-        // const data = {
-        //   CustomerID,
-        //   Name,
-        //   NIC,
-        //   PhoneNumber,
-        //   Address,
-        //   Email,
-        //   Occupcation,
-        //   Gender,
-        //   Member
-        // }
+        const data = {
+          CustomerID,
+          Name,
+          NIC,
+          PhoneNumber,
+          Address,
+          Email,
+          Occupcation,
+          Gender,
+          Member
+        }
 
-        // console.log(data);
+        console.log(data);
       
-        //   axios
-        //   .patch("http://localhost:8070/customers/update/" + objectId, data)
-        //   .then(() => {
+          axios
+          .patch("http://localhost:8070/customers/update/" + objectId, data)
+          .then(() => {
 
-        //     setCustomerID(" ");
-        //     setName(" ");
-        //     setNIC(" ");
-        //     setPhoneNumber(" ");
-        //     setAddress(" ");
-        //     setEmail(" ");
-        //     setOccupcation(" ");
-        //     setGender(" ");
-        //     setMember(" ");
+            setCustomerID(" ");
+            setName(" ");
+            setNIC(" ");
+            setPhoneNumber(" ");
+            setAddress(" ");
+            setEmail(" ");
+            setOccupcation(" ");
+            setGender(" ");
+            setMember(" ");
   
     
-        //     Swal.fire({
-        //       position: 'center',
-        //       icon: 'success',
-        //       title: 'Your data has been updated',
-        //       showConfirmButton: false,
-        //       timer: 1500
-        //     })
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Your data has been updated',
+              showConfirmButton: false,
+              timer: 1500
+            })
     
-        //     // props.history.push("/customers/home");
+            // props.history.push("/customers/home");
       
-        //   })
-        //   .catch((err) => {
-        //     alert(err);
+          })
+          .catch((err) => {
+            alert(err);
        
-        //   });
+          });
         
         
       }
