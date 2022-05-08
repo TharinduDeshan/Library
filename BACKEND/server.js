@@ -46,6 +46,10 @@ app.use("/issued", issuedRouter);
 const itemsRouter = require("./routes/items.js");
 app.use("/items", itemsRouter);
 
+//Users route
+const userRouter = require("./routes/staffs.js");
+app.use("/staff", userRouter);
+
 // const customerRouter = require("./routes/customers.js");
 // app.use("/customer", itemRouter);
 

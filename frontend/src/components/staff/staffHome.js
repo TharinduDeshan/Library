@@ -36,11 +36,14 @@ export default function StaffHome(props) {
             <a style={{color:'#3F3232', textDecoration:'underline',border:'0px'}} class="navbar-brand " href="/scategory">Categories</a>
         </div>
         <div className="col-sm list-group-item list-group-item-action" style={{border:'0px'}}>
-            <a style={{color:'#3F3232'}}  class="navbar-brand" href="/staff/addItem">Add Items</a>
+            <a style={{color:'#3F3232'}}  class="navbar-brand" href="/staff/addStaff">New Sfaff Member</a>
         </div>
         <div className="col-sm list-group-item list-group-item-action" style={{border:'0px'}}>
-            <a style={{color:'#3F3232'}}  class="navbar-brand" href="#">Issued Items</a>
+            <a style={{color:'#3F3232'}}  class="navbar-brand" href="/staff/all">Staff Members List</a>
         </div>
+        {/* <div className="col-sm list-group-item list-group-item-action" style={{border:'0px'}}>
+            <a style={{color:'#3F3232'}}  class="navbar-brand" href="#">Issued Items</a>
+        </div> */}
         <div className="col-sm list-group-item list-group-item-action" style={{border:'0px'}}>
             <a style={{color:'#3F3232'}}  class="navbar-brand" href="/staff/showCustomers">Manage Customers</a>
         </div>

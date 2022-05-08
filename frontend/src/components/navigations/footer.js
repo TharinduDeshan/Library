@@ -5,7 +5,7 @@ function Footer(){
 
     return(
         
-        <footer class="text-center text-white" style={{backgroundColor: '#F2AB39'}}>
+        <footer class="text-center text-white" style={{backgroundColor: '#F2AB39' , marginTop:'20px'}}>
   <div class="container pt-4">
     <section class="mb-4">
       <a
