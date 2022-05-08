@@ -97,6 +97,7 @@ export default function Category(props) {
         );
         console.log(userSearch);
         console.log(result)
+        setNone("")
         setitem(result)
         let x = result;
         // getItems(r, x);

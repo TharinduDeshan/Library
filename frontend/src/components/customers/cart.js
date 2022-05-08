@@ -149,7 +149,9 @@ export default function Cart(props) {
             axios
             .put("http://localhost:8070/cart/updateCartItems/" + customerID, updatedCart)
             .then((res)=>{
-              Swal.fire("Success", "Item Removed From The Cart", "success");
+              Swal.fire("Success", "Item Removed From The Cart", "success",{timer:1500});
+          
+              window.location.reload(false);
             })
             .catch((err) => {
             alert(err);

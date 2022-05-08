@@ -9,49 +9,49 @@ function Footer(){
   <div class="container pt-4">
     <section class="mb-4">
       <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        class="btn btn-link btn-floating btn-lg m-1"
         href="#!"
         role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
+        data-mdb-ripple-color="light"
+        ><i class="fa-brands fa-facebook-f"></i>
+        </a>
 
       <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        class="btn btn-link btn-floating btn-lg m-1"
         href="#!"
         role="button"
-        data-mdb-ripple-color="dark"
+        data-mdb-ripple-color="light"
         ><i class="fab fa-twitter"></i
       ></a>
 
       <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        class="btn btn-link btn-floating btn-lg m-1"
         href="#!"
         role="button"
-        data-mdb-ripple-color="dark"
+        data-mdb-ripple-color="light"
         ><i class="fab fa-google"></i
       ></a>
 
       <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        class="btn btn-link btn-floating btn-lg m-1"
         href="#!"
         role="button"
-        data-mdb-ripple-color="dark"
+        data-mdb-ripple-color="light"
         ><i class="fab fa-instagram"></i
       ></a>
 
       <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        class="btn btn-link btn-floating btn-lg m-1"
         href="#!"
         role="button"
-        data-mdb-ripple-color="dark"
+        data-mdb-ripple-color="light"
         ><i class="fab fa-linkedin"></i
       ></a>
       <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        class="btn btn-link btn-floating btn-lg m-1"
         href="#!"
         role="button"
-        data-mdb-ripple-color="dark"
+        data-mdb-ripple-color="light"
         ><i class="fab fa-github"></i
       ></a>
     </section>
