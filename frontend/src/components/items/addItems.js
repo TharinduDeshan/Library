@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function AddItems(props){
 
@@ -23,6 +24,8 @@ export default function AddItems(props){
     let [Error2Msg, setError2Msg] = useState("");
   
     let flag3 = 0;
+
+    const history = useNavigate();
 
     function sendData(e){
 
@@ -58,8 +61,6 @@ export default function AddItems(props){
             setPrice(" ");
             setSubTitle(" ");
             setDescription(" ");
-            // setImages(imgPath[2]);
-            // setImages(" ");
             setCategory(" ");
       
               Swal.fire({
@@ -69,7 +70,7 @@ export default function AddItems(props){
                 showConfirmButton: false,
                 timer: 1500,
               });     
-              // props.history.push("/shome");
+              history(`/staff/staffHome/`)
             })
             .catch((err) => {
               alert(err);
@@ -174,8 +175,6 @@ export default function AddItems(props){
                                 setErrorMsg("");
                                 setFlag1(1);
         
-                                console.log(flag1);
-                                //console.log("asd");
                               } else {
                                 setErrorMsg("");
                                 flag1 = 1;

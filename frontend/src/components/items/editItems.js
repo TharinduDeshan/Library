@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function EditItems(props){
 
@@ -26,19 +26,22 @@ export default function EditItems(props){
     const[Category,setCategory] = useState("");
     const[Description,setDescription] = useState("");
 
-    const objectId = "625bf949653c75bea85783f0";
 
+    const history = useNavigate();
     const {id} = useParams();
-    console.log(id)
+    // console.log(id)
+
+    
+    const objectId = "625bf949653c75bea85783f0";
 
     useEffect(()=>{
         function getItems(){
             // objectId = localStorage.getItem("CustomerID");
             // objectId = props.match.params.id;
-            console.log(id)
+            // console.log(id)
             axios.get("http://localhost:8070/items/get/" + id)
             .then((res)=>{
-                console.log(res.data)
+                // console.log(res.data)
                 setItems(res.data)
             }).catch((err)=>{
                 console.log(err.errorMsg)    
@@ -47,12 +50,11 @@ export default function EditItems(props){
         getItems();
     },[])
 
-    console.log(items.Price)
+    // console.log(items.Price)
 
 
       function updateItem(e) {
    
-        const objectId = "625bf949653c75bea85783f0";
         e.preventDefault();
     
         const data = {
@@ -61,16 +63,15 @@ export default function EditItems(props){
           Category,
           Description
         }
-
-      
+        console.log(data)
           axios
-          .patch("http://localhost:8070/items/update/" + objectId, data)
+          .patch("http://localhost:8070/items/update/" + id, data)
           .then(() => {
 
-            setQuantity(" ");
-            setPrice(" ");
-            setDescription(" ");
-            setCategory(" ");
+            // setQuantity(" ");
+            // setPrice(" ");
+            // setDescription(" ");
+            // setCategory(" ");
   
     
             Swal.fire({
@@ -80,8 +81,9 @@ export default function EditItems(props){
               showConfirmButton: false,
               timer: 1500
             })
-    
-            // props.history.push("/scategory");
+            // history(`/staff/staffHome/`)
+
+        
       
           })
           .catch((err) => {
@@ -145,14 +147,13 @@ export default function EditItems(props){
                     </div>
 
                     <div class="col-sm">
-                    <label for="exampleInputEmail1" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Category <span style={{color:'red'}}>*</span></label>
+                    <label for="exampleInputEmail1" class="form-label" style={{color:'#3F3232', fontWeight:'bold'}}>Category</label>
                         <select class="form-select" aria-label="Default select example" style={{color:'#3F3232',border:'1px solid #3F3232'}} onChange={(e)=>{
                             setCategory(e.target.value);
                             
                         }}
                         required>
                             <option selected>{items.Category}</option>
-                            {/* <option value="Books">Books</option> */}
                             <option value="Children Books">Children Books</option>
                             <option value="Articles">Articles</option>
                             <option value="Magazines">Magazines</option>
@@ -186,7 +187,7 @@ export default function EditItems(props){
                     </div>
                     <div className="col-sm" style={{float:'right'}}>
                         <button type="submit" class="btn" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'120px', float:'right'}}
-                        // onClick={() => updateItem(items._id)}
+                        onClick={() => updateItem(items._id)}
                         >Submit</button>
                        
                         <button type="reset" class="btn" style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}>Clear</button>

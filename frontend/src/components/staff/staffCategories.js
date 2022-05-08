@@ -18,9 +18,7 @@ import p12 from "../../images/loupe.png";
 export default function StaffCategory(props) {
 
 
-    // const p3 = "../../images/book1.jpg"
     const[title,setTitle] = useState("");
-    // let item = [];
     let [item, setitem] = useState([]);
     let [Category, setCategory] = useState([]);
 
@@ -29,6 +27,8 @@ export default function StaffCategory(props) {
     const history = useNavigate();
     const {type} = useParams();
     console.log(type)
+
+    let [none, setNone] = useState("")
 
    let [errorText, seterrorText] = useState("")
     useEffect(() => {
@@ -42,6 +42,13 @@ export default function StaffCategory(props) {
                     (items)=>
                     items.Category ===type
                 );
+
+                if(filter.length != 0){
+                  setNone("")
+                }
+                else if(filter.length == 0){
+                    setNone("No Items Found")
+                }
 
                  console.log(filter)
                  setitem(filter)
@@ -131,7 +138,6 @@ export default function StaffCategory(props) {
       }
 
       function filterItems(type){
-        //   alert('asd')
 
           axios
           .get("http://localhost:8070/items/get")
@@ -147,6 +153,13 @@ export default function StaffCategory(props) {
 
                console.log(filter)
                setitem(filter)
+
+               if(filter.length != 0){
+                setNone("")
+                }
+                else if(filter.length == 0){
+                    setNone("No Items Found")
+                }
 
           })
           .catch((err) => {
@@ -228,6 +241,8 @@ export default function StaffCategory(props) {
                 <div className="row">
                     <div className = "col-md-12 ">
                         <h4 className = "text-danger">{errorText}</h4>
+                        <h4 className = "text-danger">{none}</h4>
+                   
                     </div>
         {item.map((i)=>{
             return(
@@ -237,10 +252,6 @@ export default function StaffCategory(props) {
                    
                     <img className="img-fluid" alt="Responsive " style={{width:'45%', marginBottom:'5px'}}
                     src={"/Images/" + i.Images}
-                    //  onError={(e) => {
-                    //     e.target.onerror = null;
-                    //     e.target.src = {p3};
-                    //   }}
                       />
                     <br/>
                     <span style={{fontWeight:'bold', float:'center'}}>{i.Title}</span>

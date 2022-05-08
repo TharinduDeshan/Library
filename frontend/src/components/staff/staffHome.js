@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-// import Footer from './components/navigations/footer';
-
-
 import p2 from "../../images/home5.jpg";
 
 import p3 from "../../images/book1.jpg"

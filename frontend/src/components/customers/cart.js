@@ -1,24 +1,16 @@
-import React, { useState , useEffect} from "react";
+import React, { useState , useEffect, Component} from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import jsPDF from "jspdf";
 
-// import Images from "../../images"
 
 import T from "../../images/trash.png"
 import P1 from "../../images/book1.jpg"
 
 export default function Cart(props) {
 
-
-    // let imgPath = P1.split("/");
-    // console.log(imgPath)
-    // console.log(imgPath[0]+imgPath[1]+imgPath[2]+imgPath[3])
-    // let img = imgPath[0]+imgPath[1]+imgPath[2]+imgPath[3]
-
-    // let cart = [];
     let items = [];
-    // let[items,setItems] = useState("");
 
     let [ItemIds, setItemIds] = useState([]);
     let [AllItems, setAllItems] = useState([]);
@@ -49,6 +41,12 @@ export default function Cart(props) {
       Date,
       Image
     };
+
+  //   constructor(props){
+  //     super(props)
+
+  //     this.state={ }
+  // }
 
     const customerID = "625c12c9f36bd7f6a5c6748d"
 
@@ -83,9 +81,6 @@ export default function Cart(props) {
         
         setAllItemsTotal(0)
 
-        // console.log(AllItems)
-        // console.log(ItemIds)
-    
         for (let i = 0; i < ItemIds.length; i++) {
           j = 0;
           
@@ -110,14 +105,12 @@ export default function Cart(props) {
               allItemsTotal =
                 Number(allItemsTotal) + Number(AllItems[j].Price);
               AllItemsArr.push(ItemDetails);
-            //  console.log(AllItemsArr)
             }
           }
         }
         setabc(AllItemsArr);
         console.log(AllItemsArr)
       }
-      // console.log(ItemDetails)
         
 
         //Remove Items From the Cart
@@ -128,26 +121,24 @@ export default function Cart(props) {
           axios
           .get("http://localhost:8070/cart/getOneCart/" + customerID)
           .then((res) => {
-            console.log(res.data)
 
               let cartID = res.data._id;
               let itemssIds = res.data.itemIDs;
+              console.log(itemssIds)
 
               const filter = itemssIds.filter(
                 (itemss)=>
-                itemss.itemIDs !== id 
+                itemss != id 
                );
-
-            console.log(filter)
-
             const updatedCart={
               itemIDs : filter
           }
-
             axios
             .put("http://localhost:8070/cart/updateCartItems/" + customerID, updatedCart)
             .then((res)=>{
-              Swal.fire("Success", "Item Removed From The Cart", "success");
+              Swal.fire("Success", "Item Removed From The Cart", "success",{timer:1500});
+          
+              window.location.reload(false);
             })
             .catch((err) => {
             alert(err);
@@ -159,6 +150,34 @@ export default function Cart(props) {
             });
         }
 
+
+        function jsPdfGenerator(){
+          // window.location.reload(false);
+
+        // jsPdfGenerator = () => {
+
+          // alert('aaa')
+  
+          var doc = new jsPDF('p', 'pt');
+  
+          doc.text(260,40, 'Library')
+          doc.text(170,80, 'The Wonderful World Of Reading')
+          doc.text(30,120, '*************************************************************************************')
+          doc.text(260,140, 'Receipt')
+          doc.text(30,170, '*************************************************************************************')
+          doc.text(100,200, 'Description')
+          doc.text(450,200, 'Price (Rs.)')
+          doc.text(30,670, '*************************************************************************************')
+          doc.text(100,690, 'No of Items')
+          // doc.text(450,690, {CartItems})
+          doc.text(100,720, 'Total Price')
+          // doc.text(450,720, 'Rs.',{allItemsTotal},'/=')
+          doc.text(30,750, '*************************************************************************************')
+          doc.text(250,800, 'Thank You !')
+
+  
+          doc.save("Item_Report.pdf")
+      }
 
   return (
 
@@ -182,11 +201,9 @@ export default function Cart(props) {
                        
                     <div className="row">
                         <div className="col-3 text-center" 
-                        // style={{backgroundColor:'red'}}
                         >
                             <img style={{width:'120px', height:'150px'}}  
                            src={"/Images/" + item.Image}
-                            // src={`../../images/${item.Image}`}
                             
                             />
                         </div>
@@ -194,8 +211,6 @@ export default function Cart(props) {
                             <span style={{fontSize:'20px', fontWeight:'bold'}}>{item.Title}</span>
                             <br/>
                             <span>&nbsp;{item.Author}</span>
-                            {/* <br/>
-                            <span>&nbsp;{item.Category}</span> */}
                             <br/>  <br/>
                             <span>&nbsp;Rs.{item.Price}/=</span>
                           
@@ -211,16 +226,11 @@ export default function Cart(props) {
                         <br/>
                         
                     </div>
-                    {/* <br/>
-                           <hr style={{width:'90%', height:'2px', marginLeft:'30px'}}/> */}
                   </div>
                   )})}
 
 
         </div>
-        {/* <div className="col-1" style={{marginLeft:'80px'}}>
-
-        </div> */}
 
         <div className="col-3" style={{marginLeft:'80px'}}>
             <h4>Total</h4>
@@ -241,7 +251,10 @@ export default function Cart(props) {
             <hr/>
             <br/>
             <center>
-                <button type="submit" class="btn" style={{backgroundColor:'#F2AB39',color:'#fff', fontWeight:'bold', width:'200px', float:'center'}}>Place the Order</button>
+                  <button data-bs-toggle="modal" data-bs-target="#exampleModal"  type="submit" class="btn" 
+                  style={{backgroundColor:'#F2AB39',color:'#fff', fontWeight:'bold', width:'200px', float:'center'}}>
+                    Place the Order
+                  </button>
                 </center>
             <br/><br/><br/>
                 <div style={{border:'1px solid #3F3232', padding:'15px'}}>
@@ -252,6 +265,75 @@ export default function Cart(props) {
         </div>
     </div>
     <br/><br/><br/><br/><br/>
+
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                <br/>
+                    <div class="modal-body text-center">
+                        <div className="row text-center">
+                           
+                            <h3>Library</h3>
+                            <h6>The Wonderful World Of Reading</h6>
+                            <label>**************************************************************</label>
+                            <h5>Receipt</h5>
+                            <label>**************************************************************</label>
+                        </div>
+
+                        <div className="row text-center">
+                          <div className="col-sm">  
+                            <label style={{fontSize:'18px',paddingBottom:'10px',fontWeight:'bold', paddingTop:'10px'}}>Description</label><br/>
+                          </div>
+                          <div className="col-sm">  
+                            <label style={{fontSize:'18px',paddingBottom:'10px',fontWeight:'bold', paddingTop:'10px'}}>Price (Rs)</label><br/>
+                          </div>
+                        </div>
+
+                   {abc.map((item) => {
+      
+                      return (
+                        <div className="row">
+                            <div className="col-sm">
+                                <ul style={{listStyle:'none'}}>
+                                  <li>{item.Title}</li>
+                                </ul>
+                                
+                            </div>
+                            <div className="col-sm">
+                               <ul style={{listStyle:'none'}}>
+                                  <li>{item.Price}</li>
+                                </ul>
+                            </div>
+                        </div>
+                           )})}
+
+                 
+                        <div className="row">
+                           <label>**************************************************************</label>
+                            <div className="col-sm">
+                            <label style={{fontSize:'17px',fontWeight:'bold'}}>No of Items</label><br/>
+                                <label style={{fontSize:'17px',fontWeight:'bold'}}>Total</label><br/>
+                            </div>
+                            <div className="col-sm">   
+                                <label style={{fontSize:'17px',fontWeight:'bold'}}>{CartItems}</label><br/>
+                                <label style={{fontSize:'17px',fontWeight:'bold'}}>Rs. {allItemsTotal} /=</label><br/>
+                            </div>
+                          </div>
+                          
+                          <label>**************************************************************</label>
+
+                          <br/><br/>
+                          <h5>Thank You !</h5>
+                          <br/>
+                        <button aria-label="Close" type="submit" class="btn text-center" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'200px', boxShadow:'5px 5px #dcdcdc'}}
+                             onClick={()=>jsPdfGenerator()} >Ok</button>
+
+                        <br/><br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
   );
