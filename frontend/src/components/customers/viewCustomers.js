@@ -83,9 +83,9 @@ export default function ViewCustomers(props) {
 return (
         <div className="customer" key={customer.CustomerID}>
         <h2>Customer Informations</h2>
-        <div>
+        
         <button style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}><a href="/staff/addCustomer">Add New Customer</a></button>
-        </div>
+        
         <table class="table table-striped table-bordered text-center" id="example" >
           <thead>
             <tr>

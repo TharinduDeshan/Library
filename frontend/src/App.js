@@ -21,6 +21,9 @@ import ShowMembers from './components/members/showMember';
 import ViewCustomers from './components/customers/viewCustomers';
 // import ViewCustomers from './components/customers/viewCustomers';
 import ItemReport from './components/services/itemReport';
+import CustomerLogin from './components/customers/customerLogin';
+import EditProfile from './components/profile/editProfile';
+import UserProfile from './components/profile/userProfile';
 
 function App() {
   return (
@@ -33,10 +36,10 @@ function App() {
        <Route path="/customer/home" element={<><Header /><Home /><Footer/></>} />
        <Route path="/customer/cart/:id" element={<><Header /><Cart /><Footer/></>} />
        <Route path="/customer/category/:type" element={<><Header /><Category /><Footer/></>} />
-       
-
+       <Route path="/customer/customerLogin" element={<><StaffHeader /><CustomerLogin /><Footer/></>} />
        <Route path="/staff/editCustomer/:id" element={<><StaffHeader /><EditCustomer /><Footer/></>} />
-
+       <Route path="/customer/userProfile" element={<><StaffHeader /><UserProfile /><Footer/></>} />
+       <Route path="/customer/editProfile" element={<><StaffHeader /><EditProfile /><Footer/></>} />
 
        <Route path="/staff" element={<StaffHeader/>} />
        <Route path="/staff/staffHome" element={<><StaffHeader /><StaffHome /><Footer/></>} />

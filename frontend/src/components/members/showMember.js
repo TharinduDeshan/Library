@@ -87,7 +87,11 @@ export default function ShowMember(props) {
 
 return (
       <div className="customer" key={member.MemberID}>
-        <h2>Members Informations</h2>
+        <div>
+          <h2>Members Informations</h2>
+          <button style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}><a href="/staff/addMember">Add New Member</a></button>
+        </div>
+        
         <table class="table table-striped table-bordered text-center" id="example" >
         {/* <table> */}
           <thead>
