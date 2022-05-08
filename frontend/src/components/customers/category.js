@@ -17,21 +17,14 @@ import p12 from "../../images/loupe.png";
 
 export default function Category(props) {
 
-    // const[item,setItem] = useState("");
 
-    // const p3 = "../../images/book1.jpg"
-    // const[title,setTitle] = useState("");
-
-    // const[customerID,setcustomerID] = useState("");
     const[itemIDs,setitemIDs] = useState("");
     const[orderDate,setorderDate] = useState("");
-    // let item = [];
     let [item, setitem] = useState([]);
     let [Category, setCategory] = useState([]);
     let [ItemIds, setItemIds] = useState([]);
 
     let topic = "";
-    // let [name, setName] = useState("")
     let [none, setNone] = useState("")
    let [errorText, seterrorText] = useState("")
 
@@ -50,6 +43,9 @@ export default function Category(props) {
    console.log(type)
 
    const pageTitle="Books"
+
+   const customerID ="625c12c9f36bd7f6a5c6748d" 
+
     useEffect(() => {
         function getItems() {
           axios
@@ -73,12 +69,7 @@ export default function Category(props) {
 
                  setCategory(type)
 
-                //  for(let i=0;i<item.length;i++){
 
-                //     console.log(item[i].Title)
-                //     setTitle(item[i].Title)
-         
-                // }
             })
             .catch((err) => {
               alert(err);
@@ -91,17 +82,13 @@ export default function Category(props) {
 
 
     function filterContent(data, userSearch) {
-        // console.log(result)
         let result = data.filter(
           (post) =>
             post.Title.toLowerCase().includes(userSearch)
         );
-        console.log(userSearch);
-        console.log(result)
         setNone("")
         setitem(result)
         let x = result;
-        // getItems(r, x);
         if (result.length != 0) {
         //   document.getElementById("itemsTxt").innerHTML = "";
         seterrorText("")
@@ -120,7 +107,6 @@ export default function Category(props) {
         axios
           .get("http://localhost:8070/items/get")
           .then((res) => {
-            // console.log(res.data);
     
             if (userSearch != null) {
               filterContent(res.data, userSearch);
@@ -162,9 +148,6 @@ export default function Category(props) {
       }
 
       function Cart(id){
-        //   alert(id)
-        //const id="625bf949653c75bea85783f0" //temporary id
-        const customerID ="625c12c9f36bd7f6a5c6748d"  //temporary id
 
         axios
         .get("http://localhost:8070/cart/getAllCarts")
@@ -350,10 +333,6 @@ export default function Category(props) {
 
                     <img className="img-fluid" alt="Responsive " style={{width:'45%', marginBottom:'5px'}}
                     src={"/Images/" + i.Images}
-                    //  onError={(e) => {
-                    //     e.target.onerror = null;
-                    //     e.target.src = {p3};
-                    //   }}
                       />
                     <br/>
                     <span style={{fontWeight:'bold', float:'center'}}>{i.Title}</span>

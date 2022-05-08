@@ -3,22 +3,14 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
-// import Images from "../../images"
+
 
 import T from "../../images/trash.png"
 import P1 from "../../images/book1.jpg"
 
 export default function Cart(props) {
 
-
-    // let imgPath = P1.split("/");
-    // console.log(imgPath)
-    // console.log(imgPath[0]+imgPath[1]+imgPath[2]+imgPath[3])
-    // let img = imgPath[0]+imgPath[1]+imgPath[2]+imgPath[3]
-
-    // let cart = [];
     let items = [];
-    // let[items,setItems] = useState("");
 
     let [ItemIds, setItemIds] = useState([]);
     let [AllItems, setAllItems] = useState([]);
@@ -83,9 +75,6 @@ export default function Cart(props) {
         
         setAllItemsTotal(0)
 
-        // console.log(AllItems)
-        // console.log(ItemIds)
-    
         for (let i = 0; i < ItemIds.length; i++) {
           j = 0;
           
@@ -110,14 +99,12 @@ export default function Cart(props) {
               allItemsTotal =
                 Number(allItemsTotal) + Number(AllItems[j].Price);
               AllItemsArr.push(ItemDetails);
-            //  console.log(AllItemsArr)
             }
           }
         }
         setabc(AllItemsArr);
         console.log(AllItemsArr)
       }
-      // console.log(ItemDetails)
         
 
         //Remove Items From the Cart
@@ -128,7 +115,6 @@ export default function Cart(props) {
           axios
           .get("http://localhost:8070/cart/getOneCart/" + customerID)
           .then((res) => {
-            // console.log(res.data)
 
               let cartID = res.data._id;
               let itemssIds = res.data.itemIDs;
@@ -137,15 +123,10 @@ export default function Cart(props) {
               const filter = itemssIds.filter(
                 (itemss)=>
                 itemss != id 
-                // {console.log(items)}
                );
-               
-            console.log(filter)
-
             const updatedCart={
               itemIDs : filter
           }
-          console.log(updatedCart)
             axios
             .put("http://localhost:8070/cart/updateCartItems/" + customerID, updatedCart)
             .then((res)=>{
@@ -163,20 +144,9 @@ export default function Cart(props) {
             });
         }
 
-        // function order(){
-
-        // }
 
         function modalOpen(){
 
-          // setTitle(data.Title)
-          // setAuthor(data.Author)
-          // setPrice(data.Price)
-          // setDescription(data.Description)
-          // setDate(data.Date)
-          // setCat(data.Category)
-          // setCatID(data._id)
-          // setImage(data.Images)
         }
 
         function okBtn(){
@@ -205,11 +175,9 @@ export default function Cart(props) {
                        
                     <div className="row">
                         <div className="col-3 text-center" 
-                        // style={{backgroundColor:'red'}}
                         >
                             <img style={{width:'120px', height:'150px'}}  
                            src={"/Images/" + item.Image}
-                            // src={`../../images/${item.Image}`}
                             
                             />
                         </div>
@@ -217,8 +185,6 @@ export default function Cart(props) {
                             <span style={{fontSize:'20px', fontWeight:'bold'}}>{item.Title}</span>
                             <br/>
                             <span>&nbsp;{item.Author}</span>
-                            {/* <br/>
-                            <span>&nbsp;{item.Category}</span> */}
                             <br/>  <br/>
                             <span>&nbsp;Rs.{item.Price}/=</span>
                           
@@ -234,16 +200,11 @@ export default function Cart(props) {
                         <br/>
                         
                     </div>
-                    {/* <br/>
-                           <hr style={{width:'90%', height:'2px', marginLeft:'30px'}}/> */}
                   </div>
                   )})}
 
 
         </div>
-        {/* <div className="col-1" style={{marginLeft:'80px'}}>
-
-        </div> */}
 
         <div className="col-3" style={{marginLeft:'80px'}}>
             <h4>Total</h4>
@@ -350,6 +311,3 @@ export default function Cart(props) {
 
   );
 }
-{/* <label style={{paddingBottom:'1px'}}>sdf</label><br/>
-                                <label style={{paddingBottom:'1px'}}>sdf</label><br/>
-                                <label style={{paddingBottom:'10px'}}>sdfv</label><br/> */}
