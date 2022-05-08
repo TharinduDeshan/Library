@@ -135,6 +135,7 @@ export default function AddCustomers(){
                              setOccupcation(e.target.value);
                          }}
 
+                         
                         required/>
                     </div>
                     <div class="col-sm-4">
