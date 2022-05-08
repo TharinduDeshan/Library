@@ -6,6 +6,7 @@ import "../../css/search.css"
 import "datatables.net-dt/js/dataTables.dataTables"
 import "datatables.net-dt/css/jquery.dataTables.min.css"
 import $ from "jquery";
+
 import p10 from "../../images/edit.png";
 import p11 from "../../images/trash.png";
 
@@ -82,14 +83,21 @@ export default function ViewCustomers(props) {
 
 return (
         <div className="customer" key={customer.CustomerID}>
-        <h2>Customer Informations</h2>
         
+        <div className="row" >
+        <div className="col-sm-2">
         <button style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}><a href="/staff/addCustomer">Add New Customer</a></button>
-        
+        </div>
+        <div className="col-sm-10">
+        <h2>Customer Informations</h2>
+        </div>
+        </div>
+
+        <div className="row" >
+        <div className="col-sm-12">
         <table class="table table-striped table-bordered text-center" id="example" >
           <thead>
-            <tr>
-              <th>ID</th>
+            <tr>             
               <th>NAME</th>
               <th>NIC</th>
               <th>PHONE NUMBER</th>
@@ -98,15 +106,17 @@ return (
               <th>OCCUPCATION</th>
               <th>GENDER</th>
               <th>MEMBER</th>
+              <th>ACTION BUTTON</th>
             </tr>
           </thead>
           <tbody>
-          {customerDetails.map((customer) => (
-              <tr>
-                <td>{customer.CustomerID}</td>
+            {customerDetails.map((customer) => (
+            
+              <tr>                
                 <td>{customer.Name}</td>
                 <td>{customer.NIC}</td>
                 <td>{customer.PhoneNumber}</td>
+                <td>{customer.Address}</td>
                 <td>{customer.Email}</td>
                 <td>{customer.Occupcation}</td>
                 <td>{customer.Gender}</td>
@@ -132,6 +142,8 @@ return (
           </tbody>
           
         </table>
+        </div>
+        </div>
       </div>
   );
 }

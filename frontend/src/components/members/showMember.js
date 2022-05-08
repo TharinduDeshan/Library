@@ -87,11 +87,17 @@ export default function ShowMember(props) {
 
 return (
       <div className="customer" key={member.MemberID}>
-        <div>
-          <h2>Members Informations</h2>
-          <button style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}><a href="/staff/addMember">Add New Member</a></button>
+        <div className="row" >
+        <div className="col-sm-2">  
+            <button style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}><a href="/staff/addMember">Add New Member</a></button>
         </div>
-        
+        <div className="col-sm-10">
+          <h2>Members Informations</h2>
+          
+        </div>
+        </div>
+        <div className="row" >
+        <div className="col-sm-12"> 
         <table class="table table-striped table-bordered text-center" id="example" >
         {/* <table> */}
           <thead>
@@ -138,6 +144,8 @@ return (
             ))}
           </tbody>
         </table>
+        </div>
+        </div>
       </div>
   );
 }
