@@ -62,6 +62,12 @@ export default function Category(props) {
                 );
 
                  console.log(filter)
+                 if(filter.length != 0){
+                    setNone("")
+               }
+               else if(filter.length == 0){
+                   setNone("No Items Found")
+               }
                  setitem(filter)
 
                  setCategory(type)

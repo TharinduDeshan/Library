@@ -45,6 +45,13 @@ export default function StaffCategory(props) {
                     items.Category ===type
                 );
 
+                if(filter.length != 0){
+                  setNone("")
+                }
+                else if(filter.length == 0){
+                    setNone("No Items Found")
+                }
+
                  console.log(filter)
                  setitem(filter)
 
