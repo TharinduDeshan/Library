@@ -31,21 +31,8 @@ connection.once("open", () => {
 })
 
 //Make access to routes
-const itemRouter = require("./routers/items");
-app.use("/items", itemRouter);
-
-app.use(express.json())
-
-
-
-const stffMemberRouter = require('./routers/staffMemberDetails')
-app.use('/staffMemberDetails', stffMemberRouter)
-
-const customerRouter = require('./routers/customers')
-app.use('/customers', customerRouter)
-
-const customerDetailsRouter = require('./routers/customerDetails')
-app.use('/customerDetails', customerDetailsRouter)
+const customerRouter = require("./routes/customers.js");
+app.use("/customers", customerRouter);
 
 const cartRouter = require("./routes/carts.js");
 app.use("/cart", cartRouter);
