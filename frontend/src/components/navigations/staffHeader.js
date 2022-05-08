@@ -1,7 +1,4 @@
 import React from "react";
-// import "./css/header.css";
-
-
 
 function StaffHeader(){
 
@@ -14,8 +11,6 @@ function StaffHeader(){
 
             <div class="image-text" style={{display: 'flex',fontFamily: 'Rambla, sans-serif',marginLeft: '40px'}}>
                 <div class="image-text__image" style={{flex: '0 0 auto'}}>
-                {/* <img style={{ display: block; marginTop: '10px', height:'50px', width:'50px'}} 
-                src="./assets/images/images Used in Project Management UI Design/AppLogo.png" alt = "logo"/> */}
                 </div>
                 <div class="vl"></div>
                 <h1 class=" mb-4 font-weight-bold" id="companyname" style={{fontFamily: 'Rambla, sans-serif',color: '#3F3232',
@@ -42,7 +37,6 @@ function StaffHeader(){
                         <a class="nav-link"  href="/" id="signout">
                             <button type="button" style={{ backgroundColor: '#F2AB39', border: 'none', width: '100px'}} class="btn btn-primary">Sign Out</button>
                         </a></li>
-                        {/* <div class="brt"><br/></div> */}
                         
                     </ul>
                 </div>

@@ -18,9 +18,7 @@ import p12 from "../../images/loupe.png";
 export default function StaffCategory(props) {
 
 
-    // const p3 = "../../images/book1.jpg"
     const[title,setTitle] = useState("");
-    // let item = [];
     let [item, setitem] = useState([]);
     let [Category, setCategory] = useState([]);
 
@@ -140,7 +138,6 @@ export default function StaffCategory(props) {
       }
 
       function filterItems(type){
-        //   alert('asd')
 
           axios
           .get("http://localhost:8070/items/get")
@@ -255,10 +252,6 @@ export default function StaffCategory(props) {
                    
                     <img className="img-fluid" alt="Responsive " style={{width:'45%', marginBottom:'5px'}}
                     src={"/Images/" + i.Images}
-                    //  onError={(e) => {
-                    //     e.target.onerror = null;
-                    //     e.target.src = {p3};
-                    //   }}
                       />
                     <br/>
                     <span style={{fontWeight:'bold', float:'center'}}>{i.Title}</span>

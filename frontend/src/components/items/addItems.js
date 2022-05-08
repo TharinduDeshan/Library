@@ -175,8 +175,6 @@ export default function AddItems(props){
                                 setErrorMsg("");
                                 setFlag1(1);
         
-                                console.log(flag1);
-                                //console.log("asd");
                               } else {
                                 setErrorMsg("");
                                 flag1 = 1;

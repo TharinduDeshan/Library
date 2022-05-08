@@ -1,42 +1,42 @@
-// import React, {Component} from "react";
-// import jsPDF from "jspdf";
+import React, {Component} from "react";
+import jsPDF from "jspdf";
 
 
-// export default class ItemReport extends Component {
+export default class ItemReport extends Component {
 
-//     constructor(props){
-//         super(props)
+    constructor(props){
+        super(props)
 
-//         this.state={
+        this.state={
 
-//         }
-//     }
+        }
+    }
 
-//     jsPdfGenerator = () => {
+    jsPdfGenerator = () => {
 
-//         // alert('aaa')
+        // alert('aaa')
 
-//         var doc = new jsPDF('p', 'pt');
+        var doc = new jsPDF('p', 'pt');
 
-//         doc.text(20,20, 'This is default text')
-//         doc.setFont('courier');
-//         doc.setFontType('normal')
-//         doc.text(20, 30, "this is example 1")
+        doc.text(20,20, 'This is default text')
+        doc.setFont('courier');
+        doc.setFontType('normal')
+        doc.text(20, 30, "this is example 1")
 
-//         doc.save("generated.pdf")
-//     }
+        doc.save("generated.pdf")
+    }
   
-//   render(){
-//       return(
-//           <div>
-//               <button className="btn btn-primary"
-//               onClick={this.jsPdfGenerator}
-//               >Generate PDF</button>
-//           </div>
-//       )
-//   }
+  render(){
+      return(
+          <div>
+              <button className="btn btn-primary"
+              onClick={this.jsPdfGenerator}
+              >Generate PDF</button>
+          </div>
+      )
+  }
 
-//   }
+  }
 
 
 
