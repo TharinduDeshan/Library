@@ -19,6 +19,8 @@ import AddMembers from './components/members/addMembers';
 import EditMembers from './components/members/editMembers';
 import ShowMembers from './components/members/showMember';
 import ViewCustomers from './components/customers/viewCustomers';
+// import ViewCustomers from './components/customers/viewCustomers';
+import ItemReport from './components/services/itemReport';
 
 function App() {
   return (
@@ -52,12 +54,11 @@ function App() {
 
        
        <Route path="/" element={<WelcomePage />} />
-       {/* <Route path="/" element={<EditCustomer />} /> */}
+       {/* <Route path="/admin" element={<ViewCustomers />} /> */}
+
+       <Route path="/report" element={<ItemReport/>} />
      
       </Routes> 
-      {/* <Footer/> */}
-
-      
 
      </Router>
 
