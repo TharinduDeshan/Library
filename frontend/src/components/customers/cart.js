@@ -168,10 +168,27 @@ export default function Cart(props) {
           doc.text(100,200, 'Description')
           doc.text(450,200, 'Price (Rs.)')
           doc.text(30,670, '*************************************************************************************')
+          
+        let p=230
+          abc.map((item) => {
+              
+                    return (
+
+                      doc.text(100,p, item.Title),
+                      doc.text(450,p, item.Price),
+
+                                  p=p+20
+                    )})
+
+                    let c1 = CartItems.toString()
+                    let c2 = allItemsTotal.toString()
+                    console.log(c2)
+                    console.log(CartItems)
+
           doc.text(100,690, 'No of Items')
-          // doc.text(450,690, {CartItems})
+          doc.text(450,690, c1)
           doc.text(100,720, 'Total Price')
-          // doc.text(450,720, 'Rs.',{allItemsTotal},'/=')
+          doc.text(450,720, 'Rs.'+c2+'.00/=')
           doc.text(30,750, '*************************************************************************************')
           doc.text(250,800, 'Thank You !')
 
