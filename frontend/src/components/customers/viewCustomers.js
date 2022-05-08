@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 import "../../css/search.css"
 
 export default function ViewCustomers(props) {
-    // const[CustomerID,setCustomerID] = useState("");
-    // const[Name,setName] = useState("");
-    // const[NIC,setNIC] = useState("");
-    // const[PhoneNumber,setPhoneNumber] = useState("");
-    // const[Address,setAddress] = useState("");
-    // const[Email,setEmail] = useState("");
-    // const[Occupcation,setOccupcation] = useState("");
-    // const[Gender,setGender] = useState("");
-    // const[Member,setMember] = useState("");
+    const[CustomerID,setCustomerID] = useState("");
+    const[Name,setName] = useState("");
+    const[NIC,setNIC] = useState("");
+    const[PhoneNumber,setPhoneNumber] = useState("");
+    const[Address,setAddress] = useState("");
+    const[Email,setEmail] = useState("");
+    const[Occupcation,setOccupcation] = useState("");
+    const[Gender,setGender] = useState("");
+    const[Member,setMember] = useState("");
 
     let[customerDetails,setCustomerDetails] = useState([]);
     
@@ -39,10 +39,45 @@ export default function ViewCustomers(props) {
         getCustomers();
       }, []);
 
+      function deleteCustomer(id){
+        console.log(id)
+  
+          Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              
+              axios
+              .delete("http://localhost:8070/customers/delete/" + id)
+              .then((res) => {
+
+                Swal.fire("Deleted!", "Your file has been deleted.", "success");
+
+            })
+            .catch((err) => {
+              alert(err);
+            });            
+            }
+          });
+      }
+
+      function updateCustomer(id){
+        console.log(id)
+
+        history(`/staff/editCustomer/${id}`)
+      }
+
+
 return (
-      <div className="customer" >
-        <h2>Customer Informations</h2>
-        <table>
+        <div className="customer" key={member.MemberID}>
+        <h2>Members Informations</h2>
+        <table class="table table-striped table-bordered text-center" id="example" >
           <thead>
             <tr>
               <th>ID</th>
@@ -66,7 +101,23 @@ return (
                 <td>{customer.Email}</td>
                 <td>{customer.Occupcation}</td>
                 <td>{customer.Gender}</td>
-                <td>{customer.Member}</td>               
+                <td>{customer.Member}</td>
+                <td>
+                  <div className="col">
+                    &ensp;
+                    <button className="btn" style={{width:'47px'}}onClick={()=>updateCustomer(customer._id)}>
+                    
+                    <img id="img141" src={p10} style={{width:'100%'}}/>
+
+                    </button>
+                    <button className="btn" style={{width:'47px'}}onClick={()=>deleteCustomer(customer._id)}>
+                    
+                    <img id="img141" src={p11} style={{width:'100%'}}/>
+
+                    </button>
+                    
+                  </div>
+                </td>               
               </tr>
             ))}
           </tbody>
