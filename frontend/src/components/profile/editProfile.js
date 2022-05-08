@@ -12,6 +12,8 @@ export default function EditProfile(){
     let [Err3Msg,setErr3Msg] = useState("");
   
     let [errorMsg,setErrorMsg] = useState("");
+
+    let [accounts,setAccounts] = useState("");
   
     let flag = 0;
   
