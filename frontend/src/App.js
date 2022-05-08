@@ -17,6 +17,9 @@ import Admin from './components/customers/viewCustomers';
 import WelcomePage from './components/navigations/welcomePage';
 import ViewCustomers from './components/customers/viewCustomers';
 import ItemReport from './components/services/itemReport';
+import AddStaff from './components/staff/addStaff';
+import StaffList from './components/staff/viewStaffList';
+import UpdateStaff from './components/staff/updateStaff';
 
 function App() {
   return (
@@ -32,12 +35,17 @@ function App() {
        
        <Route path="/customer/ediCustomer" element={<><Header /><ediCustomer /><Footer/></>} />
 
+       {/* <Route exact path="/addStaff" element={<AddStaff/>} />
+       <Route exact path="/staffList" element={<StaffList/>} />
+       <Route exact path="/editStaff/:id" element={<UpdateStaff/>} /> */}
+
 
        <Route path="/staff" element={<StaffHeader/>} />
        <Route path="/staff/staffHome" element={<><StaffHeader /><StaffHome /><Footer/></>} />
+       <Route path="/staff/all" element={<><StaffHeader /><StaffList /><Footer/></>} />
        <Route path="/staff/scategory/:type" element={<><StaffHeader /><StaffCategory /><Footer/></>} />
-       <Route path="/staff/addItem" element={<><StaffHeader /><AddItems /><Footer/></>} />
-       <Route path="/staff/editItem/:id" element={<><StaffHeader /><EditItems /><Footer/></>} />
+       <Route path="/staff/addStaff" element={<><StaffHeader /><AddStaff /><Footer/></>} />
+       <Route path="/staff/editStaff/:id" element={<><StaffHeader /><UpdateStaff /><Footer/></>} />
 
        <Route path="/staff/addCustomer" element={<><StaffHeader /><AddCustomer /><Footer/></>} />
 
