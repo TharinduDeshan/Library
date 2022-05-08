@@ -116,38 +116,52 @@ return(
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Name</label>
-                        {/* <input type="text" class="form-control" placeholder="first name" value="">                        */}
-                        </div>
-                    <div class="col-md-6"><label class="labels">Address</label>
-                    {/* <input type="text" class="form-control" value="" placeholder="surname">                        */}
+                    <div class="col-md-6"><label class="labels">Username</label>
+                    <input type="text" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232' }} 
+                        placeholder={accounts.Username} enable />
+                    </div>
+                    <div class="col-md-6">
+                    <label class="labels">FirstName</label>
+                    <input type="text" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232' }} 
+                        placeholder={accounts.FirstName} enable />
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">PhoneNumber</label>
-                    {/* <input type="text" class="form-control" placeholder="enter phone number" value="">      */}
-                    </div>
-                    <div class="col-md-12"><label class="labels">NIC</label>
-                    {/* <input type="text" class="form-control" placeholder="enter address line 1" value="">                        */}
-                    </div>
-                    <div class="col-md-12"><label class="labels">Occupcation</label>
-                    {/* <input type="text" class="form-control" placeholder="enter address line 2" value=""> */}
+                    <div class="col-md-12">
+                    <label class="labels">LastName</label>
+                    <input type="text" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232' }} 
+                        placeholder={accounts.LastName} enable />
                     </div>
                     <div class="col-md-12">
-                        <label class="labels">Membership ID</label>
-                    {/* <input type="text" class="form-control" placeholder="enter address line 2" value=""> */}
+                        <label class="labels">NIC</label>
+                        <input type="text" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232' }} 
+                        placeholder={accounts.NIC} enable />
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">UserType</label>
+                        <input type="text" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232' }} 
+                        placeholder={accounts.UserType} enable />
+                    </div>
+                    {/* <div class="col-md-12">
+                        <label class="labels">Password</label>
+                        <input type="password" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232' }} 
+                        placeholder={accounts.Password} enable />
                     </div>   
                     <div class="col-md-12">
-                        <label class="labels">Email</label>
-                    {/* <input type="text" class="form-control" placeholder="enter email id" value=""> */}
+                        <label class="labels">Confirm Password</label>
+                        <input type="password" className="form-control" id="exampleInputtext1" aria-describedby="textHelp" style={{border:'1px solid #3F3232' }} 
+                        placeholder={accounts.ConfirmPassword} enable />
 
-                    </div>
+                    </div> */}
                     
                 </div>
                 <div class="row mt-3">
-                    
+                <div class="mt-5 text-center"><button type="submit" className="btn" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'120px', float:'right'}}>Save Profile</button></div> 
                 </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                <div class="mt-5 text-center"><button type="reset" className="btn" style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}>Clear</button></div> 
+                
+                
+                
             </div>
         </div>
         <div class="col-md-4">
