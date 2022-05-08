@@ -67,7 +67,10 @@ export default function CustomerLogin(){
                         required/>
             </div>
             <div className="button-container">
-                <button type="submit" class="btn" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'120px', float:'right'}}>Login</button>
+                <button type="submit" class="btn" style={{backgroundColor:'#3FC1C9',color:'#f5f5f5', fontWeight:'bold', width:'100px', float:'right', marginRight:'30px'}}>Login</button>
+            </div>
+            <div className="button-container">
+                <button type="reset" class="btn" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'120px', float:'right'}}>Reset</button>
             </div>
             </form>
         </div>
