@@ -7,13 +7,7 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
-<<<<<<< HEAD
-    "datatables.net": "^1.11.5",
-    "datatables.net-dt": "^1.11.5",
-    "jquery": "^3.6.0",
-=======
     "jspdf": "^2.5.1",
->>>>>>> b4bc01682841d9106617e0434eab048f6175e5fe
     "props": "^0.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
