@@ -179,6 +179,9 @@ export default function Cart(props) {
           // setImage(data.Images)
         }
 
+        function okBtn(){
+          window.location.reload(false);
+        }
 
   return (
 
@@ -278,48 +281,65 @@ export default function Cart(props) {
      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-            
+                <br/>
                     <div class="modal-body text-center">
                         <div className="row text-center">
-                            
+                           
                             <h3>Library</h3>
                             <h6>The Wonderful World Of Reading</h6>
                             <label>**************************************************************</label>
                             <h5>Receipt</h5>
                             <label>**************************************************************</label>
+                        </div>
 
+                        <div className="row text-center">
+                          <div className="col-sm">  
+                            <label style={{fontSize:'18px',paddingBottom:'10px',fontWeight:'bold', paddingTop:'10px'}}>Description</label><br/>
+                          </div>
+                          <div className="col-sm">  
+                            <label style={{fontSize:'18px',paddingBottom:'10px',fontWeight:'bold', paddingTop:'10px'}}>Price (Rs)</label><br/>
+                          </div>
+                        </div>
+
+                   {abc.map((item) => {
+      
+                      return (
+                        <div className="row">
                             <div className="col-sm">
-                                <label style={{fontSize:'18px',paddingBottom:'2px',fontWeight:'bold', paddingTop:'15px'}}>Description</label><br/>
-                                <label style={{paddingBottom:'1px'}}>sdf</label><br/>
-                                <label style={{paddingBottom:'1px'}}>sdf</label><br/>
-                                <label style={{paddingBottom:'10px'}}>sdfv</label><br/>
+                                <ul style={{listStyle:'none'}}>
+                                  <li>{item.Title}</li>
+                                </ul>
+                                
                             </div>
                             <div className="col-sm">
-                                <label style={{fontSize:'18px',paddingBottom:'2px',fontWeight:'bold', paddingTop:'15px'}}>Price</label><br/>
-                                <label style={{paddingBottom:'1px'}}>sdf</label><br/>
-                                <label style={{paddingBottom:'1px'}}>sdf</label><br/>
-                                <label style={{paddingBottom:'10px'}}>sdfv</label><br/>
+                               <ul style={{listStyle:'none'}}>
+                                  <li>{item.Price}</li>
+                                </ul>
                             </div>
                         </div>
-                        
+                           )})}
+
+                 
                         <div className="row">
                            <label>**************************************************************</label>
-                        <div className="col-sm">
-                                <label style={{fontSize:'18px',paddingBottom:'2px',fontWeight:'bold', paddingTop:'15px'}}>Total</label><br/>
-                       
-                            </div>
                             <div className="col-sm">
-                                <label style={{fontSize:'18px',paddingBottom:'2px',fontWeight:'bold', paddingTop:'15px'}}>Rs. 300 /=</label><br/>
-
+                            <label style={{fontSize:'17px',fontWeight:'bold'}}>No of Items</label><br/>
+                                <label style={{fontSize:'17px',fontWeight:'bold'}}>Total</label><br/>
+                            </div>
+                            <div className="col-sm">   
+                                <label style={{fontSize:'17px',fontWeight:'bold'}}>{CartItems}</label><br/>
+                                <label style={{fontSize:'17px',fontWeight:'bold'}}>Rs. {allItemsTotal} /=</label><br/>
                             </div>
                           </div>
                           
                           <label>**************************************************************</label>
+
                           <br/><br/>
                           <h5>Thank You !</h5>
                           <br/>
                         <button aria-label="Close" type="submit" class="btn text-center" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'200px', boxShadow:'5px 5px #dcdcdc'}}
-                              >Ok</button>
+                             onClick={()=>okBtn()} >Ok</button>
+
                         <br/><br/>
                     </div>
                 </div>
@@ -330,3 +350,6 @@ export default function Cart(props) {
 
   );
 }
+{/* <label style={{paddingBottom:'1px'}}>sdf</label><br/>
+                                <label style={{paddingBottom:'1px'}}>sdf</label><br/>
+                                <label style={{paddingBottom:'10px'}}>sdfv</label><br/> */}
