@@ -24,6 +24,8 @@ import ItemReport from './components/services/itemReport';
 import CustomerLogin from './components/customers/customerLogin';
 import EditProfile from './components/profile/editProfile';
 import UserProfile from './components/profile/userProfile';
+import UserProfile from './components/customers/resetPassword';
+import ResetPassword from './components/customers/resetPassword';
 
 function App() {
   return (
@@ -40,6 +42,7 @@ function App() {
        <Route path="/staff/editCustomer/:id" element={<><StaffHeader /><EditCustomer /><Footer/></>} />
        <Route path="/customer/userProfile" element={<><StaffHeader /><UserProfile /><Footer/></>} />
        <Route path="/customer/editProfile" element={<><StaffHeader /><EditProfile /><Footer/></>} />
+       <Route path="/customer/resetPassword" element={<><StaffHeader /><ResetPassword /><Footer/></>} />
 
        <Route path="/staff" element={<StaffHeader/>} />
        <Route path="/staff/staffHome" element={<><StaffHeader /><StaffHome /><Footer/></>} />
