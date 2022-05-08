@@ -41,6 +41,7 @@ export default function Category(props) {
    const [date,setDate]=useState();
    const [price,setPrice]=useState();
    const [cat,setCat]=useState();
+   const [image,setImage]=useState();
    const [catID,setCatID]=useState();
 
    const [modalOpenForItem, setModalOpenForItem] = useState(false);
@@ -258,6 +259,7 @@ export default function Category(props) {
         setDate(data.Date)
         setCat(data.Category)
         setCatID(data._id)
+        setImage(data.Images)
       }
 
 
@@ -376,7 +378,7 @@ export default function Category(props) {
                         <div className="row">
                             
                             <div className="col-5">
-                                <img src={p5} style={{width:'80%', marginLeft:'20px', marginTop:'15px'}} />
+                                <img src={"/Images/" + image} style={{width:'80%', marginLeft:'20px', marginTop:'15px'}} />
                             </div>
 
                             <div className="col-7">

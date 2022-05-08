@@ -163,6 +163,22 @@ export default function Cart(props) {
             });
         }
 
+        // function order(){
+
+        // }
+
+        function modalOpen(){
+
+          // setTitle(data.Title)
+          // setAuthor(data.Author)
+          // setPrice(data.Price)
+          // setDescription(data.Description)
+          // setDate(data.Date)
+          // setCat(data.Category)
+          // setCatID(data._id)
+          // setImage(data.Images)
+        }
+
 
   return (
 
@@ -245,7 +261,9 @@ export default function Cart(props) {
             <hr/>
             <br/>
             <center>
-                <button type="submit" class="btn" style={{backgroundColor:'#F2AB39',color:'#fff', fontWeight:'bold', width:'200px', float:'center'}}>Place the Order</button>
+                <button data-bs-toggle="modal" data-bs-target="#exampleModal"  type="submit" class="btn" style={{backgroundColor:'#F2AB39',color:'#fff', fontWeight:'bold', width:'200px', float:'center'}}
+                onClick={()=>modalOpen()}
+              >Place the Order</button>
                 </center>
             <br/><br/><br/>
                 <div style={{border:'1px solid #3F3232', padding:'15px'}}>
@@ -256,6 +274,58 @@ export default function Cart(props) {
         </div>
     </div>
     <br/><br/><br/><br/><br/>
+
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+            
+                    <div class="modal-body text-center">
+                        <div className="row text-center">
+                            
+                            <h3>Library</h3>
+                            <h6>The Wonderful World Of Reading</h6>
+                            <label>**************************************************************</label>
+                            <h5>Receipt</h5>
+                            <label>**************************************************************</label>
+
+                            <div className="col-sm">
+                                <label style={{fontSize:'18px',paddingBottom:'2px',fontWeight:'bold', paddingTop:'15px'}}>Description</label><br/>
+                                <label style={{paddingBottom:'1px'}}>sdf</label><br/>
+                                <label style={{paddingBottom:'1px'}}>sdf</label><br/>
+                                <label style={{paddingBottom:'10px'}}>sdfv</label><br/>
+                            </div>
+                            <div className="col-sm">
+                                <label style={{fontSize:'18px',paddingBottom:'2px',fontWeight:'bold', paddingTop:'15px'}}>Price</label><br/>
+                                <label style={{paddingBottom:'1px'}}>sdf</label><br/>
+                                <label style={{paddingBottom:'1px'}}>sdf</label><br/>
+                                <label style={{paddingBottom:'10px'}}>sdfv</label><br/>
+                            </div>
+                        </div>
+                        
+                        <div className="row">
+                           <label>**************************************************************</label>
+                        <div className="col-sm">
+                                <label style={{fontSize:'18px',paddingBottom:'2px',fontWeight:'bold', paddingTop:'15px'}}>Total</label><br/>
+                       
+                            </div>
+                            <div className="col-sm">
+                                <label style={{fontSize:'18px',paddingBottom:'2px',fontWeight:'bold', paddingTop:'15px'}}>Rs. 300 /=</label><br/>
+
+                            </div>
+                          </div>
+                          
+                          <label>**************************************************************</label>
+                          <br/><br/>
+                          <h5>Thank You !</h5>
+                          <br/>
+                        <button aria-label="Close" type="submit" class="btn text-center" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'200px', boxShadow:'5px 5px #dcdcdc'}}
+                              >Ok</button>
+                        <br/><br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
   );
