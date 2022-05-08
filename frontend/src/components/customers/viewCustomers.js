@@ -18,6 +18,7 @@ export default function ViewCustomers(props) {
     let[customerDetails,setCustomerDetails] = useState([]);
     
 
+    
     //let [none, setNone] = useState("")
     let [errorText, seterrorText] = useState("")
 
