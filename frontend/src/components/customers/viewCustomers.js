@@ -87,20 +87,10 @@ export default function ViewCustomers(props) {
 return (
       <div className="customer" key={customer.CustomerID}>
         <h2>Customer Informations</h2>
-        {/* <div>
-        <div className="row">
-          <div>
-          <button>Submit</button>
+      
+         <a href="/staff/addCustomer"><button>Submit</button></a> 
 
-          </div>
-          <div className="col-sm-4">
-            
-          </div>
-          <div className="col-sm-4">
-            
-          </div>
-        </div>
-        <div className="row"> */}
+          
         <table class="table table-striped table-bordered text-center" id="example" >
         {/* <table> */}
           <thead>
