@@ -1,8 +1,8 @@
-import React, { useState , useEffect} from "react";
+import React, { useState , useEffect, Component} from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-
+import jsPDF from "jspdf";
 
 
 import T from "../../images/trash.png"
@@ -41,6 +41,12 @@ export default function Cart(props) {
       Date,
       Image
     };
+
+  //   constructor(props){
+  //     super(props)
+
+  //     this.state={ }
+  // }
 
     const customerID = "625c12c9f36bd7f6a5c6748d"
 
@@ -145,13 +151,36 @@ export default function Cart(props) {
         }
 
 
-        function modalOpen(){
+        function jsPdfGenerator(){
+          // window.location.reload(false);
 
-        }
+        // jsPdfGenerator = () => {
 
-        function okBtn(){
-          window.location.reload(false);
-        }
+          // alert('aaa')
+  
+          var doc = new jsPDF('p', 'pt');
+  
+          doc.text(260,40, 'Library')
+          doc.text(170,80, 'The Wonderful World Of Reading')
+          doc.text(30,120, '*************************************************************************************')
+          doc.text(260,140, 'Receipt')
+          doc.text(30,170, '*************************************************************************************')
+          doc.text(100,200, 'Description')
+          doc.text(450,200, 'Price (Rs.)')
+          doc.text(30,670, '*************************************************************************************')
+          doc.text(100,690, 'No of Items')
+          // doc.text(450,690, {CartItems})
+          doc.text(100,720, 'Total Price')
+          // doc.text(450,720, 'Rs.',{allItemsTotal},'/=')
+          doc.text(30,750, '*************************************************************************************')
+          doc.text(250,800, 'Thank You !')
+
+
+          // doc.setFont('courier');
+          // doc.setFontType('normal')
+  
+          doc.save("Item_Report.pdf")
+      }
 
   return (
 
@@ -225,9 +254,10 @@ export default function Cart(props) {
             <hr/>
             <br/>
             <center>
-                <button data-bs-toggle="modal" data-bs-target="#exampleModal"  type="submit" class="btn" style={{backgroundColor:'#F2AB39',color:'#fff', fontWeight:'bold', width:'200px', float:'center'}}
-                onClick={()=>modalOpen()}
-              >Place the Order</button>
+                  <button data-bs-toggle="modal" data-bs-target="#exampleModal"  type="submit" class="btn" 
+                  style={{backgroundColor:'#F2AB39',color:'#fff', fontWeight:'bold', width:'200px', float:'center'}}>
+                    Place the Order
+                  </button>
                 </center>
             <br/><br/><br/>
                 <div style={{border:'1px solid #3F3232', padding:'15px'}}>
@@ -299,7 +329,7 @@ export default function Cart(props) {
                           <h5>Thank You !</h5>
                           <br/>
                         <button aria-label="Close" type="submit" class="btn text-center" style={{backgroundColor:'#F2AB39',color:'#f5f5f5', fontWeight:'bold', width:'200px', boxShadow:'5px 5px #dcdcdc'}}
-                             onClick={()=>okBtn()} >Ok</button>
+                             onClick={()=>jsPdfGenerator()} >Ok</button>
 
                         <br/><br/>
                     </div>

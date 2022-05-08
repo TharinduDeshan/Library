@@ -1,15 +1,11 @@
 import React, {Component} from "react";
 import jsPDF from "jspdf";
-
-
 export default class ItemReport extends Component {
 
     constructor(props){
         super(props)
 
-        this.state={
-
-        }
+        this.state={ }
     }
 
     jsPdfGenerator = () => {
@@ -18,9 +14,9 @@ export default class ItemReport extends Component {
 
         var doc = new jsPDF('p', 'pt');
 
-        doc.text(20,20, 'This is default text')
-        doc.setFont('courier');
-        doc.setFontType('normal')
+        doc.text(200,40, 'This is default text')
+        // doc.setFont('courier');
+        // doc.setFontType('normal')
         doc.text(20, 30, "this is example 1")
 
         doc.save("generated.pdf")
